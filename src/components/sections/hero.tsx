@@ -1,90 +1,127 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Sparkles } from "lucide-react";
-import { profile } from "@/lib/data";
+import { profile, trustedCompanies, whyHireMe } from "@/lib/data";
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden px-6 pt-16 pb-24 sm:pt-24"
-    >
-      {/* decorative blobs */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full blob-gradient opacity-30 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute top-40 -left-24 h-64 w-64 rounded-full bg-accent-3 opacity-20 blur-3xl"
-      />
+    <section id="top" className="relative overflow-hidden">
+      <div className="px-6 pt-14 pb-16 sm:pt-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 rounded-full border border-card-border bg-card px-4 py-1.5 text-sm font-medium shadow-playful-sm"
+            >
+              Hello! 👋
+            </motion.div>
 
-      <div className="relative mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 rounded-full border border-card-border bg-card px-4 py-1.5 text-sm font-medium shadow-playful-sm"
-        >
-          <Sparkles size={16} className="text-accent-2" />
-          Open to opportunities
-        </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-display mt-5 max-w-xl text-4xl font-extrabold leading-[1.08] sm:text-5xl md:text-6xl"
+            >
+              I&apos;m <span className="text-primary">{profile.name.split(" ")[0]}</span>
+              <br />
+              Welcome to My Portfolio.
+            </motion.h1>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display mt-6 max-w-3xl text-4xl font-extrabold leading-[1.05] sm:text-6xl md:text-7xl"
-        >
-          Hi, I&apos;m{" "}
-          <span className="relative inline-block whitespace-nowrap">
-            <span className="relative z-10">{profile.name.split(" ")[0]}</span>
-            <span
-              aria-hidden
-              className="absolute inset-x-0 bottom-2 -z-0 h-4 -rotate-1 bg-accent-2/60 sm:h-6"
-            />
-          </span>{" "}
-          — {profile.role}.
-        </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-6 max-w-md border-l-4 border-primary pl-4 text-lg italic text-muted"
+            >
+              &ldquo;{profile.tagline}&rdquo;
+            </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-6 max-w-xl text-lg text-muted"
-        >
-          {profile.tagline}
-        </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mt-8"
+            >
+              <a
+                href={profile.resumeUrl}
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-playful-sm transition-transform hover:-translate-y-1"
+              >
+                Curriculum Vitae ↗ <span className="font-normal">Download</span>
+              </a>
+            </motion.div>
+          </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-10 flex flex-wrap items-center gap-4"
-        >
-          <a
-            href="#projects"
-            className="rounded-full bg-primary px-7 py-3 font-semibold text-white shadow-playful transition-transform hover:-translate-y-1"
-          >
-            See my work
-          </a>
-          <a
-            href="#contact"
-            className="rounded-full border-2 border-ink px-7 py-3 font-semibold text-ink transition-transform hover:-translate-y-1"
-          >
-            Get in touch
-          </a>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="relative mx-auto aspect-[4/5] w-full max-w-sm rounded-[2.5rem] border-2 border-ink bg-gradient-to-br from-primary to-accent-2 shadow-playful"
+          />
+        </div>
       </div>
 
-      <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="mt-20 flex justify-center text-muted"
-      >
-        <ArrowDown size={22} />
-      </motion.div>
+      {/* Trusted companies strip */}
+      <div className="border-y border-card-border bg-card/60 py-6">
+        <p className="text-center text-xs font-semibold uppercase tracking-widest text-muted">
+          Project and internship experience with leading companies
+        </p>
+        <div className="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6">
+          {trustedCompanies.map((company) => (
+            <span
+              key={company}
+              className="text-sm font-bold tracking-tight text-muted/70"
+            >
+              {company}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Why hire me */}
+      <div className="px-6 py-16">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            className="text-center"
+          >
+            <h2 className="font-display text-2xl font-extrabold sm:text-3xl">
+              Why You Must Hire Me?
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm text-muted">
+              I bring a data-driven mindset and structured thinking to support
+              strategic decisions across people, business, and growth
+              initiatives.
+            </p>
+          </motion.div>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            {whyHireMe.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.45, delay: i * 0.1 }}
+                whileHover={{ y: -4 }}
+                className="rounded-2xl border-2 border-ink bg-card p-6 shadow-playful-sm"
+              >
+                <span className="text-xs font-bold text-primary">
+                  0{i + 1}
+                </span>
+                <h3 className="font-display mt-2 font-bold">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

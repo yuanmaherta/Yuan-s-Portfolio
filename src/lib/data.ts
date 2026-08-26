@@ -18,6 +18,30 @@ export const profile = {
   ],
 };
 
+export const trustedCompanies = [
+  "PT Hutama Karya",
+  "Rakamin Academy",
+  "PT Bank Tabungan Negara",
+  "BUMN",
+  "Google",
+  "Telkom Indonesia",
+];
+
+export const whyHireMe = [
+  {
+    title: "Human-Centered Mindset",
+    description: "A strong focus on people to align organizational goals with employee well-being.",
+  },
+  {
+    title: "Data-Driven & Structured",
+    description: "Leveraging data and structural analysis to support effective business decisions.",
+  },
+  {
+    title: "Adaptive & Growth-Oriented",
+    description: "Continuously learning and adapting to thrive in dynamic work environments.",
+  },
+];
+
 export const focusAreas = [
   {
     title: "Human Capital & Organizational Development",

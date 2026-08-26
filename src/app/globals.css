@@ -2,24 +2,27 @@
 
 :root {
   --background: #fdfaf5;
-  --foreground: #1a1523;
+  --foreground: #17140f;
 
   --color-canvas: #fdfaf5;
-  --color-ink: #1a1523;
+  --color-ink: #17140f;
 
-  --color-primary: #7c3aed;
-  --color-primary-soft: #a78bfa;
-  --color-accent-1: #fb5f96;
-  --color-accent-2: #ffb648;
-  --color-accent-3: #35d0ba;
+  --color-primary: #f5943d;
+  --color-primary-soft: #ffb768;
+  --color-accent-1: #f5943d;
+  --color-accent-2: #ffcf7a;
+  --color-accent-3: #34c9a8;
   --color-accent-4: #4f9dff;
 
   --color-card: #ffffff;
-  --color-card-border: #ece5f7;
-  --color-muted: #6b6478;
+  --color-card-border: #f0e4d3;
+  --color-muted: #6b6458;
 
-  --shadow-playful: 8px 8px 0px 0px rgba(26, 21, 35, 1);
-  --shadow-playful-sm: 4px 4px 0px 0px rgba(26, 21, 35, 1);
+  --color-dark: #17140f;
+  --color-dark-card: #211c15;
+
+  --shadow-playful: 8px 8px 0px 0px rgba(23, 20, 15, 1);
+  --shadow-playful-sm: 4px 4px 0px 0px rgba(23, 20, 15, 1);
 }
 
 @theme inline {
@@ -36,19 +39,21 @@
   --color-card: var(--color-card);
   --color-card-border: var(--color-card-border);
   --color-muted: var(--color-muted);
+  --color-dark: var(--color-dark);
+  --color-dark-card: var(--color-dark-card);
   --font-sans: var(--font-poppins);
   --font-display: var(--font-space);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #14101c;
-    --foreground: #f5f1fb;
-    --color-canvas: #14101c;
-    --color-ink: #f5f1fb;
-    --color-card: #1f1a2b;
-    --color-card-border: #322a44;
-    --color-muted: #a99fc0;
+    --background: #14110c;
+    --foreground: #f7f1e6;
+    --color-canvas: #14110c;
+    --color-ink: #f7f1e6;
+    --color-card: #201a12;
+    --color-card-border: #35291a;
+    --color-muted: #b8ab93;
     --shadow-playful: 8px 8px 0px 0px rgba(0, 0, 0, 0.6);
     --shadow-playful-sm: 4px 4px 0px 0px rgba(0, 0, 0, 0.6);
   }
@@ -77,15 +82,42 @@ body {
 }
 
 ::selection {
-  background: var(--color-accent-2);
-  color: var(--color-ink);
+  background: var(--color-primary);
+  color: white;
 }
 
 .blob-gradient {
   background: linear-gradient(
     135deg,
     var(--color-primary) 0%,
-    var(--color-accent-1) 45%,
     var(--color-accent-2) 100%
   );
+}
+
+/* Dark diagonal-textured section, matches the "BNSP certification" /
+   "professional experience" bands in the original design */
+.diagonal-dark {
+  position: relative;
+  background: var(--color-dark);
+  color: #f5f1e8;
+  overflow: hidden;
+}
+
+.diagonal-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    115deg,
+    rgba(245, 148, 61, 0.12) 0px,
+    rgba(245, 148, 61, 0.12) 2px,
+    transparent 2px,
+    transparent 60px
+  );
+  pointer-events: none;
+}
+
+.diagonal-dark > * {
+  position: relative;
+  z-index: 1;
 }
