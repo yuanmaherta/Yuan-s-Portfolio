@@ -165,6 +165,24 @@ export const skills = {
   ],
 };
 
+export const bnspActivities = [
+  {
+    title: "Job Analysis & Job Description Development",
+    description:
+      "Conducting job analysis, creating job descriptions, and mapping required competencies according to BNSP standards.",
+  },
+  {
+    title: "HR Administration & Documentation",
+    description:
+      "Preparing HR documents such as wage administration data, social security administration records, termination letters, and HR SOPs.",
+  },
+  {
+    title: "Recruitment & HR Operational Procedures",
+    description:
+      "Working on recruitment documentation, interview SOPs, new employee request forms, applicant forms, and HR operational workflows.",
+  },
+];
+
 export const experiences = {
   professional: [
     {

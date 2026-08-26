@@ -20,6 +20,7 @@
 
   --color-dark: #17140f;
   --color-dark-card: #211c15;
+  --color-navy: #3d6a99;
 
   --shadow-playful: 8px 8px 0px 0px rgba(23, 20, 15, 1);
   --shadow-playful-sm: 4px 4px 0px 0px rgba(23, 20, 15, 1);
@@ -41,6 +42,7 @@
   --color-muted: var(--color-muted);
   --color-dark: var(--color-dark);
   --color-dark-card: var(--color-dark-card);
+  --color-navy: var(--color-navy);
   --font-sans: var(--font-poppins);
   --font-display: var(--font-space);
 }
