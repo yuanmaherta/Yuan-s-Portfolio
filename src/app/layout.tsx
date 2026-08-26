@@ -15,9 +15,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Yuan Maherta — Software Developer",
+  title: "Yuan Maherta — Business Management Portfolio",
   description:
-    "Portofolio Yuan Maherta, software developer. Projects, skills, experience, dan achievements.",
+    "Portofolio Yuan Maherta — Human Capital, Business Development, Marketing & Partnerships, dan Project & Strategic Management.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

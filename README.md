@@ -1,6 +1,6 @@
 # Portfolio — Yuan Maherta
 
-Website portofolio dibangun dengan Next.js (App Router) + TypeScript + Tailwind CSS + Framer Motion.
+Website portofolio Business Management (Human Capital, Business Development, Marketing & Partnerships, Project & Strategic Management), dibangun dengan Next.js (App Router) + TypeScript + Tailwind CSS + Framer Motion.
 
 ## Menjalankan secara lokal
 

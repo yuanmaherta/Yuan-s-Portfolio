@@ -28,7 +28,7 @@ export function Hero() {
           className="inline-flex items-center gap-2 rounded-full border border-card-border bg-card px-4 py-1.5 text-sm font-medium shadow-playful-sm"
         >
           <Sparkles size={16} className="text-accent-2" />
-          Available for opportunities
+          Open to opportunities
         </motion.div>
 
         <motion.h1
