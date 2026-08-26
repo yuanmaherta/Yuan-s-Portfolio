@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, MapPin } from "lucide-react";
-import { profile, focusAreas, education } from "@/lib/data";
+import { BadgeCheck, GraduationCap, MapPin } from "lucide-react";
+import { profile, highlights, focusAreas, education } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 export function About() {
@@ -13,13 +13,13 @@ export function About() {
 
         <div className="mt-12 grid gap-10 md:grid-cols-5 md:items-start">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -4 }}
+            initial={{ opacity: 0, scale: 0.9, rotate: -3 }}
             whileInView={{ opacity: 1, scale: 1, rotate: -2 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}
             className="md:col-span-2"
           >
-            <div className="aspect-square w-full max-w-xs rounded-3xl border-2 border-ink bg-gradient-to-br from-accent-1 via-primary to-accent-4 shadow-playful" />
+            <div className="aspect-[4/5] w-full max-w-xs rounded-3xl border-2 border-ink bg-gradient-to-br from-primary to-accent-2 shadow-playful" />
           </motion.div>
 
           <motion.div
@@ -39,26 +39,57 @@ export function About() {
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href={profile.resumeUrl}
-                className="rounded-full bg-accent-2 px-6 py-2.5 text-sm font-bold text-ink shadow-playful-sm transition-transform hover:-translate-y-0.5"
+                className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm transition-transform hover:-translate-y-0.5"
               >
-                Download CV
+                Curriculum Vitae ↗ Download
               </a>
+            </div>
+
+            {/* Highlights */}
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {highlights.map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="rounded-2xl border border-card-border bg-card p-4"
+                >
+                  <BadgeCheck size={18} className="text-primary" />
+                  <h4 className="font-display mt-2 text-sm font-bold leading-snug">
+                    {item.title}
+                  </h4>
+                  <p className="mt-1 text-xs leading-relaxed text-muted">
+                    {item.description}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
 
-        {/* Focus Areas */}
-        <div className="mt-16">
+        {/* Focus Areas — diagonal orange blob background */}
+        <div className="relative mt-20 overflow-hidden rounded-3xl border-2 border-ink bg-card px-6 py-12 shadow-playful sm:px-10">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -left-20 -top-24 h-72 w-72 rotate-12 rounded-[3rem] bg-primary/15 blur-2xl"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 -rotate-12 rounded-[3rem] bg-accent-2/40 blur-2xl"
+          />
+
           <motion.h3
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.4 }}
-            className="font-display text-xl font-bold"
+            className="relative font-display text-xl font-bold sm:text-2xl"
           >
             My Focus Area
           </motion.h3>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="relative mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {focusAreas.map((area, i) => (
               <motion.div
                 key={area.title}
@@ -67,7 +98,7 @@ export function About() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
                 whileHover={{ y: -4 }}
-                className="rounded-2xl border-2 border-ink bg-card p-5 shadow-playful-sm"
+                className="rounded-2xl border-2 border-ink bg-canvas p-5 shadow-playful-sm"
               >
                 <span className="text-2xl font-extrabold text-primary/40">
                   0{i + 1}

@@ -42,6 +42,24 @@ export const whyHireMe = [
   },
 ];
 
+export const highlights = [
+  {
+    title: "P2MW Selection",
+    description:
+      "Successfully passed the university-level selection for P2MW (Program Pembinaan Mahasiswa Wirausaha).",
+  },
+  {
+    title: "Talent Scouting Program",
+    description:
+      "Selected by the Directorate of Student Affairs, Career Development, and Alumni (Dit. KKA) for both science and non-science competitions.",
+  },
+  {
+    title: "Published Research Paper",
+    description:
+      "Published and presented at the 9th ISCBE 2026, Valencia, Spain (Springer Proceedings, Scopus-indexed).",
+  },
+];
+
 export const focusAreas = [
   {
     title: "Human Capital & Organizational Development",
