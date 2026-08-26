@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileBadge2, FolderKanban } from "lucide-react";
+import { FileBadge2 } from "lucide-react";
 import { projects } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 
@@ -78,29 +78,6 @@ export function Projects() {
             ))}
           </div>
         </div>
-
-        {/* BNSP certification highlight */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-          className="mt-16 rounded-3xl border-2 border-ink bg-ink p-8 text-canvas shadow-playful"
-        >
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-2 border-2 border-canvas">
-              <FolderKanban size={22} className="text-ink" />
-            </div>
-            <div>
-              <h4 className="font-display text-xl font-bold">
-                {projects.certificationHighlight.title}
-              </h4>
-              <p className="mt-3 text-sm leading-relaxed text-canvas/80">
-                {projects.certificationHighlight.description}
-              </p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

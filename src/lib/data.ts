@@ -329,11 +329,6 @@ export const projects = {
       color: "accent-2",
     },
   ],
-  certificationHighlight: {
-    title: "BNSP Certification Project Activities",
-    description:
-      "Hands-on HR project work covering Job Analysis, Social Security Administration, Wage Administration, and Human Resource Policy Administration — including job descriptions, SOPs, training schedules, recruitment documents, and industrial relations paperwork, completed as part of BNSP certification.",
-  },
 };
 
 export const achievements = {

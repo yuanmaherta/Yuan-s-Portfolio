@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins, Space_Grotesk } from "next/font/google";
+import { Navbar } from "@/components/navbar";
+import { ConnectBanner } from "@/components/connect-banner";
+import { Footer } from "@/components/footer";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -27,7 +30,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${poppins.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-canvas text-ink">
-        {children}
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <ConnectBanner />
+        <Footer />
       </body>
     </html>
   );
