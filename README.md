@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Yuan Maherta
 
-## Getting Started
+Website portofolio dibangun dengan Next.js (App Router) + TypeScript + Tailwind CSS + Framer Motion.
 
-First, run the development server:
+## Menjalankan secara lokal
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Struktur
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app` — layout & halaman utama
+- `src/components/sections` — tiap section (Hero, About, Projects, Skills, Experience, Achievements, Contact)
+- `src/components/ui` — komponen kecil yang dipakai berulang
+- `src/lib/data.ts` — semua konten (masih placeholder, akan diisi konten asli di Fase 2)
 
-## Learn More
+## Roadmap
 
-To learn more about Next.js, take a look at the following resources:
+1. **Fase 1** — Struktur & desain (selesai)
+2. **Fase 2** — Isi konten asli (bio, project, skill, experience, achievement)
+3. **Fase 3** — Integrasi Supabase untuk CMS-lite (projects/achievements dari database) dan analytics pengunjung
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Project ini di-deploy lewat Vercel, auto-deploy dari branch `main` di GitHub.

@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfaf5;
+  --foreground: #1a1523;
+
+  --color-canvas: #fdfaf5;
+  --color-ink: #1a1523;
+
+  --color-primary: #7c3aed;
+  --color-primary-soft: #a78bfa;
+  --color-accent-1: #fb5f96;
+  --color-accent-2: #ffb648;
+  --color-accent-3: #35d0ba;
+  --color-accent-4: #4f9dff;
+
+  --color-card: #ffffff;
+  --color-card-border: #ece5f7;
+  --color-muted: #6b6478;
+
+  --shadow-playful: 8px 8px 0px 0px rgba(26, 21, 35, 1);
+  --shadow-playful-sm: 4px 4px 0px 0px rgba(26, 21, 35, 1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-canvas: var(--color-canvas);
+  --color-ink: var(--color-ink);
+  --color-primary: var(--color-primary);
+  --color-primary-soft: var(--color-primary-soft);
+  --color-accent-1: var(--color-accent-1);
+  --color-accent-2: var(--color-accent-2);
+  --color-accent-3: var(--color-accent-3);
+  --color-accent-4: var(--color-accent-4);
+  --color-card: var(--color-card);
+  --color-card-border: var(--color-card-border);
+  --color-muted: var(--color-muted);
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-space);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #14101c;
+    --foreground: #f5f1fb;
+    --color-canvas: #14101c;
+    --color-ink: #f5f1fb;
+    --color-card: #1f1a2b;
+    --color-card-border: #322a44;
+    --color-muted: #a99fc0;
+    --shadow-playful: 8px 8px 0px 0px rgba(0, 0, 0, 0.6);
+    --shadow-playful-sm: 4px 4px 0px 0px rgba(0, 0, 0, 0.6);
   }
+}
+
+* {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+}
+
+.shadow-playful {
+  box-shadow: var(--shadow-playful);
+}
+
+.shadow-playful-sm {
+  box-shadow: var(--shadow-playful-sm);
+}
+
+::selection {
+  background: var(--color-accent-2);
+  color: var(--color-ink);
+}
+
+.blob-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent-1) 45%,
+    var(--color-accent-2) 100%
+  );
 }
