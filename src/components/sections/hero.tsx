@@ -71,6 +71,7 @@ export function Hero() {
             <PhotoSlot
               src={homePhotos.hero}
               alt={profile.name}
+              fit="contain"
               className="aspect-[4/5] w-full"
             />
           </motion.div>
@@ -84,13 +85,15 @@ export function Hero() {
         </p>
         {trustedCompaniesLogo ? (
           <div className="mx-auto mt-4 max-w-3xl px-6">
-            <Image
-              src={trustedCompaniesLogo}
-              alt={trustedCompanies.join(", ")}
-              width={886}
-              height={87}
-              className="mx-auto h-auto w-full max-w-xl"
-            />
+            <div className="mx-auto w-full max-w-xl rounded-2xl border border-card-border bg-white px-6 py-4">
+              <Image
+                src={trustedCompaniesLogo}
+                alt={trustedCompanies.join(", ")}
+                width={886}
+                height={87}
+                className="mx-auto h-auto w-full"
+              />
+            </div>
           </div>
         ) : (
           <div className="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6">

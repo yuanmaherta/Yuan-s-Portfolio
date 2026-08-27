@@ -27,13 +27,17 @@ export const aboutPhotos = {
 };
 
 export const homePhotos = {
-  hero: "/images/hero-portrait.jpeg",
+  hero: "/images/hero-portrait-cutout.png",
   aboutPreview: "/images/hero-portrait.jpeg",
-  whyChooseMe: ["/images/why-choose-bumn.jpeg", "/images/why-choose-hk-academy.png", ""],
+  whyChooseMe: [
+    "/images/why-choose-bumn.png",
+    "/images/why-choose-hk-academy.jpeg",
+    "/images/activity-btn-sales.png",
+  ],
 };
 
-export const trustedCompaniesLogo: string = "/images/trusted-companies.png";
-export const homeToolsLogo: string = "/images/tools-strip.png";
+export const trustedCompaniesLogo: string = "/images/trusted-companies-cutout.png";
+export const homeToolsLogo: string = "";
 
 export const trustedCompanies = [
   "PT Hutama Karya",

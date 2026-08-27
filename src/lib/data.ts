@@ -29,16 +29,26 @@ export const aboutPhotos = {
 // Home page photo slots. Leave empty ("") to keep the gradient
 // placeholder; a path renders automatically via next/image.
 export const homePhotos = {
-  hero: "/images/hero-portrait.jpeg",
+  // Background removed — rendered with fit="contain" so the card's
+  // gradient stays visible around the cutout.
+  hero: "/images/hero-portrait-cutout.png",
   aboutPreview: "/images/hero-portrait.jpeg",
   // "Why Choose Me" bento — 1 large + 2 small photos.
-  whyChooseMe: ["/images/why-choose-bumn.jpeg", "/images/why-choose-hk-academy.png", ""],
+  whyChooseMe: [
+    "/images/why-choose-bumn.png",
+    "/images/why-choose-hk-academy.jpeg",
+    "/images/activity-btn-sales.png",
+  ],
 };
 
-// Single combined logo-strip images (as supplied). Falls back to the
-// plain text list below when empty.
-export const trustedCompaniesLogo: string = "/images/trusted-companies.png";
-export const homeToolsLogo: string = "/images/tools-strip.png";
+// Single combined logo-strip image, background removed. Falls back to the
+// plain text list below when empty. Rendered inside a light card (see
+// hero.tsx) so it stays visible in dark mode regardless of logo colors.
+export const trustedCompaniesLogo: string = "/images/trusted-companies-cutout.png";
+// No tools logo image — the supplied strip was too low-resolution to
+// cleanly split into individual, evenly-sized logos, so this renders as
+// the text-pill list below instead (see about-preview.tsx).
+export const homeToolsLogo: string = "";
 
 export const trustedCompanies = [
   "PT Hutama Karya",
