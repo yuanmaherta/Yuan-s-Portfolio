@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText } from "lucide-react";
+import { ArrowUpRight, FileText } from "lucide-react";
 import { projects } from "@/lib/data";
 
 const colorMap: Record<string, string> = {
@@ -78,6 +78,20 @@ export function Projects() {
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-white/70">
                   {project.subtitle}
                 </p>
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex w-fit items-center gap-1 text-sm font-semibold text-accent-2 transition-colors hover:text-white"
+                  >
+                    View Project <ArrowUpRight size={16} />
+                  </a>
+                ) : (
+                  <span className="mt-4 inline-block w-fit text-xs font-semibold uppercase tracking-wide text-white/40">
+                    Coming soon
+                  </span>
+                )}
               </motion.article>
             ))}
           </div>

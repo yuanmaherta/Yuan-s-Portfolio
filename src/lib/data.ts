@@ -191,7 +191,7 @@ export const experiences = {
     {
       role: "People Culture & Talent Acquisition Intern",
       org: "PT Hutama Karya (Persero)",
-      period: "Feb — Ags 2026",
+      period: "Feb — Aug 2026",
       points: [
         "Developed an Excel-based Manpower Planning (MPP) tool and mapped 16,000+ position codes.",
         "Managed PKWT contract-renewal evaluations for 20+ employees/month, including digitalizing the evaluation form.",
@@ -221,7 +221,7 @@ export const experiences = {
     {
       role: "Operations Management Practicum Assistant",
       org: "Telkom University",
-      period: "Feb — June 2025",
+      period: "Feb — Jun 2025",
       points: [
         "Provided training and guidance to students in using POM-QM software for operations analysis and data-driven decision making.",
         "Assisted students in understanding operations management concepts such as quality, lean operations, and capacity, and offered feedback to improve academic performance.",
@@ -241,7 +241,7 @@ export const experiences = {
     {
       role: "Digistar Class Alumni",
       org: "Digistar Club, Telkom University",
-      period: "Des 2024 — Now",
+      period: "Dec 2024 — Present",
       points: [
         "Part of an exclusive community for alumni of LivinginTelkom programs (Digistar Class, Digistar Connect, Digistar Internship), preparing Indonesia's digital talents.",
       ],
@@ -249,7 +249,7 @@ export const experiences = {
     {
       role: "Project Leader",
       org: "Belajar Kreasi (BERAKSI)",
-      period: "Mar — Des 2023",
+      period: "Mar — Dec 2023",
       points: [
         "Led and evaluated the performance of a 15-member team across 4 divisions (Public Relations, Documentation, Logistics, and Events), focusing on team performance management, cross-division collaboration, and achieving 100% of organizational program targets within one term.",
         "Initiated two inclusive programs themed around diversity and learning, namely 'Sign Language with HIMA MBTI' and 'Creative Workshop with SLBN Ciendo', promoting equality and inclusive education among diverse backgrounds.",
@@ -257,9 +257,9 @@ export const experiences = {
       ],
     },
     {
-      role: "Tresurer",
+      role: "Treasurer",
       org: "Asa Bercerita",
-      period: "Mar — Des 2023",
+      period: "Mar — Dec 2023",
       points: [
         "Managed and supervised all divisional financial activities systematically in accordance with organizational SOPs, including the preparation of cash flow and accountability reports.",
         "Contributed to team leadership support and cross-division collaboration in producing 5 educational podcasts as a learning and engagement platform to support student potential development.",
@@ -268,7 +268,7 @@ export const experiences = {
     {
       role: "Staff of Community Development",
       org: "Himpunan Mahasiswa Manajemen Bisnis Telekomunikasi dan Informatika (HIMA MBTI)",
-      period: "Feb — Des 2023",
+      period: "Feb — Dec 2023",
       points: [
         "Successfully organized 6 social service events, including fundraising campaigns, and built collaborations with various external parties to support initiatives that positively impact both the organization and the community.",
         "Facilitated capacity-building seminars in the fields of technology and entrepreneurship to enhance individual skills and community potential.",
@@ -306,30 +306,35 @@ export const projects = {
       subtitle: "Employee Contract Renewal Evaluation Form",
       tag: "Intern Project",
       color: "accent-1",
+      link: "", // TODO: add live demo / repo / case-study URL
     },
     {
       title: "SIBETA",
       subtitle: "Internal digital tool project",
       tag: "Intern Project",
       color: "accent-3",
+      link: "", // TODO: add live demo / repo / case-study URL
     },
     {
       title: "Just Click App",
       subtitle: "Digital product concept",
       tag: "Project",
       color: "accent-4",
+      link: "", // TODO: add live demo / repo / case-study URL
     },
     {
       title: "BigTicket Solution",
       subtitle: "Business & management simulation",
       tag: "Digistar Class Project",
       color: "primary",
+      link: "", // TODO: add live demo / repo / case-study URL
     },
     {
       title: "Tukang Ajaib App",
       subtitle: "Home-service marketplace concept",
       tag: "Project",
       color: "accent-2",
+      link: "", // TODO: add live demo / repo / case-study URL
     },
   ],
 };

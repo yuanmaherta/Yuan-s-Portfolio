@@ -36,6 +36,8 @@ export function ConnectBanner() {
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full border-2 border-white/70 px-5 py-2 text-sm font-semibold transition-transform hover:-translate-y-0.5"
               >
                 {social.label}
