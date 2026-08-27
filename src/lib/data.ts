@@ -263,32 +263,53 @@ export const bnspActivities = [
 export const experienceIntro =
   "I thrive on bridging the gap between academic theory and real-world impact. Every milestone shared here is more than just an experience, it is a testament to my hard work, consistent growth, and my dedication to growing across human capital, business, and strategy through hands-on action.";
 
+// Photo slots for the Experience page. Leave empty to keep the gradient
+// placeholder; drop a public/images path in once the photo is ready.
+export const experiencePhotos = {
+  intro: "", // BUMN photo next to the intro
+  orgHub: "", // center photo of the Organizational Experience hub
+};
+
+type OrgExperience = {
+  shortName: string;
+  role: string;
+  org: string;
+  period: string;
+  logo: string;
+  points: string[];
+  gallery?: { tag: string; caption: string; location: string; date: string }[];
+  podcastEpisodes?: string[];
+};
+
 export const experiences = {
+  // Ordered chronologically (oldest first) — read left-to-right as a
+  // timeline in the horizontal Professional Experience layout.
   professional: [
     {
-      role: "People Culture & Talent Acquisition Intern",
-      org: "PT Hutama Karya (Persero)",
-      period: "Feb — Aug 2026",
+      role: "Business Statistics Practicum Assistant",
+      org: "Telkom University",
+      period: "Oct 2023 — Jan 2024",
+      photo: "",
       points: [
-        "Developed an Excel-based Manpower Planning (MPP) tool and mapped 16,000+ position codes.",
-        "Managed PKWT contract-renewal evaluations for 20+ employees/month, including digitalizing the evaluation form.",
-        "Designed employer branding materials, including the HC Award deck (IHCA XII) and Employee Handbook.",
+        "Trained 40+ students in data analysis using SPSS and Excel to effectively complete data-based assignments and exams.",
+        "Evaluated student assignments and exams, providing individualized feedback that contributed to an average final score of 92.59, with 95% of students achieving an A grade.",
       ],
     },
     {
-      role: "Tech Recruiter Intern",
-      org: "Rakamin Academy",
-      period: "Oct — Nov 2025",
+      role: "Operations Management Practicum Assistant",
+      org: "Telkom University",
+      period: "Feb — Jun 2025",
+      photo: "",
       points: [
-        "Managed end-to-end tech recruitment, sourcing 100+ candidates via LinkedIn and ensuring project alignment.",
-        "Built tracking systems and interview tools to improve efficiency and data-driven hiring.",
-        "Utilized LinkedIn, Indeed, and Glassdoor to optimize sourcing and enhance candidate experience.",
+        "Provided training and guidance to students in using POM-QM software for operations analysis and data-driven decision making.",
+        "Assisted students in understanding operations management concepts such as quality, lean operations, and capacity, and offered feedback to improve academic performance.",
       ],
     },
     {
       role: "SME & Credit Program Sales Intern",
       org: "PT. Bank Tabungan Negara Tbk",
       period: "Jun — Aug 2025",
+      photo: "",
       points: [
         "Assessed 20+ SME BI Checking/SLIK daily and analyzed 10 debtor accounts via bank statements.",
         "Supported SME credit program development and client presentations for financing acquisition.",
@@ -296,62 +317,99 @@ export const experiences = {
       ],
     },
     {
-      role: "Operations Management Practicum Assistant",
-      org: "Telkom University",
-      period: "Feb — Jun 2025",
+      role: "Tech Recruiter Intern",
+      org: "Rakamin Academy",
+      period: "Oct — Nov 2025",
+      photo: "",
       points: [
-        "Provided training and guidance to students in using POM-QM software for operations analysis and data-driven decision making.",
-        "Assisted students in understanding operations management concepts such as quality, lean operations, and capacity, and offered feedback to improve academic performance.",
+        "Managed end-to-end tech recruitment, sourcing 100+ candidates via LinkedIn and ensuring project alignment.",
+        "Built tracking systems and interview tools to improve efficiency and data-driven hiring.",
+        "Utilized LinkedIn, Indeed, and Glassdoor to optimize sourcing and enhance candidate experience.",
       ],
     },
     {
-      role: "Business Statistics Practicum Assistant",
-      org: "Telkom University",
-      period: "Oct 2023 — Jan 2024",
+      role: "People Culture & Talent Acquisition Intern",
+      org: "PT Hutama Karya (Persero)",
+      period: "Feb — Aug 2026",
+      photo: "",
       points: [
-        "Trained 40+ students in data analysis using SPSS and Excel to effectively complete data-based assignments and exams.",
-        "Evaluated student assignments and exams, providing individualized feedback that contributed to an average final score of 92.59, with 95% of students achieving an A grade.",
+        "Developed an Excel-based Manpower Planning (MPP) tool and mapped 16,000+ position codes.",
+        "Managed PKWT contract-renewal evaluations for 20+ employees/month, including digitalizing the evaluation form.",
+        "Designed employer branding materials, including the HC Award deck (IHCA XII) and Employee Handbook.",
       ],
     },
   ],
   organizational: [
     {
-      role: "Digistar Class Alumni",
-      org: "Digistar Club, Telkom University",
-      period: "Dec 2024 — Present",
+      shortName: "HIMA MBTI",
+      role: "Staff of Community Development",
+      org: "Himpunan Mahasiswa Manajemen Bisnis Telekomunikasi dan Informatika (HIMA MBTI)",
+      period: "Feb — Dec 2023",
+      logo: "",
       points: [
-        "Part of an exclusive community for alumni of LivinginTelkom programs (Digistar Class, Digistar Connect, Digistar Internship), preparing Indonesia's digital talents.",
+        "Successfully organized 6 social service events, including fundraising campaigns, and built collaborations with various external parties to support initiatives that positively impact both the organization and the community.",
+        "Facilitated capacity-building seminars in the fields of technology and entrepreneurship to enhance individual skills and community potential.",
+      ],
+      gallery: [
+        { tag: "Company Visit", caption: "PT Angkasa Pura II", location: "Jakarta", date: "24 November 2023" },
+        { tag: "Organizational Photo", caption: "HIMA MBTI 2023", location: "Telkom University", date: "30 December 2023" },
+        { tag: "Study Banding", caption: "KMM ITB", location: "Institut Teknologi Bandung", date: "25 November 2023" },
+        { tag: "Socharity", caption: "SDN Margabakti", location: "Desa Pulosari, Bandung", date: "16 October 2023" },
+        { tag: "Sudut Berbagi", caption: "Panti Sosial", location: "Panti Sosial Tresna Wredha Budi Pertiwi, Bandung", date: "23 September 2023" },
       ],
     },
     {
+      shortName: "Belajar Kreasi",
       role: "Project Leader",
       org: "Belajar Kreasi (BERAKSI)",
       period: "Mar — Dec 2023",
+      logo: "",
       points: [
         "Led and evaluated the performance of a 15-member team across 4 divisions (Public Relations, Documentation, Logistics, and Events), focusing on team performance management, cross-division collaboration, and achieving 100% of organizational program targets within one term.",
         "Initiated two inclusive programs themed around diversity and learning, namely 'Sign Language with HIMA MBTI' and 'Creative Workshop with SLBN Ciendo', promoting equality and inclusive education among diverse backgrounds.",
         "The program was selected as one of the best practice candidates in HIMA MBTI 2023.",
       ],
+      gallery: [
+        { tag: "Welcoming Speech", caption: "SLB C Cicendo", location: "Bandung", date: "24 November 2023" },
+        { tag: "Sign Language", caption: "HIMA MBTI", location: "Telkom University", date: "24 November 2023" },
+        { tag: "Sign Language", caption: "Anggota Beraksi", location: "Telkom University", date: "30 December 2023" },
+        { tag: "Main Event", caption: "SLB C Cicendo", location: "Bandung", date: "25 November 2023" },
+      ],
     },
     {
+      shortName: "Asa Bercerita",
       role: "Treasurer",
       org: "Asa Bercerita",
       period: "Mar — Dec 2023",
+      logo: "",
       points: [
         "Managed and supervised all divisional financial activities systematically in accordance with organizational SOPs, including the preparation of cash flow and accountability reports.",
         "Contributed to team leadership support and cross-division collaboration in producing 5 educational podcasts as a learning and engagement platform to support student potential development.",
       ],
-    },
-    {
-      role: "Staff of Community Development",
-      org: "Himpunan Mahasiswa Manajemen Bisnis Telekomunikasi dan Informatika (HIMA MBTI)",
-      period: "Feb — Dec 2023",
-      points: [
-        "Successfully organized 6 social service events, including fundraising campaigns, and built collaborations with various external parties to support initiatives that positively impact both the organization and the community.",
-        "Facilitated capacity-building seminars in the fields of technology and entrepreneurship to enhance individual skills and community potential.",
+      podcastEpisodes: [
+        "Muda Berkarya #1",
+        "Tentang Diri #2",
+        "Pertemanan di Dunia Perkuliahan #3",
+        "Kuliah Pulang atau Kuliah Rapat #4",
+        "Bincang Santai Bersama Alumni #5",
       ],
     },
-  ],
+    {
+      shortName: "Digistar Club",
+      role: "Digistar Class Alumni",
+      org: "Digistar Club, Telkom University",
+      period: "Dec 2024 — Present",
+      logo: "",
+      points: [
+        "Part of an exclusive community for alumni of LivinginTelkom programs (Digistar Class, Digistar Connect, Digistar Internship), preparing Indonesia's digital talents.",
+      ],
+      gallery: [
+        { tag: "Telkom Tour", caption: "Digistar Class", location: "Telkom CorpU Bandung", date: "22 August 2024" },
+        { tag: "Soft Skill Class", caption: "Digistar Class", location: "Zoom Meeting", date: "10 August 2024" },
+        { tag: "Hard Skill Class", caption: "Digistar Class", location: "Zoom Meeting", date: "29 August 2024" },
+      ],
+    },
+  ] as OrgExperience[],
 };
 
 export const projects = {
