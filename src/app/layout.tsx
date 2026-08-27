@@ -56,12 +56,30 @@ export const metadata: Metadata = {
   },
 };
 
+// Runs before paint to avoid a flash of the wrong theme: applies a saved
+// preference immediately, otherwise leaves it unset so CSS falls back to
+// the OS's prefers-color-scheme. Keep STORAGE_KEY in sync with
+// theme-toggle.tsx.
+const themeInitScript = `
+(function () {
+  try {
+    var theme = localStorage.getItem("theme");
+    if (theme === "light" || theme === "dark") {
+      document.documentElement.dataset.theme = theme;
+    }
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
       className={`${poppins.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-full flex flex-col bg-canvas text-ink">
         <Navbar />
         <main className="flex-1">{children}</main>

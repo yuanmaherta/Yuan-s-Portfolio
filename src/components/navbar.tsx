@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const links = [
   { href: "/", label: "Home" },
@@ -17,55 +18,51 @@ const links = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all ${
-        scrolled
-          ? "bg-canvas/80 backdrop-blur-md border-b border-card-border"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="font-display text-xl font-extrabold">
+    <header className="sticky top-4 z-50 px-4 sm:px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center rounded-full border-2 border-ink bg-card px-4 py-2.5 font-display text-lg font-extrabold shadow-playful-sm"
+        >
           yuan<span className="text-primary">.</span>
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
-          {links.map((link) => {
-            const active = pathname === link.href;
-            return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-ink ${
-                    active ? "font-bold text-ink" : "text-muted"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <nav className="hidden md:block">
+          <ul className="flex items-center gap-1 rounded-full border-2 border-ink bg-card/95 px-2 py-2 shadow-playful-sm backdrop-blur">
+            {links.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`block rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                      active
+                        ? "bg-primary text-white"
+                        : "text-muted hover:text-ink"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
 
-        <button
-          className="md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={26} /> : <Menu size={26} />}
-        </button>
-      </nav>
+        <div className="flex shrink-0 items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-ink bg-card shadow-playful-sm md:hidden"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </div>
 
       <AnimatePresence>
         {open && (
@@ -73,9 +70,9 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-card-border bg-canvas px-6 md:hidden"
+            className="mx-auto mt-3 max-w-6xl overflow-hidden rounded-3xl border-2 border-ink bg-card shadow-playful md:hidden"
           >
-            <ul className="flex flex-col gap-4 py-4">
+            <ul className="flex flex-col gap-1 p-3">
               {links.map((link) => {
                 const active = pathname === link.href;
                 return (
@@ -83,8 +80,8 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className={`block text-base font-medium ${
-                        active ? "font-bold text-primary" : ""
+                      className={`block rounded-2xl px-4 py-2.5 text-base font-medium ${
+                        active ? "bg-primary text-white font-bold" : ""
                       }`}
                     >
                       {link.label}
