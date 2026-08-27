@@ -83,6 +83,66 @@ export const focusAreas = [
   },
 ];
 
+export const homeActivities = [
+  {
+    title: "Human Resource Staff Certification (BNSP)",
+    date: "Friday, 29 September 2025",
+    ctaLabel: "Let's Connect!",
+    ctaHref: `mailto:${profile.email}`,
+  },
+  {
+    title: "SME & Credit Program Sales Internship",
+    date: "Monday, 03 November 2025",
+    ctaLabel: "Let's Connect!",
+    ctaHref: `mailto:${profile.email}`,
+  },
+  {
+    title: "Chief Marketing Officer, Helphin Indonesia",
+    date: "Tuesday, 23 July 2024",
+    ctaLabel: "Learn more",
+    ctaHref: "#",
+  },
+];
+
+export const relatedCourses = [
+  {
+    title: "Marketing Management",
+    description:
+      "Learned marketing strategy formulation, market segmentation, and positioning to support business growth and customer acquisition.",
+    color: "accent-3",
+  },
+  {
+    title: "Business Statistics",
+    description:
+      "Built a strong foundation in statistical analysis and data interpretation to support evidence-based business decisions.",
+    color: "accent-4",
+  },
+  {
+    title: "Entrepreneurship",
+    description:
+      "Explored business model development, opportunity identification, and venture strategy from idea to execution.",
+    color: "accent-1",
+  },
+  {
+    title: "Design Thinking",
+    description:
+      "Applied a human-centered problem-solving approach to design practical, innovative solutions for real business challenges.",
+    color: "primary",
+  },
+  {
+    title: "Organizational Behavior",
+    description:
+      "Analyzed individual and group behavior in organizations, including motivation, leadership, communication, and team dynamics.",
+    color: "accent-2",
+  },
+  {
+    title: "Strategic Management",
+    description:
+      "Focused on strategy formulation, implementation, and evaluation to ensure organizational effectiveness and competitiveness.",
+    color: "accent-4",
+  },
+];
+
 export const education = [
   {
     school: "Telkom University",
