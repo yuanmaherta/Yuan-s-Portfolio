@@ -418,61 +418,133 @@ export const projects = {
       title: "Strategic Management Analysis",
       subject: "PT Kalbe Farma Tbk",
       period: "Feb 2024 – Jun 2024",
+      cover: "", // TODO: report cover scan
     },
     {
       title: "Consumer Behavior Study",
       subject: "FIT HUB Gym",
       period: "Feb 2025 – Jun 2025",
+      cover: "", // TODO: report cover scan
     },
     {
       title: "Marketing Plan",
       subject: "Erigo",
       period: "Sep 2023 – Jan 2024",
+      cover: "", // TODO: report cover scan
     },
     {
       title: "Entrepreneurship — Business Model Canvas",
       subject: "Crunchy Ocean",
       period: "Sep 2023 – Jan 2024",
+      cover: "", // TODO: report cover scan
     },
   ],
   digital: [
     {
-      title: "Renewa",
-      subtitle: "Employee Contract Renewal Evaluation Form",
+      title: "RENEWA – Employee Contract Renewal Evaluation Form",
+      subtitle: "Digitalized PKWT contract-renewal evaluation form",
+      org: "PT Hutama Karya (Persero)",
+      period: "Feb 2026 – Aug 2026",
+      role: "",
       tag: "Intern Project",
       color: "accent-1",
+      cover: "", // TODO: app/mockup screenshot
       link: "", // TODO: add live demo / repo / case-study URL
     },
     {
-      title: "SIBETA",
+      title: "SIBETA – Electronic Information System for Outsourced Personnel",
       subtitle: "Internal digital tool project",
+      org: "PT. Bank Tabungan Negara Tbk",
+      period: "Jun 2025 – Aug 2025",
+      role: "",
       tag: "Intern Project",
       color: "accent-3",
+      cover: "", // TODO: app/mockup screenshot
       link: "", // TODO: add live demo / repo / case-study URL
     },
     {
-      title: "Just Click App",
+      title: "JUST CLICK – A Digital Personal Shopper (Jastip) Application",
       subtitle: "Digital product concept",
+      org: "",
+      period: "Sep 2024 – Dec 2024",
+      role: "",
       tag: "Project",
       color: "accent-4",
+      cover: "", // TODO: app/mockup screenshot
       link: "", // TODO: add live demo / repo / case-study URL
     },
     {
-      title: "BigTicket Solution",
+      title: "BIGTICKET SOLUTION – Digistar Class 2024",
       subtitle: "Business & management simulation",
+      org: "PT. Telkom Indonesia Tbk",
+      period: "Sep 2024 – Nov 2024",
+      role: "Hustler (Project Manager)",
       tag: "Digistar Class Project",
       color: "primary",
+      cover: "", // TODO: app/mockup screenshot
       link: "", // TODO: add live demo / repo / case-study URL
     },
     {
-      title: "Tukang Ajaib App",
+      title: "Tukang Ajaib – Construction Worker Service App",
       subtitle: "Home-service marketplace concept",
+      org: "",
+      period: "Feb 2024 – June 2024",
+      role: "",
       tag: "Project",
       color: "accent-2",
+      cover: "", // TODO: app/mockup screenshot
       link: "", // TODO: add live demo / repo / case-study URL
     },
   ],
 };
+
+// BNSP certification document showcase. Category/subsection titles are
+// transcribed from the real portfolio plan; the actual scanned documents
+// (job descriptions, payroll, candidate profiles, etc.) contain other
+// people's personal/financial data and are intentionally NOT reproduced
+// here — only the non-sensitive section labels, ready for real document
+// images to be dropped in per subsection later.
+export const bnspDocumentSections = [
+  {
+    title: "Job Analysis",
+    description:
+      "Understanding job roles, responsibilities, and competency needs to support effective HR decisions.",
+    subsections: [
+      { title: "Organizational Structure Design", count: 4 },
+      { title: "Job Description Development", count: 4 },
+      { title: "SOP for Job Description Preparation", count: 6 },
+    ],
+  },
+  {
+    title: "Social Security Administration",
+    description:
+      "Managing employee social security requirements, documentation, and compliance with relevant regulations.",
+    subsections: [
+      { title: "Social Security Administration Procedures", count: 7 },
+    ],
+  },
+  {
+    title: "Wage Administration",
+    description:
+      "Handling wage calculation data, payroll documentation, and accurate employee payslip preparation.",
+    subsections: [
+      { title: "Employee Wage Calculation Data", count: 1 },
+      { title: "Employee Payslips", count: 1 },
+    ],
+  },
+  {
+    title: "Human Resource Policy Administration",
+    description:
+      "Managing, documenting, and implementing HR policies to ensure consistency, compliance, and effective people management.",
+    subsections: [
+      { title: "Training & Development", count: 4 },
+      { title: "Proposal Training", count: 9 },
+      { title: "Industrial Relations", count: 3 },
+      { title: "Recruitment", count: 3 },
+      { title: "Overview of Candidate Profile", count: 4 },
+    ],
+  },
+];
 
 export const achievements = {
   awards: [
