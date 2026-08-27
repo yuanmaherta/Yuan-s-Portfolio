@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileBadge2 } from "lucide-react";
+import { FileText } from "lucide-react";
 import { projects } from "@/lib/data";
-import { SectionHeading } from "@/components/ui/section-heading";
 
 const colorMap: Record<string, string> = {
   "accent-1": "bg-accent-1",
@@ -16,8 +15,13 @@ const colorMap: Record<string, string> = {
 export function Projects() {
   return (
     <section id="projects" className="px-6 py-20">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading eyebrow="Portfolio" title="Things I've worked on" />
+      <div className="diagonal-dark mx-auto max-w-6xl rounded-3xl border-2 border-ink px-6 py-12 sm:px-10">
+        <span className="text-xs font-bold uppercase tracking-widest text-primary">
+          Portfolio
+        </span>
+        <h2 className="font-display mt-2 text-3xl font-extrabold sm:text-4xl">
+          Things I&apos;ve worked on
+        </h2>
 
         {/* Academic projects */}
         <div className="mt-12">
@@ -31,9 +35,9 @@ export function Projects() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
                 whileHover={{ y: -4 }}
-                className="rounded-2xl border-2 border-ink bg-card p-5 shadow-playful-sm"
+                className="flex flex-col rounded-2xl bg-white text-ink p-5 shadow-playful-sm"
               >
-                <FileBadge2 size={20} className="text-primary" />
+                <FileText size={20} className="text-primary" />
                 <h4 className="font-display mt-3 font-bold leading-snug">
                   {project.title}
                 </h4>
@@ -60,18 +64,18 @@ export function Projects() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 whileHover={{ y: -6 }}
-                className="group flex flex-col rounded-3xl border-2 border-ink bg-card p-6 shadow-playful-sm transition-shadow hover:shadow-playful"
+                className="group flex flex-col rounded-3xl bg-white/5 p-6"
               >
                 <div
                   className={`h-2 w-14 rounded-full ${colorMap[project.color] ?? "bg-primary"}`}
                 />
-                <span className="mt-4 inline-block w-fit rounded-full bg-canvas px-3 py-1 text-xs font-semibold text-muted border border-card-border">
+                <span className="mt-4 inline-block w-fit rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70">
                   {project.tag}
                 </span>
                 <h4 className="font-display mt-3 text-xl font-bold">
                   {project.title}
                 </h4>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-white/70">
                   {project.subtitle}
                 </p>
               </motion.article>
