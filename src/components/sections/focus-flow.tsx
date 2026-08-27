@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useContent } from "@/lib/use-content";
+import { handleChameleonMove } from "@/lib/chameleon";
 
 export function FocusFlow() {
   const { focusAreas, ui } = useContent();
@@ -36,7 +37,8 @@ export function FocusFlow() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
-              className="rounded-2xl border-2 border-ink bg-canvas p-5 shadow-playful-sm"
+              onPointerMove={handleChameleonMove}
+              className="chameleon rounded-2xl border-2 border-ink bg-canvas p-5 shadow-playful-sm"
             >
               <span className="text-2xl font-extrabold text-primary/40">
                 0{i + 1}

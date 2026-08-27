@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useContent } from "@/lib/use-content";
+import { handleChameleonMove } from "@/lib/chameleon";
 import { PhotoSlot } from "@/components/ui/photo-slot";
 
 export function WhyChooseMe() {
@@ -29,7 +30,8 @@ export function WhyChooseMe() {
               src={large}
               alt={profile.name}
               gradient="from-accent-4 to-primary"
-              className="aspect-[4/3] w-full sm:aspect-auto sm:h-full"
+              onPointerMove={handleChameleonMove}
+              className="chameleon aspect-[4/3] w-full sm:aspect-auto sm:h-full"
             />
           </motion.div>
           <div className="grid gap-4">
@@ -43,7 +45,8 @@ export function WhyChooseMe() {
                 src={small1}
                 alt={profile.name}
                 gradient="from-accent-2 to-primary"
-                className="aspect-[4/3] w-full"
+                onPointerMove={handleChameleonMove}
+                className="chameleon aspect-[4/3] w-full"
               />
             </motion.div>
             <motion.div
@@ -56,7 +59,8 @@ export function WhyChooseMe() {
                 src={small2}
                 alt={profile.name}
                 gradient="from-accent-3 to-accent-4"
-                className="aspect-[4/3] w-full"
+                onPointerMove={handleChameleonMove}
+                className="chameleon aspect-[4/3] w-full"
               />
             </motion.div>
           </div>
@@ -70,7 +74,8 @@ export function WhyChooseMe() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.35, delay: i * 0.06 }}
-              className="rounded-full border-2 border-ink bg-card px-4 py-2 text-xs font-bold shadow-playful-sm"
+              onPointerMove={handleChameleonMove}
+              className="chameleon rounded-full border-2 border-ink bg-card px-4 py-2 text-xs font-bold shadow-playful-sm"
             >
               {area.title}
             </motion.span>

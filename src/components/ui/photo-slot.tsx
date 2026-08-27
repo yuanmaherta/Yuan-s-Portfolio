@@ -1,3 +1,4 @@
+import type { PointerEvent } from "react";
 import Image from "next/image";
 
 /**
@@ -18,16 +19,19 @@ export function PhotoSlot({
   className = "",
   gradient = "from-primary to-accent-2",
   fit = "cover",
+  onPointerMove,
 }: {
   src?: string;
   alt: string;
   className?: string;
   gradient?: string;
   fit?: "cover" | "contain";
+  onPointerMove?: (e: PointerEvent<HTMLDivElement>) => void;
 }) {
   if (src && fit === "contain") {
     return (
       <div
+        onPointerMove={onPointerMove}
         className={`relative overflow-hidden rounded-3xl border-2 border-ink bg-gradient-to-br shadow-playful ${gradient} ${className}`}
       >
         <Image src={src} alt={alt} fill className="object-contain object-bottom" />
@@ -38,6 +42,7 @@ export function PhotoSlot({
   if (src) {
     return (
       <div
+        onPointerMove={onPointerMove}
         className={`relative overflow-hidden rounded-3xl border-2 border-ink shadow-playful ${className}`}
       >
         <Image src={src} alt={alt} fill className="object-cover" />
@@ -47,6 +52,7 @@ export function PhotoSlot({
 
   return (
     <div
+      onPointerMove={onPointerMove}
       className={`rounded-3xl border-2 border-ink bg-gradient-to-br ${gradient} shadow-playful ${className}`}
     />
   );

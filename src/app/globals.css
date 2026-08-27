@@ -160,3 +160,40 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* "Chameleon" hover: a soft color highlight that follows the cursor over
+   a button/card and shifts hue with the direction it approaches from.
+   `--chx`/`--chy`/`--chameleon-hue` are written by handleChameleonMove()
+   in src/lib/chameleon.ts on pointer move. */
+.chameleon {
+  position: relative;
+  isolation: isolate;
+}
+
+.chameleon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    240px circle at var(--chx, 50%) var(--chy, 50%),
+    hsl(var(--chameleon-hue, 30) 90% 55%),
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: color;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.chameleon:hover::after,
+.chameleon:focus-visible::after {
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chameleon::after {
+    transition: none;
+  }
+}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContent } from "@/lib/use-content";
 import { buttonInteraction } from "@/lib/motion-presets";
+import { handleChameleonMove } from "@/lib/chameleon";
 import { PhotoSlot } from "@/components/ui/photo-slot";
 
 const MotionLink = motion.create(Link);
@@ -48,14 +49,18 @@ export function AboutPreview() {
           <div className="mt-6 flex flex-wrap gap-3">
             <MotionLink
               href="/about"
+              onPointerMove={handleChameleonMove}
               {...buttonInteraction}
-              className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm"
+              className="chameleon rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm"
             >
               {ui.aboutPreview.ctaLabel}
             </MotionLink>
           </div>
 
-          <div className="mt-8 rounded-2xl border-2 border-card-border bg-card p-5">
+          <div
+            onPointerMove={handleChameleonMove}
+            className="chameleon mt-8 rounded-2xl border-2 border-card-border bg-card p-5"
+          >
             <h3 className="font-display text-sm font-bold">
               {ui.aboutPreview.toolsHeading}{" "}
               <span className="text-primary">

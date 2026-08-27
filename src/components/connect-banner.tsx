@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, MessageCircleHeart } from "lucide-react";
 import { useContent } from "@/lib/use-content";
 import { buttonInteraction, pillInteraction } from "@/lib/motion-presets";
+import { handleChameleonMove } from "@/lib/chameleon";
 
 export function ConnectBanner() {
   const { profile, ui } = useContent();
@@ -28,8 +29,9 @@ export function ConnectBanner() {
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <motion.a
               href={`mailto:${profile.email}`}
+              onPointerMove={handleChameleonMove}
               {...buttonInteraction}
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-2.5 text-sm font-semibold text-white"
+              className="chameleon inline-flex items-center gap-2 rounded-full bg-ink px-6 py-2.5 text-sm font-semibold text-white"
             >
               <Mail size={16} />
               {profile.email}
@@ -40,8 +42,9 @@ export function ConnectBanner() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onPointerMove={handleChameleonMove}
                 {...pillInteraction}
-                className="rounded-full border-2 border-white/70 px-5 py-2 text-sm font-semibold"
+                className="chameleon rounded-full border-2 border-white/70 px-5 py-2 text-sm font-semibold"
               >
                 {social.label}
               </motion.a>

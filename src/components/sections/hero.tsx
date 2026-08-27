@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useContent } from "@/lib/use-content";
 import { buttonInteraction } from "@/lib/motion-presets";
+import { handleChameleonMove } from "@/lib/chameleon";
 import { PhotoSlot } from "@/components/ui/photo-slot";
 
 export function Hero() {
@@ -53,8 +54,9 @@ export function Hero() {
             >
               <motion.a
                 href={profile.resumeUrl}
+                onPointerMove={handleChameleonMove}
                 {...buttonInteraction}
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-playful-sm"
+                className="chameleon inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-playful-sm"
               >
                 {ui.hero.cvLabel} ↗{" "}
                 <span className="font-normal">{ui.hero.cvDownload}</span>
@@ -136,7 +138,8 @@ export function Hero() {
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.45, delay: i * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="rounded-2xl border-2 border-ink bg-card p-6 shadow-playful-sm"
+                onPointerMove={handleChameleonMove}
+                className="chameleon rounded-2xl border-2 border-ink bg-card p-6 shadow-playful-sm"
               >
                 <span className="text-xs font-bold text-primary">
                   0{i + 1}

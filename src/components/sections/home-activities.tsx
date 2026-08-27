@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { buttonInteraction } from "@/lib/motion-presets";
+import { handleChameleonMove } from "@/lib/chameleon";
 
 export function HomeActivities() {
   const { homeActivities, ui } = useContent();
@@ -30,7 +31,8 @@ export function HomeActivities() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
-              className="flex flex-col overflow-hidden rounded-2xl border-2 border-ink bg-card shadow-playful-sm"
+              onPointerMove={handleChameleonMove}
+              className="chameleon flex flex-col overflow-hidden rounded-2xl border-2 border-ink bg-card shadow-playful-sm"
             >
               <div className="relative aspect-video w-full bg-gradient-to-br from-accent-4 to-primary">
                 {activity.photo && (
