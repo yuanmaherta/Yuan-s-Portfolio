@@ -1,11 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useContent } from "@/lib/use-content";
 import { buttonInteraction } from "@/lib/motion-presets";
+import { PhotoSlot } from "@/components/ui/photo-slot";
 
 export function Hero() {
-  const { profile, trustedCompanies, whyHireMe, ui } = useContent();
+  const { profile, homePhotos, trustedCompanies, trustedCompaniesLogo, whyHireMe, ui } =
+    useContent();
 
   return (
     <section id="top" className="relative overflow-hidden">
@@ -63,8 +66,14 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative mx-auto aspect-[4/5] w-full max-w-sm rounded-[2.5rem] border-2 border-ink bg-gradient-to-br from-primary to-accent-2 shadow-playful"
-          />
+            className="mx-auto w-full max-w-sm"
+          >
+            <PhotoSlot
+              src={homePhotos.hero}
+              alt={profile.name}
+              className="aspect-[4/5] w-full"
+            />
+          </motion.div>
         </div>
       </div>
 
@@ -73,16 +82,28 @@ export function Hero() {
         <p className="text-center text-xs font-semibold uppercase tracking-widest text-muted">
           {ui.hero.trustedLabel}
         </p>
-        <div className="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6">
-          {trustedCompanies.map((company) => (
-            <span
-              key={company}
-              className="text-sm font-bold tracking-tight text-muted/70"
-            >
-              {company}
-            </span>
-          ))}
-        </div>
+        {trustedCompaniesLogo ? (
+          <div className="mx-auto mt-4 max-w-3xl px-6">
+            <Image
+              src={trustedCompaniesLogo}
+              alt={trustedCompanies.join(", ")}
+              width={886}
+              height={87}
+              className="mx-auto h-auto w-full max-w-xl"
+            />
+          </div>
+        ) : (
+          <div className="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6">
+            {trustedCompanies.map((company) => (
+              <span
+                key={company}
+                className="text-sm font-bold tracking-tight text-muted/70"
+              >
+                {company}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Why hire me */}

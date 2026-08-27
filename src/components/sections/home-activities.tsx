@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { buttonInteraction } from "@/lib/motion-presets";
@@ -31,7 +32,16 @@ export function HomeActivities() {
               whileHover={{ y: -4 }}
               className="flex flex-col overflow-hidden rounded-2xl border-2 border-ink bg-card shadow-playful-sm"
             >
-              <div className="aspect-video w-full bg-gradient-to-br from-accent-4 to-primary" />
+              <div className="relative aspect-video w-full bg-gradient-to-br from-accent-4 to-primary">
+                {activity.photo && (
+                  <Image
+                    src={activity.photo}
+                    alt={activity.title}
+                    fill
+                    className="object-cover"
+                  />
+                )}
+              </div>
               <div className="flex flex-1 flex-col p-5">
                 <h4 className="font-display font-bold leading-snug">
                   {activity.title}

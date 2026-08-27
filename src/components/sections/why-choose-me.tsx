@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useContent } from "@/lib/use-content";
+import { PhotoSlot } from "@/components/ui/photo-slot";
 
 export function WhyChooseMe() {
-  const { focusAreas, ui } = useContent();
+  const { profile, homePhotos, focusAreas, ui } = useContent();
+  const [large, small1, small2] = homePhotos.whyChooseMe;
 
   return (
     <section className="px-6 py-16">
@@ -22,23 +24,41 @@ export function WhyChooseMe() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.5 }}
-            className="aspect-[4/3] w-full rounded-3xl border-2 border-ink bg-gradient-to-br from-accent-4 to-primary shadow-playful sm:aspect-auto sm:h-full"
-          />
+          >
+            <PhotoSlot
+              src={large}
+              alt={profile.name}
+              gradient="from-accent-4 to-primary"
+              className="aspect-[4/3] w-full sm:aspect-auto sm:h-full"
+            />
+          </motion.div>
           <div className="grid gap-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="aspect-[4/3] w-full rounded-3xl border-2 border-ink bg-gradient-to-br from-accent-2 to-primary shadow-playful-sm"
-            />
+            >
+              <PhotoSlot
+                src={small1}
+                alt={profile.name}
+                gradient="from-accent-2 to-primary"
+                className="aspect-[4/3] w-full"
+              />
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="aspect-[4/3] w-full rounded-3xl border-2 border-ink bg-gradient-to-br from-accent-3 to-accent-4 shadow-playful-sm"
-            />
+            >
+              <PhotoSlot
+                src={small2}
+                alt={profile.name}
+                gradient="from-accent-3 to-accent-4"
+                className="aspect-[4/3] w-full"
+              />
+            </motion.div>
           </div>
         </div>
 

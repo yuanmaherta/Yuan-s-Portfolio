@@ -1,14 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useContent } from "@/lib/use-content";
 import { buttonInteraction } from "@/lib/motion-presets";
+import { PhotoSlot } from "@/components/ui/photo-slot";
 
 const MotionLink = motion.create(Link);
 
 export function AboutPreview() {
-  const { profile, skills, ui } = useContent();
+  const { profile, homePhotos, skills, homeToolsLogo, ui } = useContent();
 
   return (
     <section className="px-6 py-16">
@@ -20,7 +22,11 @@ export function AboutPreview() {
           transition={{ duration: 0.5 }}
           className="md:col-span-2"
         >
-          <div className="aspect-[4/5] w-full max-w-xs rounded-3xl border-2 border-ink bg-gradient-to-br from-primary to-accent-2 shadow-playful" />
+          <PhotoSlot
+            src={homePhotos.aboutPreview}
+            alt={profile.name}
+            className="aspect-[4/5] w-full max-w-xs"
+          />
         </motion.div>
 
         <motion.div
@@ -55,16 +61,26 @@ export function AboutPreview() {
                 {ui.aboutPreview.toolsHeadingAccent}
               </span>
             </h3>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {skills.tools.map((tool) => (
-                <span
-                  key={tool}
-                  className="rounded-full border border-card-border bg-canvas px-3 py-1 text-xs font-semibold text-muted"
-                >
-                  {tool}
-                </span>
-              ))}
-            </div>
+            {homeToolsLogo ? (
+              <Image
+                src={homeToolsLogo}
+                alt={skills.tools.join(", ")}
+                width={309}
+                height={132}
+                className="mt-3 h-auto w-full max-w-sm"
+              />
+            ) : (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {skills.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="rounded-full border border-card-border bg-canvas px-3 py-1 text-xs font-semibold text-muted"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </motion.div>
       </div>

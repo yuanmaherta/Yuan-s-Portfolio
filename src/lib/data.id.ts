@@ -22,9 +22,18 @@ export const profile = {
 };
 
 export const aboutPhotos = {
-  bio: "",
+  bio: "/images/hero-portrait.jpeg",
   education: "",
 };
+
+export const homePhotos = {
+  hero: "/images/hero-portrait.jpeg",
+  aboutPreview: "/images/hero-portrait.jpeg",
+  whyChooseMe: ["/images/why-choose-bumn.jpeg", "/images/why-choose-hk-academy.png", ""],
+};
+
+export const trustedCompaniesLogo: string = "/images/trusted-companies.png";
+export const homeToolsLogo: string = "/images/tools-strip.png";
 
 export const trustedCompanies = [
   "PT Hutama Karya",
@@ -100,18 +109,21 @@ export const homeActivities = [
     date: "Friday, 29 September 2025",
     ctaLabel: "Yuk Terhubung!",
     ctaHref: `mailto:${profile.email}`,
+    photo: "/images/activity-bnsp.png",
   },
   {
     title: "Intern Sales Program Kredit UMKM",
     date: "Monday, 03 November 2025",
     ctaLabel: "Yuk Terhubung!",
     ctaHref: `mailto:${profile.email}`,
+    photo: "/images/activity-btn-sales.png",
   },
   {
     title: "Chief Marketing Officer, Helphin Indonesia",
     date: "Tuesday, 23 July 2024",
     ctaLabel: "Pelajari lebih lanjut",
     ctaHref: "#",
+    photo: "/images/activity-helphin.png",
   },
 ];
 
@@ -238,7 +250,7 @@ export const skills = {
   ],
 };
 
-export const bnspThumbnail = "";
+export const bnspThumbnail: string = "/images/activity-bnsp.png";
 
 export const bnspActivities = [
   {

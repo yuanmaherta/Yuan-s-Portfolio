@@ -22,9 +22,23 @@ export const profile = {
 // path under public/images (e.g. "/images/about-bio.jpg") once the real
 // photo is ready and it renders automatically, no code changes needed.
 export const aboutPhotos = {
-  bio: "",
+  bio: "/images/hero-portrait.jpeg",
   education: "",
 };
+
+// Home page photo slots. Leave empty ("") to keep the gradient
+// placeholder; a path renders automatically via next/image.
+export const homePhotos = {
+  hero: "/images/hero-portrait.jpeg",
+  aboutPreview: "/images/hero-portrait.jpeg",
+  // "Why Choose Me" bento — 1 large + 2 small photos.
+  whyChooseMe: ["/images/why-choose-bumn.jpeg", "/images/why-choose-hk-academy.png", ""],
+};
+
+// Single combined logo-strip images (as supplied). Falls back to the
+// plain text list below when empty.
+export const trustedCompaniesLogo: string = "/images/trusted-companies.png";
+export const homeToolsLogo: string = "/images/tools-strip.png";
 
 export const trustedCompanies = [
   "PT Hutama Karya",
@@ -100,18 +114,21 @@ export const homeActivities = [
     date: "Friday, 29 September 2025",
     ctaLabel: "Let's Connect!",
     ctaHref: `mailto:${profile.email}`,
+    photo: "/images/activity-bnsp.png",
   },
   {
     title: "SME & Credit Program Sales Internship",
     date: "Monday, 03 November 2025",
     ctaLabel: "Let's Connect!",
     ctaHref: `mailto:${profile.email}`,
+    photo: "/images/activity-btn-sales.png",
   },
   {
     title: "Chief Marketing Officer, Helphin Indonesia",
     date: "Tuesday, 23 July 2024",
     ctaLabel: "Learn more",
     ctaHref: "#",
+    photo: "/images/activity-helphin.png",
   },
 ];
 
@@ -240,7 +257,7 @@ export const skills = {
 
 // Screenshot/photo of the BNSP certification activity (e.g. the Zoom
 // session). Leave empty to keep the current placeholder icon.
-export const bnspThumbnail: string = "";
+export const bnspThumbnail: string = "/images/activity-bnsp.png";
 
 export const bnspActivities = [
   {
