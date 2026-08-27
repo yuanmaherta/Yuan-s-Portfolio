@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   Brain,
   ClipboardList,
@@ -13,7 +14,7 @@ import {
   FileStack,
   Video,
 } from "lucide-react";
-import { skills, bnspActivities } from "@/lib/data";
+import { skills, bnspActivities, bnspThumbnail } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 const softIcons = [Brain, Workflow, ClipboardList, UsersRound, LineChart, MessagesSquare];
@@ -190,9 +191,18 @@ export function Skills() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.5 }}
-              className="flex min-h-[220px] items-center justify-center rounded-2xl border border-white/10 bg-black/30"
+              className="relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-black/30"
             >
-              <Video size={32} className="text-white/30" />
+              {bnspThumbnail ? (
+                <Image
+                  src={bnspThumbnail}
+                  alt="BNSP certification activity"
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <Video size={32} className="text-white/30" />
+              )}
             </motion.div>
           </div>
         </div>

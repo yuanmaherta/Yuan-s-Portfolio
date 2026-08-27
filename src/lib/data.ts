@@ -238,6 +238,10 @@ export const skills = {
   ],
 };
 
+// Screenshot/photo of the BNSP certification activity (e.g. the Zoom
+// session). Leave empty to keep the current placeholder icon.
+export const bnspThumbnail = "";
+
 export const bnspActivities = [
   {
     title: "Job Analysis & Job Description Development",
