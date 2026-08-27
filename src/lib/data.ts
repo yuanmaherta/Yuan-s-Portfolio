@@ -32,7 +32,7 @@ export const homePhotos = {
   // Background removed — rendered with fit="contain" so the card's
   // gradient stays visible around the cutout.
   hero: "/images/hero-portrait-cutout.png",
-  aboutPreview: "/images/hero-portrait.jpeg",
+  aboutPreview: "/images/hero-portrait-cutout.png",
   // "Why Choose Me" bento — 1 large + 2 small photos.
   whyChooseMe: [
     "/images/why-choose-bumn.png",

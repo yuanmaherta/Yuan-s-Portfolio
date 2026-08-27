@@ -28,7 +28,7 @@ export const aboutPhotos = {
 
 export const homePhotos = {
   hero: "/images/hero-portrait-cutout.png",
-  aboutPreview: "/images/hero-portrait.jpeg",
+  aboutPreview: "/images/hero-portrait-cutout.png",
   whyChooseMe: [
     "/images/why-choose-bumn.png",
     "/images/why-choose-hk-academy.jpeg",

@@ -25,6 +25,7 @@ export function AboutPreview() {
           <PhotoSlot
             src={homePhotos.aboutPreview}
             alt={profile.name}
+            fit="contain"
             className="aspect-[4/5] w-full max-w-xs"
           />
         </motion.div>
