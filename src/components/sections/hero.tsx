@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { profile, trustedCompanies, whyHireMe } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 
 export function Hero() {
+  const { profile, trustedCompanies, whyHireMe, ui } = useContent();
+
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="px-6 pt-14 pb-16 sm:pt-20">
@@ -15,7 +17,7 @@ export function Hero() {
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 rounded-full border border-card-border bg-card px-4 py-1.5 text-sm font-medium shadow-playful-sm"
             >
-              Hello! 👋
+              {ui.hero.hello}
             </motion.div>
 
             <motion.h1
@@ -24,9 +26,10 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display mt-5 max-w-xl text-4xl font-extrabold leading-[1.08] sm:text-5xl md:text-6xl"
             >
-              I&apos;m <span className="text-primary">{profile.name.split(" ")[0]}</span>
+              {ui.hero.imPrefix}{" "}
+              <span className="text-primary">{profile.name.split(" ")[0]}</span>
               <br />
-              Welcome to My Portfolio.
+              {ui.hero.welcomeLine}
             </motion.h1>
 
             <motion.p
@@ -48,7 +51,8 @@ export function Hero() {
                 href={profile.resumeUrl}
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-playful-sm transition-transform hover:-translate-y-1"
               >
-                Curriculum Vitae ↗ <span className="font-normal">Download</span>
+                {ui.hero.cvLabel} ↗{" "}
+                <span className="font-normal">{ui.hero.cvDownload}</span>
               </a>
             </motion.div>
           </div>
@@ -65,7 +69,7 @@ export function Hero() {
       {/* Trusted companies strip */}
       <div className="border-y border-card-border bg-card/60 py-6">
         <p className="text-center text-xs font-semibold uppercase tracking-widest text-muted">
-          Project and internship experience with leading companies
+          {ui.hero.trustedLabel}
         </p>
         <div className="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6">
           {trustedCompanies.map((company) => (
@@ -90,12 +94,10 @@ export function Hero() {
             className="text-center"
           >
             <h2 className="font-display text-2xl font-extrabold sm:text-3xl">
-              Why You Must Hire Me?
+              {ui.hero.whyHireTitle}
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-sm text-muted">
-              I bring a data-driven mindset and structured thinking to support
-              strategic decisions across people, business, and growth
-              initiatives.
+              {ui.hero.whyHireSubtitle}
             </p>
           </motion.div>
 

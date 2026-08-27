@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
+import { useContent } from "@/lib/use-content";
 
 /** Keep in sync with the inline script in layout.tsx. */
 const STORAGE_KEY = "theme";
@@ -40,6 +41,7 @@ function subscribe(callback: () => void) {
 
 export function ThemeToggle() {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const { ui } = useContent();
 
   function toggle() {
     const next = theme === "dark" ? "light" : "dark";
@@ -56,7 +58,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={theme === "dark" ? ui.themeToggle.toLight : ui.themeToggle.toDark}
       className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-card text-ink shadow-playful-sm transition-transform hover:-translate-y-0.5"
     >
       {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}

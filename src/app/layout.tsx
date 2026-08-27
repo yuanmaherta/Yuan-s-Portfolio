@@ -56,16 +56,21 @@ export const metadata: Metadata = {
   },
 };
 
-// Runs before paint to avoid a flash of the wrong theme: applies a saved
-// preference immediately, otherwise leaves it unset so CSS falls back to
-// the OS's prefers-color-scheme. Keep STORAGE_KEY in sync with
-// theme-toggle.tsx.
+// Runs before paint to avoid a flash of the wrong theme/language: applies
+// saved preferences immediately, otherwise leaves theme unset so CSS falls
+// back to the OS's prefers-color-scheme (language defaults to English).
+// Keep the storage keys in sync with theme-toggle.tsx / language-store.ts.
 const themeInitScript = `
 (function () {
   try {
     var theme = localStorage.getItem("theme");
     if (theme === "light" || theme === "dark") {
       document.documentElement.dataset.theme = theme;
+    }
+    var lang = localStorage.getItem("lang");
+    if (lang === "en" || lang === "id") {
+      document.documentElement.dataset.lang = lang;
+      document.documentElement.lang = lang;
     }
   } catch (e) {}
 })();
@@ -75,6 +80,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${poppins.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <head>

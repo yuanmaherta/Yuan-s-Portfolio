@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
 import Image from "next/image";
-import { achievements } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 const photoGradients = [
@@ -12,17 +12,18 @@ const photoGradients = [
 ];
 
 export function Achievements() {
+  const { achievements, ui } = useContent();
+
   return (
     <section id="achievements" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Recognition"
-          title="My Achievement"
+          eyebrow={ui.achievements.eyebrow}
+          title={ui.achievements.title}
           align="center"
         />
         <p className="mx-auto mt-3 max-w-xl text-center text-sm text-muted">
-          Key achievements that reflect my continuous growth across business,
-          strategy, and organizational impact.
+          {ui.achievements.subtitle}
         </p>
 
         {/* Awards */}
@@ -69,11 +70,10 @@ export function Achievements() {
         {/* Certificates */}
         <div className="mt-16">
           <h3 className="font-display text-center text-xl font-bold">
-            My Certificates
+            {ui.achievements.certificatesHeading}
           </h3>
           <p className="mx-auto mt-2 max-w-xl text-center text-sm text-muted">
-            A collection of certifications that reflects my commitment to
-            continuous learning across business, data, and human capital.
+            {ui.achievements.certificatesSubtitle}
           </p>
 
           <div className="mt-8 rounded-3xl border-2 border-card-border bg-card/60 p-6 sm:p-8">

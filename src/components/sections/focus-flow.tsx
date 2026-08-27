@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { focusAreas } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 
 export function FocusFlow() {
+  const { focusAreas, ui } = useContent();
+
   return (
     <div className="px-6 py-16">
       <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border-2 border-ink bg-card px-6 py-12 shadow-playful sm:px-10">
@@ -23,7 +25,7 @@ export function FocusFlow() {
           transition={{ duration: 0.4 }}
           className="relative font-display text-2xl font-extrabold sm:text-3xl"
         >
-          My Focus Area
+          {ui.focusFlow.heading}
         </motion.h2>
         <div className="relative mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {focusAreas.map((area, i) => (

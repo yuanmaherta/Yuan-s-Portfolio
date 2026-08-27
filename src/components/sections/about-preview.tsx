@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { profile, skills } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 
 export function AboutPreview() {
+  const { profile, skills, ui } = useContent();
+
   return (
     <section className="px-6 py-16">
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-5 md:items-start">
@@ -26,7 +28,8 @@ export function AboutPreview() {
           className="md:col-span-3"
         >
           <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-            About <span className="text-primary">Me</span>
+            {ui.aboutPreview.heading}{" "}
+            <span className="text-primary">{ui.aboutPreview.headingAccent}</span>
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted">
             {profile.bio}
@@ -37,13 +40,16 @@ export function AboutPreview() {
               href="/about"
               className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm transition-transform hover:-translate-y-0.5"
             >
-              Contact me ↗ Let&apos;s Connect!
+              {ui.aboutPreview.ctaLabel}
             </Link>
           </div>
 
           <div className="mt-8 rounded-2xl border-2 border-card-border bg-card p-5">
             <h3 className="font-display text-sm font-bold">
-              My <span className="text-primary">Tools</span>
+              {ui.aboutPreview.toolsHeading}{" "}
+              <span className="text-primary">
+                {ui.aboutPreview.toolsHeadingAccent}
+              </span>
             </h3>
             <div className="mt-3 flex flex-wrap gap-2">
               {skills.tools.map((tool) => (

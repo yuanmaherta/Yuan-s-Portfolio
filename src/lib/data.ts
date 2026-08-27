@@ -240,7 +240,7 @@ export const skills = {
 
 // Screenshot/photo of the BNSP certification activity (e.g. the Zoom
 // session). Leave empty to keep the current placeholder icon.
-export const bnspThumbnail = "";
+export const bnspThumbnail: string = "";
 
 export const bnspActivities = [
   {
@@ -260,7 +260,7 @@ export const bnspActivities = [
   },
 ];
 
-export const experienceIntro =
+export const experienceIntro: string =
   "I thrive on bridging the gap between academic theory and real-world impact. Every milestone shared here is more than just an experience, it is a testament to my hard work, consistent growth, and my dedication to growing across human capital, business, and strategy through hands-on action.";
 
 // Photo slots for the Experience page. Leave empty to keep the gradient
@@ -574,4 +574,138 @@ export const achievements = {
     { title: "TOEFL Certificate of Achievement", photo: "" },
     { title: "International Scientific Conference on Business and Economics (ISCBE) 2026 Presenter", photo: "" },
   ],
+};
+
+// ------------------------------------------------------------------
+// UI strings — every hardcoded label/heading used across components.
+// Keep this object's shape identical to the `ui` export in data.id.ts;
+// components read from whichever language is active via useContent().
+// ------------------------------------------------------------------
+export const ui = {
+  nav: {
+    home: "Home",
+    about: "About",
+    skills: "Skills",
+    experience: "Experience",
+    project: "Project",
+    achievement: "Achievement",
+    toggleMenu: "Toggle menu",
+  },
+  themeToggle: {
+    toLight: "Switch to light mode",
+    toDark: "Switch to dark mode",
+  },
+  languageToggle: {
+    label: "Switch language",
+  },
+  hero: {
+    hello: "Hello! 👋",
+    imPrefix: "I'm",
+    welcomeLine: "Welcome to My Portfolio.",
+    cvLabel: "Curriculum Vitae",
+    cvDownload: "Download",
+    trustedLabel: "Project and internship experience with leading companies",
+    whyHireTitle: "Why You Must Hire Me?",
+    whyHireSubtitle:
+      "I bring a data-driven mindset and structured thinking to support strategic decisions across people, business, and growth initiatives.",
+  },
+  aboutPreview: {
+    heading: "About",
+    headingAccent: "Me",
+    ctaLabel: "Contact me ↗ Let's Connect!",
+    toolsHeading: "My",
+    toolsHeadingAccent: "Tools",
+  },
+  focusFlow: {
+    heading: "My Focus Area",
+  },
+  whyChooseMe: {
+    eyebrow: "Why Choose Me",
+    heading: "I value integrity and professionalism.",
+  },
+  homeActivities: {
+    eyebrow: "News",
+    title: "My Activities & Projects",
+    subtitle:
+      "A showcase of my practical work across human capital, business development, marketing, and strategic project management.",
+  },
+  about: {
+    eyebrow: "About Me",
+    title: "A little about who I am",
+    cvLabel: "Curriculum Vitae ↗ Download",
+    educationHeading: "My Education",
+    relatedCourseHeading: "My Related Course",
+    relatedCourseWheelLine1: "MY RELATED",
+    relatedCourseWheelLine2: "COURSE",
+  },
+  skills: {
+    eyebrow: "Skills",
+    title: "What I bring to the table",
+    softHeading: "My Soft Skill",
+    softSubtitle:
+      "Core abilities that support my work across people, business, and strategic initiatives.",
+    wheelCenter: "SKILLS",
+    hardHeading: "My Hard Skill",
+    hardSubtitle:
+      "Practical skills built across human capital, business development, and strategic project work.",
+    toolsHeading: "My Tools",
+    toolsSubtitle:
+      "Software and platforms I use to plan, execute, and present my work across projects.",
+    bnspEyebrow: "News",
+    bnspHeading: "BNSP Certification Project Activities",
+    bnspSubtitle:
+      "A showcase of my practical work in job analysis, HR administration, and recruitment procedures under BNSP certification.",
+  },
+  experience: {
+    eyebrow: "Journey",
+    title: "My Experiences",
+    connectHeading: "Let's Connect and Collaborate!",
+    connectSubtitle:
+      "I am always eager to discuss business, people, and growth opportunities",
+    emailAria: "Email me",
+    experienceBadge: "Experience",
+    hireMe: "Hire me",
+    professionalHeading: "My Professional Experience",
+    organizationalPrefix: "My ",
+    organizationalAccent: "Organizational",
+    organizationalSuffix: " Experience",
+  },
+  projects: {
+    eyebrow: "Portfolio",
+    title: "Things I've worked on",
+    academicHeading: "Academic Projects",
+    digitalHeading: "Digital Projects",
+    viewProject: "View Project",
+    comingSoon: "Coming soon",
+  },
+  bnspDocuments: {
+    eyebrow: "BNSP Certification Project",
+  },
+  achievements: {
+    eyebrow: "Recognition",
+    title: "My Achievement",
+    subtitle:
+      "Key achievements that reflect my continuous growth across business, strategy, and organizational impact.",
+    certificatesHeading: "My Certificates",
+    certificatesSubtitle:
+      "A collection of certifications that reflects my commitment to continuous learning across business, data, and human capital.",
+  },
+  footer: {
+    pages: "Pages",
+    followMe: "Follow me",
+    pageLabels: {
+      home: "Homepage",
+      about: "About",
+      skills: "Skills",
+      experience: "Experience",
+      project: "Project",
+      achievement: "Achievement",
+    },
+    copyright: "All Right Reserved. Business Management Portfolio",
+  },
+  connectBanner: {
+    heading: "Let's Connect and Collaborate!",
+    subtitle:
+      "I'm always open to opportunities, collaborations, and meaningful conversations. Feel free to reach out to discuss ideas, projects, or potential roles.",
+  },
 };

@@ -1,18 +1,21 @@
+"use client";
+
 import Link from "next/link";
-import { profile } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 import { SocialIcon } from "@/components/ui/social-icon";
 
-const pages = [
-  { href: "/", label: "Homepage" },
-  { href: "/about", label: "About" },
-  { href: "/skills", label: "Skills" },
-  { href: "/experience", label: "Experience" },
-  { href: "/projects", label: "Project" },
-  { href: "/achievements", label: "Achievement" },
-];
-
 export function Footer() {
+  const { profile, ui } = useContent();
   const firstName = profile.name.split(" ")[0];
+
+  const pages = [
+    { href: "/", label: ui.footer.pageLabels.home },
+    { href: "/about", label: ui.footer.pageLabels.about },
+    { href: "/skills", label: ui.footer.pageLabels.skills },
+    { href: "/experience", label: ui.footer.pageLabels.experience },
+    { href: "/projects", label: ui.footer.pageLabels.project },
+    { href: "/achievements", label: ui.footer.pageLabels.achievement },
+  ];
 
   return (
     <footer className="border-t border-card-border px-6 py-12">
@@ -37,7 +40,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-display text-lg font-bold">Pages</h3>
+          <h3 className="font-display text-lg font-bold">{ui.footer.pages}</h3>
           <ul className="mt-3 space-y-2">
             {pages.map((page) => (
               <li key={page.href}>
@@ -53,7 +56,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-display text-lg font-bold">Follow me</h3>
+          <h3 className="font-display text-lg font-bold">{ui.footer.followMe}</h3>
           <ul className="mt-3 space-y-2">
             {profile.socials.map((social) => (
               <li key={social.label}>
@@ -72,8 +75,7 @@ export function Footer() {
       </div>
 
       <p className="mx-auto mt-10 max-w-6xl text-center text-xs text-muted">
-        &copy; {new Date().getFullYear()} {profile.name}. All Right Reserved.
-        Business Management Portfolio
+        &copy; {new Date().getFullYear()} {profile.name}. {ui.footer.copyright}
       </p>
     </footer>
   );

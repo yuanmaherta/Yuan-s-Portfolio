@@ -6,19 +6,22 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/skills", label: "Skills" },
-  { href: "/experience", label: "Experience" },
-  { href: "/projects", label: "Project" },
-  { href: "/achievements", label: "Achievement" },
-];
+import { LanguageToggle } from "@/components/language-toggle";
+import { useContent } from "@/lib/use-content";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { ui } = useContent();
+
+  const links = [
+    { href: "/", label: ui.nav.home },
+    { href: "/about", label: ui.nav.about },
+    { href: "/skills", label: ui.nav.skills },
+    { href: "/experience", label: ui.nav.experience },
+    { href: "/projects", label: ui.nav.project },
+    { href: "/achievements", label: ui.nav.achievement },
+  ];
 
   return (
     <header className="sticky top-4 z-50 px-4 sm:px-6">
@@ -53,11 +56,12 @@ export function Navbar() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
+          <LanguageToggle />
           <ThemeToggle />
           <button
             className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-ink bg-card shadow-playful-sm md:hidden"
             onClick={() => setOpen((v) => !v)}
-            aria-label="Toggle menu"
+            aria-label={ui.nav.toggleMenu}
           >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>

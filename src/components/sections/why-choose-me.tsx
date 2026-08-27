@@ -1,17 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { focusAreas } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 
 export function WhyChooseMe() {
+  const { focusAreas, ui } = useContent();
+
   return (
     <section className="px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <span className="text-xs font-bold uppercase tracking-widest text-muted">
-          Why Choose Me
+          {ui.whyChooseMe.eyebrow}
         </span>
         <h2 className="font-display mt-2 text-2xl font-extrabold sm:text-3xl">
-          I value integrity and professionalism.
+          {ui.whyChooseMe.heading}
         </h2>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-[1.4fr_1fr]">

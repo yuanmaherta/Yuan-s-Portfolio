@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Mail, MessageCircleHeart } from "lucide-react";
-import { profile } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 
 export function ConnectBanner() {
+  const { profile, ui } = useContent();
+
   return (
     <section className="px-6 py-16">
       <motion.div
@@ -16,12 +18,10 @@ export function ConnectBanner() {
       >
         <div>
           <h2 className="font-display text-2xl font-extrabold sm:text-3xl">
-            Let&apos;s Connect and Collaborate!
+            {ui.connectBanner.heading}
           </h2>
           <p className="mt-2 max-w-lg text-sm text-white/90 sm:text-base">
-            I&apos;m always open to opportunities, collaborations, and
-            meaningful conversations. Feel free to reach out to discuss
-            ideas, projects, or potential roles.
+            {ui.connectBanner.subtitle}
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">

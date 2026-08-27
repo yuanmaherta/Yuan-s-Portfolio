@@ -1,21 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { homeActivities } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 export function HomeActivities() {
+  const { homeActivities, ui } = useContent();
+
   return (
     <section className="px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="News"
-          title="My Activities & Projects"
+          eyebrow={ui.homeActivities.eyebrow}
+          title={ui.homeActivities.title}
           align="center"
         />
         <p className="mx-auto mt-3 max-w-xl text-center text-sm text-muted">
-          A showcase of my practical work across human capital, business
-          development, marketing, and strategic project management.
+          {ui.homeActivities.subtitle}
         </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

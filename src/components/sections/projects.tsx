@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, FileText } from "lucide-react";
 import Image from "next/image";
-import { projects } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 import { BnspDocuments } from "@/components/sections/bnsp-documents";
 
 const colorMap: Record<string, string> = {
@@ -15,20 +15,22 @@ const colorMap: Record<string, string> = {
 };
 
 export function Projects() {
+  const { projects, ui } = useContent();
+
   return (
     <section id="projects" className="px-6 py-20">
       <div className="mx-auto max-w-6xl space-y-10">
         <div className="diagonal-dark rounded-3xl border-2 border-ink px-6 py-12 sm:px-10">
           <span className="text-xs font-bold uppercase tracking-widest text-primary">
-            Portfolio
+            {ui.projects.eyebrow}
           </span>
           <h2 className="font-display mt-2 text-3xl font-extrabold sm:text-4xl">
-            Things I&apos;ve worked on
+            {ui.projects.title}
           </h2>
 
           {/* Academic projects */}
           <div className="mt-12">
-            <h3 className="font-display text-xl font-bold">Academic Projects</h3>
+            <h3 className="font-display text-xl font-bold">{ui.projects.academicHeading}</h3>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {projects.academic.map((project, i) => (
                 <motion.div
@@ -70,7 +72,7 @@ export function Projects() {
 
           {/* Digital projects */}
           <div className="mt-16">
-            <h3 className="font-display text-xl font-bold">Digital Projects</h3>
+            <h3 className="font-display text-xl font-bold">{ui.projects.digitalHeading}</h3>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {projects.digital.map((project, i) => (
                 <motion.article
@@ -120,11 +122,11 @@ export function Projects() {
                         rel="noopener noreferrer"
                         className="mt-4 inline-flex w-fit items-center gap-1 text-sm font-semibold text-accent-2 transition-colors hover:text-white"
                       >
-                        View Project <ArrowUpRight size={16} />
+                        {ui.projects.viewProject} <ArrowUpRight size={16} />
                       </a>
                     ) : (
                       <span className="mt-4 inline-block w-fit text-xs font-semibold uppercase tracking-wide text-white/40">
-                        Coming soon
+                        {ui.projects.comingSoon}
                       </span>
                     )}
                   </div>

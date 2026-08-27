@@ -3,13 +3,7 @@
 import { motion } from "framer-motion";
 import { BadgeCheck, GraduationCap, MapPin } from "lucide-react";
 import Image from "next/image";
-import {
-  profile,
-  aboutPhotos,
-  highlights,
-  relatedCourses,
-  education,
-} from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PhotoSlot } from "@/components/ui/photo-slot";
 
@@ -22,10 +16,13 @@ const courseColors: Record<string, string> = {
 };
 
 export function About() {
+  const { profile, aboutPhotos, highlights, relatedCourses, education, ui } =
+    useContent();
+
   return (
     <section id="about" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading eyebrow="About Me" title="A little about who I am" />
+        <SectionHeading eyebrow={ui.about.eyebrow} title={ui.about.title} />
 
         <div className="mt-12 grid gap-10 md:grid-cols-5 md:items-start">
           <motion.div
@@ -61,7 +58,7 @@ export function About() {
                 href={profile.resumeUrl}
                 className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm transition-transform hover:-translate-y-0.5"
               >
-                Curriculum Vitae ↗ Download
+                {ui.about.cvLabel}
               </a>
             </div>
 
@@ -124,7 +121,7 @@ export function About() {
               transition={{ duration: 0.4 }}
               className="font-display text-xl font-bold"
             >
-              My Education
+              {ui.about.educationHeading}
             </motion.h3>
             <div className="mt-6 space-y-5">
               {education.map((edu, i) => (
@@ -180,7 +177,7 @@ export function About() {
         {/* My Related Course — wheel layout */}
         <div className="mt-20">
           <h3 className="font-display text-center text-xl font-bold">
-            My Related Course
+            {ui.about.relatedCourseHeading}
           </h3>
           <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
             <div className="space-y-5">
@@ -204,9 +201,9 @@ export function About() {
               transition={{ duration: 0.5 }}
               className="mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-card text-center font-display text-sm font-extrabold leading-tight shadow-playful-sm lg:h-36 lg:w-36"
             >
-              MY RELATED
+              {ui.about.relatedCourseWheelLine1}
               <br />
-              COURSE
+              {ui.about.relatedCourseWheelLine2}
             </motion.div>
 
             <div className="space-y-5">

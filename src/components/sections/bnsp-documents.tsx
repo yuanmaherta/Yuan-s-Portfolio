@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
-import { bnspDocumentSections } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 
 export function BnspDocuments() {
+  const { bnspDocumentSections, ui } = useContent();
+
   return (
     <div className="space-y-10">
       {bnspDocumentSections.map((section, si) => (
@@ -17,7 +19,7 @@ export function BnspDocuments() {
           className="diagonal-dark rounded-3xl border-2 border-ink px-6 py-12 sm:px-10"
         >
           <span className="text-xs font-bold uppercase tracking-widest text-primary">
-            BNSP Certification Project
+            {ui.bnspDocuments.eyebrow}
           </span>
           <h3 className="font-display mt-2 text-2xl font-extrabold sm:text-3xl">
             {section.title}

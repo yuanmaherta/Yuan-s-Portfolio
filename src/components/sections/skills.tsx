@@ -14,7 +14,7 @@ import {
   FileStack,
   Video,
 } from "lucide-react";
-import { skills, bnspActivities, bnspThumbnail } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 const softIcons = [Brain, Workflow, ClipboardList, UsersRound, LineChart, MessagesSquare];
@@ -24,22 +24,22 @@ const bnspIcons = [FileSearch, ShoppingBag, FileStack];
 const bnspColors = ["bg-navy", "bg-navy", "bg-primary"];
 
 export function Skills() {
+  const { skills, bnspActivities, bnspThumbnail, ui } = useContent();
   const left = skills.soft.filter((_, i) => i % 2 === 0);
   const right = skills.soft.filter((_, i) => i % 2 === 1);
 
   return (
     <section id="skills" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading eyebrow="Skills" title="What I bring to the table" align="center" />
+        <SectionHeading eyebrow={ui.skills.eyebrow} title={ui.skills.title} align="center" />
 
         {/* Soft skills — wheel layout */}
         <div className="mt-14">
           <h3 className="font-display text-center text-xl font-bold">
-            My Soft Skill
+            {ui.skills.softHeading}
           </h3>
           <p className="mx-auto mt-2 max-w-xl text-center text-sm text-muted">
-            Core abilities that support my work across people, business, and
-            strategic initiatives.
+            {ui.skills.softSubtitle}
           </p>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
@@ -66,7 +66,7 @@ export function Skills() {
               transition={{ duration: 0.5 }}
               className="mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-card font-display text-lg font-extrabold shadow-playful-sm lg:h-36 lg:w-36"
             >
-              SKILLS
+              {ui.skills.wheelCenter}
             </motion.div>
 
             <div className="space-y-5">
@@ -90,11 +90,10 @@ export function Skills() {
         {/* Hard skills — navy tiles */}
         <div className="mt-20">
           <h3 className="font-display text-center text-xl font-bold">
-            My Hard Skill
+            {ui.skills.hardHeading}
           </h3>
           <p className="mx-auto mt-2 max-w-xl text-center text-sm text-muted">
-            Practical skills built across human capital, business
-            development, and strategic project work.
+            {ui.skills.hardSubtitle}
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {skills.hard.map((skill, i) => (
@@ -118,11 +117,10 @@ export function Skills() {
         {/* Tools */}
         <div className="mt-20">
           <h3 className="font-display text-center text-xl font-bold">
-            My Tools
+            {ui.skills.toolsHeading}
           </h3>
           <p className="mx-auto mt-2 max-w-xl text-center text-sm text-muted">
-            Software and platforms I use to plan, execute, and present my
-            work across projects.
+            {ui.skills.toolsSubtitle}
           </p>
           <div className="mt-8 rounded-3xl border-2 border-card-border bg-card p-6 sm:p-8">
             <div className="flex flex-wrap justify-center gap-3">
@@ -146,15 +144,13 @@ export function Skills() {
         {/* BNSP certification activities */}
         <div className="diagonal-dark mt-20 rounded-3xl border-2 border-ink px-6 py-12 sm:px-10">
           <span className="text-xs font-bold uppercase tracking-widest text-primary">
-            News
+            {ui.skills.bnspEyebrow}
           </span>
           <h3 className="font-display mt-2 text-2xl font-extrabold">
-            BNSP Certification Project Activities
+            {ui.skills.bnspHeading}
           </h3>
           <p className="mt-2 max-w-2xl text-sm text-white/70">
-            A showcase of my practical work in job analysis, HR
-            administration, and recruitment procedures under BNSP
-            certification.
+            {ui.skills.bnspSubtitle}
           </p>
 
           <div className="mt-8 grid gap-4 lg:grid-cols-[1fr_1fr]">

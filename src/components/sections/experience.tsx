@@ -3,12 +3,7 @@
 import { motion } from "framer-motion";
 import { MessageCircleHeart, Users } from "lucide-react";
 import Image from "next/image";
-import {
-  profile,
-  experiences,
-  experienceIntro,
-  experiencePhotos,
-} from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PhotoSlot } from "@/components/ui/photo-slot";
 
@@ -22,6 +17,8 @@ const proGradients = [
 ];
 
 export function Experience() {
+  const { profile, experiences, experienceIntro, experiencePhotos, ui } =
+    useContent();
   const orgs = experiences.organizational;
   const left = orgs.filter((_, i) => i % 2 === 0);
   const right = orgs.filter((_, i) => i % 2 === 1);
@@ -29,7 +26,7 @@ export function Experience() {
   return (
     <section id="experience" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading eyebrow="Journey" title="My Experiences" align="center" />
+        <SectionHeading eyebrow={ui.experience.eyebrow} title={ui.experience.title} align="center" />
         <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-muted sm:text-base">
           {experienceIntro}
         </p>
@@ -50,16 +47,15 @@ export function Experience() {
             className="flex flex-col items-center gap-3 rounded-[2.5rem] border-2 border-ink bg-navy px-6 py-8 text-center text-white shadow-playful"
           >
             <h3 className="font-display text-lg font-extrabold sm:text-xl">
-              Let&apos;s Connect and Collaborate!
+              {ui.experience.connectHeading}
             </h3>
             <p className="text-xs text-white/80 sm:text-sm">
-              I am always eager to discuss business, people, and growth
-              opportunities
+              {ui.experience.connectSubtitle}
             </p>
             <a
               href={`mailto:${profile.email}`}
               className="mt-2 flex h-14 w-14 items-center justify-center rounded-full border-2 border-white/40 bg-white/10 transition-transform hover:-translate-y-0.5"
-              aria-label="Email me"
+              aria-label={ui.experience.emailAria}
             >
               <MessageCircleHeart size={24} />
             </a>
@@ -109,17 +105,17 @@ export function Experience() {
           <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
             <div className="flex flex-wrap gap-3">
               <span className="rounded-full bg-primary px-5 py-2 text-sm font-bold">
-                Experience
+                {ui.experience.experienceBadge}
               </span>
               <a
                 href={`mailto:${profile.email}`}
                 className="rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white/80 transition-colors hover:text-white"
               >
-                Hire me
+                {ui.experience.hireMe}
               </a>
             </div>
             <h3 className="font-display text-xl font-extrabold sm:text-2xl">
-              My Professional Experience
+              {ui.experience.professionalHeading}
             </h3>
           </div>
         </div>
@@ -127,7 +123,9 @@ export function Experience() {
         {/* Organizational experience */}
         <div className="mt-16">
           <h3 className="font-display text-xl font-bold sm:text-2xl">
-            My <span className="text-primary">Organizational</span> Experience
+            {ui.experience.organizationalPrefix}
+            <span className="text-primary">{ui.experience.organizationalAccent}</span>
+            {ui.experience.organizationalSuffix}
           </h3>
 
           {/* Hub layout */}
