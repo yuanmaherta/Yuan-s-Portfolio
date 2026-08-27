@@ -18,6 +18,14 @@ export const profile = {
   ],
 };
 
+// Photo slots — leave empty ("") to keep the gradient placeholder; drop a
+// path under public/images (e.g. "/images/about-bio.jpg") once the real
+// photo is ready and it renders automatically, no code changes needed.
+export const aboutPhotos = {
+  bio: "",
+  education: "",
+};
+
 export const trustedCompanies = [
   "PT Hutama Karya",
   "Rakamin Academy",
@@ -45,16 +53,19 @@ export const whyHireMe = [
 export const highlights = [
   {
     title: "P2MW Selection",
+    logo: "", // TODO: P2MW logo
     description:
       "Successfully passed the university-level selection for P2MW (Program Pembinaan Mahasiswa Wirausaha).",
   },
   {
     title: "Talent Scouting Program",
+    logo: "", // TODO: Dit. KKA logo
     description:
       "Selected by the Directorate of Student Affairs, Career Development, and Alumni (Dit. KKA) for both science and non-science competitions.",
   },
   {
     title: "Published Research Paper",
+    logo: "", // TODO: ISCBE / university seal
     description:
       "Published and presented at the 9th ISCBE 2026, Valencia, Spain (Springer Proceedings, Scopus-indexed).",
   },
@@ -146,6 +157,7 @@ export const relatedCourses = [
 export const education = [
   {
     school: "Telkom University",
+    logo: "", // TODO: Telkom University logo
     program: "Business Management of Telecommunications and Informatics",
     detail: "Concentration: Digitalization Human Capital Management",
     period: "2022 - 2026",
@@ -154,6 +166,7 @@ export const education = [
   },
   {
     school: "SMA Negeri 1 Palimanan",
+    logo: "", // TODO: school logo
     program: "Social Science",
     detail: "",
     period: "2018 - 2021",

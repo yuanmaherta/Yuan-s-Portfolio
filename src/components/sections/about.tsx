@@ -2,8 +2,16 @@
 
 import { motion } from "framer-motion";
 import { BadgeCheck, GraduationCap, MapPin } from "lucide-react";
-import { profile, highlights, relatedCourses, education } from "@/lib/data";
+import Image from "next/image";
+import {
+  profile,
+  aboutPhotos,
+  highlights,
+  relatedCourses,
+  education,
+} from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { PhotoSlot } from "@/components/ui/photo-slot";
 
 const courseColors: Record<string, string> = {
   "accent-1": "bg-accent-1",
@@ -27,7 +35,11 @@ export function About() {
             transition={{ duration: 0.5 }}
             className="md:col-span-2"
           >
-            <div className="aspect-[4/5] w-full max-w-xs rounded-3xl border-2 border-ink bg-gradient-to-br from-primary to-accent-2 shadow-playful" />
+            <PhotoSlot
+              src={aboutPhotos.bio}
+              alt={profile.name}
+              className="aspect-[4/5] w-full max-w-xs"
+            />
           </motion.div>
 
           <motion.div
@@ -64,7 +76,17 @@ export function About() {
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                   className="rounded-2xl border border-card-border bg-card p-4"
                 >
-                  <BadgeCheck size={18} className="text-primary" />
+                  {item.logo ? (
+                    <Image
+                      src={item.logo}
+                      alt=""
+                      width={28}
+                      height={28}
+                      className="h-7 w-auto object-contain"
+                    />
+                  ) : (
+                    <BadgeCheck size={18} className="text-primary" />
+                  )}
                   <h4 className="font-display mt-2 text-sm font-bold leading-snug">
                     {item.title}
                   </h4>
@@ -78,53 +100,80 @@ export function About() {
         </div>
 
         {/* Education */}
-        <div className="mt-16">
-          <motion.h3
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        <div className="mt-16 grid gap-8 md:grid-cols-5 md:items-start">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: 3 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 2 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4 }}
-            className="font-display text-xl font-bold"
+            transition={{ duration: 0.5 }}
+            className="md:col-span-2"
           >
-            My Education
-          </motion.h3>
-          <div className="mt-6 space-y-5">
-            {education.map((edu, i) => (
-              <motion.div
-                key={edu.school}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.45, delay: i * 0.1 }}
-                className="flex gap-4 rounded-2xl border-2 border-ink bg-card p-6 shadow-playful-sm"
-              >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-4 border-2 border-ink">
-                  <GraduationCap size={20} />
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-baseline gap-2">
-                    <h4 className="font-display font-bold">{edu.school}</h4>
-                    <span className="text-xs font-semibold text-muted">
-                      {edu.period}
-                    </span>
+            <PhotoSlot
+              src={aboutPhotos.education}
+              alt={profile.name}
+              gradient="from-accent-4 to-primary"
+              className="aspect-[4/5] w-full max-w-xs"
+            />
+          </motion.div>
+
+          <div className="md:col-span-3">
+            <motion.h3
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.4 }}
+              className="font-display text-xl font-bold"
+            >
+              My Education
+            </motion.h3>
+            <div className="mt-6 space-y-5">
+              {education.map((edu, i) => (
+                <motion.div
+                  key={edu.school}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.45, delay: i * 0.1 }}
+                  className="flex gap-4 rounded-2xl border-2 border-ink bg-card p-6 shadow-playful-sm"
+                >
+                  {edu.logo ? (
+                    <Image
+                      src={edu.logo}
+                      alt=""
+                      width={44}
+                      height={44}
+                      className="h-11 w-11 shrink-0 rounded-xl border-2 border-ink object-contain"
+                    />
+                  ) : (
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-4 border-2 border-ink">
+                      <GraduationCap size={20} />
+                    </div>
+                  )}
+                  <div>
+                    <div className="flex flex-wrap items-baseline gap-2">
+                      <h4 className="font-display font-bold">{edu.school}</h4>
+                      <span className="text-xs font-semibold text-muted">
+                        {edu.period}
+                      </span>
+                    </div>
+                    <p className="text-sm font-semibold text-primary">
+                      {edu.program}
+                    </p>
+                    {edu.detail && (
+                      <p className="mt-1 text-sm italic text-muted">
+                        {edu.detail}
+                      </p>
+                    )}
+                    <p className="mt-1 text-sm font-medium">{edu.grade}</p>
+                    {edu.note && (
+                      <p className="mt-2 text-sm leading-relaxed text-muted">
+                        {edu.note}
+                      </p>
+                    )}
                   </div>
-                  <p className="text-sm font-semibold text-primary">
-                    {edu.program}
-                  </p>
-                  {edu.detail && (
-                    <p className="mt-1 text-sm italic text-muted">
-                      {edu.detail}
-                    </p>
-                  )}
-                  <p className="mt-1 text-sm font-medium">{edu.grade}</p>
-                  {edu.note && (
-                    <p className="mt-2 text-sm leading-relaxed text-muted">
-                      {edu.note}
-                    </p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
 
