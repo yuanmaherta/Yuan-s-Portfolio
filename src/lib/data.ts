@@ -552,21 +552,26 @@ export const achievements = {
       title: "3rd Place — Ideastorm 2024",
       issuer: "System Architecture and Governance (SAG) Research Laboratory",
       detail: "Nexilium Team",
+      photo: "", // TODO: award/team photo
     },
     {
       title: "Digistar Class 2024 — Hustler",
       issuer: "Telkom Indonesia",
       detail: "Ranked 59th out of 500 mentees",
+      photo: "", // TODO: Digistar Class magazine cover
     },
   ],
+  // Each category stands in for the real certificate scan(s) it covers.
+  // Drop a public/images path into `photo` once the scan is ready — the
+  // grid renders it in place of the placeholder icon automatically.
   certificateCategories: [
-    "BNSP HR Competency Certifications",
-    "Google Digital Garage, Google AI Essentials & Google Project Management",
-    "Compensation & Benefits Fundamentals",
-    "Azure AI Fundamentals (AI-900)",
-    "Job Analysis Process",
-    "IBM Data Classification & Optimization",
-    "TOEFL Certificate of Achievement",
-    "International Scientific Conference on Business and Economics (ISCBE) 2026 Presenter",
+    { title: "BNSP HR Competency Certifications", photo: "" },
+    { title: "Google Digital Garage, Google AI Essentials & Google Project Management", photo: "" },
+    { title: "Compensation & Benefits Fundamentals", photo: "" },
+    { title: "Azure AI Fundamentals (AI-900)", photo: "" },
+    { title: "Job Analysis Process", photo: "" },
+    { title: "IBM Data Classification & Optimization", photo: "" },
+    { title: "TOEFL Certificate of Achievement", photo: "" },
+    { title: "International Scientific Conference on Business and Economics (ISCBE) 2026 Presenter", photo: "" },
   ],
 };

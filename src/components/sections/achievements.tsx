@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
+import Image from "next/image";
 import { achievements } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 
@@ -37,9 +38,18 @@ export function Achievements() {
               className="overflow-hidden rounded-3xl border-2 border-ink bg-card shadow-playful-sm"
             >
               <div
-                className={`flex h-40 items-center justify-center bg-gradient-to-br ${photoGradients[i % photoGradients.length]}`}
+                className={`relative flex h-40 items-center justify-center bg-gradient-to-br ${photoGradients[i % photoGradients.length]}`}
               >
-                <Award size={36} className="text-white/80" />
+                {item.photo ? (
+                  <Image
+                    src={item.photo}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <Award size={36} className="text-white/80" />
+                )}
               </div>
               <div className="p-6">
                 <span className="inline-block rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-white">
@@ -67,20 +77,31 @@ export function Achievements() {
           </p>
 
           <div className="mt-8 rounded-3xl border-2 border-card-border bg-card/60 p-6 sm:p-8">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
               {achievements.certificateCategories.map((cert, i) => (
                 <motion.div
-                  key={cert}
+                  key={cert.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
                   whileHover={{ y: -3 }}
-                  className="flex items-start gap-3 rounded-2xl border-2 border-card-border bg-canvas p-4"
+                  className="flex flex-col overflow-hidden rounded-2xl border-2 border-card-border bg-canvas"
                 >
-                  <Award size={18} className="mt-0.5 shrink-0 text-primary" />
-                  <span className="text-sm font-medium leading-snug">
-                    {cert}
+                  <div className="relative flex aspect-[4/3] w-full items-center justify-center bg-white">
+                    {cert.photo ? (
+                      <Image
+                        src={cert.photo}
+                        alt={cert.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <Award size={24} className="text-primary/30" />
+                    )}
+                  </div>
+                  <span className="p-3 text-xs font-medium leading-snug">
+                    {cert.title}
                   </span>
                 </motion.div>
               ))}
