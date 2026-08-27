@@ -5,6 +5,7 @@ import { ArrowUpRight, FileText } from "lucide-react";
 import Image from "next/image";
 import { useContent } from "@/lib/use-content";
 import { BnspDocuments } from "@/components/sections/bnsp-documents";
+import { pillInteraction } from "@/lib/motion-presets";
 
 const colorMap: Record<string, string> = {
   "accent-1": "bg-accent-1",
@@ -116,14 +117,15 @@ export function Projects() {
                       </p>
                     )}
                     {project.link ? (
-                      <a
+                      <motion.a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
+                        {...pillInteraction}
                         className="mt-4 inline-flex w-fit items-center gap-1 text-sm font-semibold text-accent-2 transition-colors hover:text-white"
                       >
                         {ui.projects.viewProject} <ArrowUpRight size={16} />
-                      </a>
+                      </motion.a>
                     ) : (
                       <span className="mt-4 inline-block w-fit text-xs font-semibold uppercase tracking-wide text-white/40">
                         {ui.projects.comingSoon}

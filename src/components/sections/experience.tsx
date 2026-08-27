@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PhotoSlot } from "@/components/ui/photo-slot";
+import { iconButtonInteraction, pillInteraction } from "@/lib/motion-presets";
 
 const orgColors = ["bg-accent-1", "bg-accent-4", "bg-accent-3", "bg-primary"];
 const proGradients = [
@@ -52,13 +53,14 @@ export function Experience() {
             <p className="text-xs text-white/80 sm:text-sm">
               {ui.experience.connectSubtitle}
             </p>
-            <a
+            <motion.a
               href={`mailto:${profile.email}`}
-              className="mt-2 flex h-14 w-14 items-center justify-center rounded-full border-2 border-white/40 bg-white/10 transition-transform hover:-translate-y-0.5"
+              {...iconButtonInteraction}
+              className="mt-2 flex h-14 w-14 items-center justify-center rounded-full border-2 border-white/40 bg-white/10"
               aria-label={ui.experience.emailAria}
             >
               <MessageCircleHeart size={24} />
-            </a>
+            </motion.a>
           </motion.div>
         </div>
 
@@ -107,12 +109,13 @@ export function Experience() {
               <span className="rounded-full bg-primary px-5 py-2 text-sm font-bold">
                 {ui.experience.experienceBadge}
               </span>
-              <a
+              <motion.a
                 href={`mailto:${profile.email}`}
+                {...pillInteraction}
                 className="rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white/80 transition-colors hover:text-white"
               >
                 {ui.experience.hireMe}
-              </a>
+              </motion.a>
             </div>
             <h3 className="font-display text-xl font-extrabold sm:text-2xl">
               {ui.experience.professionalHeading}

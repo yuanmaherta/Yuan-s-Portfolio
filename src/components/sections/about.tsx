@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PhotoSlot } from "@/components/ui/photo-slot";
+import { buttonInteraction } from "@/lib/motion-presets";
 
 const courseColors: Record<string, string> = {
   "accent-1": "bg-accent-1",
@@ -54,12 +55,13 @@ export function About() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
+              <motion.a
                 href={profile.resumeUrl}
-                className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm transition-transform hover:-translate-y-0.5"
+                {...buttonInteraction}
+                className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm"
               >
                 {ui.about.cvLabel}
-              </a>
+              </motion.a>
             </div>
 
             {/* Highlights */}

@@ -1,8 +1,10 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useContent } from "@/lib/use-content";
+import { iconButtonInteraction } from "@/lib/motion-presets";
 
 /** Keep in sync with the inline script in layout.tsx. */
 const STORAGE_KEY = "theme";
@@ -55,13 +57,25 @@ export function ThemeToggle() {
   }
 
   return (
-    <button
+    <motion.button
       type="button"
       onClick={toggle}
       aria-label={theme === "dark" ? ui.themeToggle.toLight : ui.themeToggle.toDark}
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-card text-ink shadow-playful-sm transition-transform hover:-translate-y-0.5"
+      {...iconButtonInteraction}
+      className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-ink bg-card text-ink shadow-playful-sm"
     >
-      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-    </button>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={theme}
+          initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+          animate={{ rotate: 0, opacity: 1, scale: 1 }}
+          exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+          transition={{ duration: 0.25 }}
+          className="flex items-center justify-center"
+        >
+          {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+        </motion.span>
+      </AnimatePresence>
+    </motion.button>
   );
 }

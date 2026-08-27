@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { useContent } from "@/lib/use-content";
 import { SocialIcon } from "@/components/ui/social-icon";
+import { iconButtonInteraction } from "@/lib/motion-presets";
 
 export function Footer() {
   const { profile, ui } = useContent();
@@ -25,16 +27,17 @@ export function Footer() {
           <p className="mt-2 text-sm text-muted">{profile.location}</p>
           <div className="mt-4 flex items-center gap-3">
             {profile.socials.map((social) => (
-              <a
+              <motion.a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-ink text-white transition-transform hover:-translate-y-0.5"
+                {...iconButtonInteraction}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-ink text-white"
               >
                 <SocialIcon label={social.label} />
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>

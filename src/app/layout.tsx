@@ -3,6 +3,7 @@ import { Poppins, Space_Grotesk } from "next/font/google";
 import { Navbar } from "@/components/navbar";
 import { ConnectBanner } from "@/components/connect-banner";
 import { Footer } from "@/components/footer";
+import { MotionProvider } from "@/components/motion-provider";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -87,10 +88,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col bg-canvas text-ink">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <ConnectBanner />
-        <Footer />
+        <MotionProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <ConnectBanner />
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

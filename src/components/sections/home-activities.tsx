@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { buttonInteraction } from "@/lib/motion-presets";
 
 export function HomeActivities() {
   const { homeActivities, ui } = useContent();
@@ -38,14 +39,15 @@ export function HomeActivities() {
                 <p className="mt-2 text-xs font-medium text-muted">
                   {activity.date}
                 </p>
-                <a
+                <motion.a
                   href={activity.ctaHref}
                   target={activity.ctaHref.startsWith("http") ? "_blank" : undefined}
                   rel={activity.ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="mt-4 inline-flex w-fit items-center gap-1 rounded-full bg-primary px-4 py-2 text-xs font-bold text-white transition-transform hover:-translate-y-0.5"
+                  {...buttonInteraction}
+                  className="mt-4 inline-flex w-fit items-center gap-1 rounded-full bg-primary px-4 py-2 text-xs font-bold text-white"
                 >
                   {activity.ctaLabel} ↗
-                </a>
+                </motion.a>
               </div>
             </motion.div>
           ))}

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useContent } from "@/lib/use-content";
+import { buttonInteraction } from "@/lib/motion-presets";
 
 export function Hero() {
   const { profile, trustedCompanies, whyHireMe, ui } = useContent();
@@ -47,13 +48,14 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mt-8"
             >
-              <a
+              <motion.a
                 href={profile.resumeUrl}
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-playful-sm transition-transform hover:-translate-y-1"
+                {...buttonInteraction}
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-playful-sm"
               >
                 {ui.hero.cvLabel} ↗{" "}
                 <span className="font-normal">{ui.hero.cvDownload}</span>
-              </a>
+              </motion.a>
             </motion.div>
           </div>
 

@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useContent } from "@/lib/use-content";
+import { buttonInteraction } from "@/lib/motion-presets";
+
+const MotionLink = motion.create(Link);
 
 export function AboutPreview() {
   const { profile, skills, ui } = useContent();
@@ -36,12 +39,13 @@ export function AboutPreview() {
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link
+            <MotionLink
               href="/about"
-              className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm transition-transform hover:-translate-y-0.5"
+              {...buttonInteraction}
+              className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm"
             >
               {ui.aboutPreview.ctaLabel}
-            </Link>
+            </MotionLink>
           </div>
 
           <div className="mt-8 rounded-2xl border-2 border-card-border bg-card p-5">

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Mail, MessageCircleHeart } from "lucide-react";
 import { useContent } from "@/lib/use-content";
+import { buttonInteraction, pillInteraction } from "@/lib/motion-presets";
 
 export function ConnectBanner() {
   const { profile, ui } = useContent();
@@ -25,23 +26,25 @@ export function ConnectBanner() {
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a
+            <motion.a
               href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+              {...buttonInteraction}
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-2.5 text-sm font-semibold text-white"
             >
               <Mail size={16} />
               {profile.email}
-            </a>
+            </motion.a>
             {profile.socials.map((social) => (
-              <a
+              <motion.a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border-2 border-white/70 px-5 py-2 text-sm font-semibold transition-transform hover:-translate-y-0.5"
+                {...pillInteraction}
+                className="rounded-full border-2 border-white/70 px-5 py-2 text-sm font-semibold"
               >
                 {social.label}
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
