@@ -183,6 +183,9 @@ export const bnspActivities = [
   },
 ];
 
+export const experienceIntro =
+  "I thrive on bridging the gap between academic theory and real-world impact. Every milestone shared here is more than just an experience, it is a testament to my hard work, consistent growth, and my dedication to growing across human capital, business, and strategy through hands-on action.";
+
 export const experiences = {
   professional: [
     {
