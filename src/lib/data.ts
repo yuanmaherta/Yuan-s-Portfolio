@@ -554,22 +554,26 @@ export const projects = {
 };
 
 // BNSP certification document showcase. Category/subsection titles are
-// transcribed from the real portfolio plan. Most subsections now have real
-// scanned document thumbnails (blank SOP/form templates and training
-// material — safe to publish). Three subsections are intentionally left
-// without a `photos` array (falling back to generic icon placeholders):
-// "Organizational Structure Design" (a real named org chart), "Employee
-// Wage Calculation Data" / "Employee Payslips" (real payroll figures and
-// bank details), and "Overview of Candidate Profile" (real, explicitly
-// confidential candidate résumés) — these contain other people's personal
-// or financial data and are not reproduced here.
+// transcribed from the real portfolio plan. All documents use dummy/sample
+// data (confirmed by the project owner) — no real people's personal or
+// financial data — so every subsection has real scanned document
+// thumbnails. "(Dummy)" is appended to each chapter title as a clear
+// on-page disclaimer since a few of these look like real payroll/HR
+// paperwork at a glance.
 export const bnspDocumentSections = [
   {
-    title: "Job Analysis",
+    title: "Job Analysis (Dummy)",
     description:
       "Understanding job roles, responsibilities, and competency needs to support effective HR decisions.",
     subsections: [
-      { title: "Organizational Structure Design", count: 4 },
+      {
+        title: "Organizational Structure Design",
+        count: 4,
+        photos: Array.from(
+          { length: 4 },
+          (_, i) => `/images/bnsp/job-analysis/organizational-structure-design/${i + 1}.jpg`,
+        ),
+      },
       {
         title: "Job Description Development",
         count: 7,
@@ -589,7 +593,7 @@ export const bnspDocumentSections = [
     ],
   },
   {
-    title: "Social Security Administration",
+    title: "Social Security Administration (Dummy)",
     description:
       "Managing employee social security requirements, documentation, and compliance with relevant regulations.",
     subsections: [
@@ -604,16 +608,24 @@ export const bnspDocumentSections = [
     ],
   },
   {
-    title: "Wage Administration",
+    title: "Wage Administration (Dummy)",
     description:
       "Handling wage calculation data, payroll documentation, and accurate employee payslip preparation.",
     subsections: [
-      { title: "Employee Wage Calculation Data", count: 1 },
-      { title: "Employee Payslips", count: 1 },
+      {
+        title: "Employee Wage Calculation Data",
+        count: 1,
+        photos: ["/images/bnsp/wage-administration/wage-calculation-data.jpg"],
+      },
+      {
+        title: "Employee Payslips",
+        count: 1,
+        photos: ["/images/bnsp/wage-administration/payslips.jpg"],
+      },
     ],
   },
   {
-    title: "Human Resource Policy Administration",
+    title: "Human Resource Policy Administration (Dummy)",
     description:
       "Managing, documenting, and implementing HR policies to ensure consistency, compliance, and effective people management.",
     subsections: [
@@ -649,7 +661,14 @@ export const bnspDocumentSections = [
           (_, i) => `/images/bnsp/hr-policy-administration/recruitment/${i + 1}.jpg`,
         ),
       },
-      { title: "Overview of Candidate Profile", count: 4 },
+      {
+        title: "Overview of Candidate Profile",
+        count: 4,
+        photos: Array.from(
+          { length: 4 },
+          (_, i) => `/images/bnsp/hr-policy-administration/candidate-profile/${i + 1}.jpg`,
+        ),
+      },
     ],
   },
 ];

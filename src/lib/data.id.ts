@@ -538,11 +538,18 @@ export const projects = {
 
 export const bnspDocumentSections = [
   {
-    title: "Analisis Jabatan",
+    title: "Analisis Jabatan (Dummy)",
     description:
       "Memahami peran, tanggung jawab, dan kebutuhan kompetensi jabatan untuk mendukung keputusan HR yang efektif.",
     subsections: [
-      { title: "Desain Struktur Organisasi", count: 4 },
+      {
+        title: "Desain Struktur Organisasi",
+        count: 4,
+        photos: Array.from(
+          { length: 4 },
+          (_, i) => `/images/bnsp/job-analysis/organizational-structure-design/${i + 1}.jpg`,
+        ),
+      },
       {
         title: "Penyusunan Deskripsi Jabatan",
         count: 7,
@@ -562,7 +569,7 @@ export const bnspDocumentSections = [
     ],
   },
   {
-    title: "Administrasi Jaminan Sosial",
+    title: "Administrasi Jaminan Sosial (Dummy)",
     description:
       "Mengelola kebutuhan jaminan sosial karyawan, dokumentasi, dan kepatuhan terhadap regulasi yang berlaku.",
     subsections: [
@@ -577,16 +584,24 @@ export const bnspDocumentSections = [
     ],
   },
   {
-    title: "Administrasi Pengupahan",
+    title: "Administrasi Pengupahan (Dummy)",
     description:
       "Mengelola data perhitungan upah, dokumentasi payroll, dan penyusunan slip gaji karyawan secara akurat.",
     subsections: [
-      { title: "Data Perhitungan Upah Karyawan", count: 1 },
-      { title: "Slip Gaji Karyawan", count: 1 },
+      {
+        title: "Data Perhitungan Upah Karyawan",
+        count: 1,
+        photos: ["/images/bnsp/wage-administration/wage-calculation-data.jpg"],
+      },
+      {
+        title: "Slip Gaji Karyawan",
+        count: 1,
+        photos: ["/images/bnsp/wage-administration/payslips.jpg"],
+      },
     ],
   },
   {
-    title: "Administrasi Kebijakan Sumber Daya Manusia",
+    title: "Administrasi Kebijakan Sumber Daya Manusia (Dummy)",
     description:
       "Mengelola, mendokumentasikan, dan mengimplementasikan kebijakan HR untuk memastikan konsistensi, kepatuhan, dan pengelolaan orang yang efektif.",
     subsections: [
@@ -622,7 +637,14 @@ export const bnspDocumentSections = [
           (_, i) => `/images/bnsp/hr-policy-administration/recruitment/${i + 1}.jpg`,
         ),
       },
-      { title: "Gambaran Profil Kandidat", count: 4 },
+      {
+        title: "Gambaran Profil Kandidat",
+        count: 4,
+        photos: Array.from(
+          { length: 4 },
+          (_, i) => `/images/bnsp/hr-policy-administration/candidate-profile/${i + 1}.jpg`,
+        ),
+      },
     ],
   },
 ];
