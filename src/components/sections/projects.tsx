@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useContent } from "@/lib/use-content";
 import { BnspDocuments } from "@/components/sections/bnsp-documents";
 import { pillInteraction } from "@/lib/motion-presets";
+import { handleChameleonMove } from "@/lib/chameleon";
 
 const colorMap: Record<string, string> = {
   "accent-1": "bg-accent-1",
@@ -41,7 +42,8 @@ export function Projects() {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.45, delay: i * 0.08 }}
                   whileHover={{ y: -4 }}
-                  className="flex flex-col overflow-hidden rounded-2xl bg-white text-ink shadow-playful-sm"
+                  onPointerMove={handleChameleonMove}
+                  className="chameleon flex flex-col overflow-hidden rounded-2xl bg-white text-ink shadow-playful-sm"
                 >
                   <div className="relative flex aspect-[3/4] w-full items-center justify-center bg-canvas">
                     {project.cover ? (
@@ -83,7 +85,8 @@ export function Projects() {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                   whileHover={{ y: -6 }}
-                  className="group flex flex-col overflow-hidden rounded-3xl bg-white/5"
+                  onPointerMove={handleChameleonMove}
+                  className="chameleon group flex flex-col overflow-hidden rounded-3xl bg-white/5"
                 >
                   <div className="relative flex aspect-[4/3] w-full items-center justify-center bg-black/30">
                     {project.cover ? (
@@ -121,8 +124,9 @@ export function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onPointerMove={handleChameleonMove}
                         {...pillInteraction}
-                        className="mt-4 inline-flex w-fit items-center gap-1 text-sm font-semibold text-accent-2 transition-colors hover:text-white"
+                        className="chameleon mt-4 inline-flex w-fit items-center gap-1 text-sm font-semibold text-accent-2 transition-colors hover:text-white"
                       >
                         {ui.projects.viewProject} <ArrowUpRight size={16} />
                       </motion.a>

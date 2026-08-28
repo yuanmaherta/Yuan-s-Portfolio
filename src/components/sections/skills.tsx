@@ -65,7 +65,8 @@ export function Skills() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.5 }}
-              className="mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-card font-display text-lg font-extrabold shadow-playful-sm lg:h-36 lg:w-36"
+              onPointerMove={handleChameleonMove}
+              className="chameleon mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-card font-display text-lg font-extrabold shadow-playful-sm lg:h-36 lg:w-36"
             >
               {ui.skills.wheelCenter}
             </motion.div>
@@ -105,7 +106,8 @@ export function Skills() {
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
                 whileHover={{ y: -3 }}
-                className="bg-navy flex items-center justify-center rounded-2xl border-2 border-ink px-5 py-7 text-center shadow-playful-sm"
+                onPointerMove={handleChameleonMove}
+                className="chameleon bg-navy flex items-center justify-center rounded-2xl border-2 border-ink px-5 py-7 text-center shadow-playful-sm"
               >
                 <span className="font-display text-sm font-bold text-white">
                   {skill}
@@ -173,7 +175,8 @@ export function Skills() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.45, delay: i * 0.1 }}
-                    className="flex gap-4 rounded-2xl bg-white/5 p-4"
+                    onPointerMove={handleChameleonMove}
+                    className="chameleon flex gap-4 rounded-2xl bg-white/5 p-4"
                   >
                     <div
                       className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${bnspColors[i]}`}
@@ -196,7 +199,8 @@ export function Skills() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.5 }}
-              className="relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-black/30"
+              onPointerMove={handleChameleonMove}
+              className="chameleon relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-black/30"
             >
               {bnspThumbnail ? (
                 <Image
@@ -243,7 +247,8 @@ function SkillCard({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.45, delay }}
-      className={`flex items-start gap-3 rounded-2xl border-2 border-card-border bg-card p-4 ${
+      onPointerMove={handleChameleonMove}
+      className={`chameleon flex items-start gap-3 rounded-2xl border-2 border-card-border bg-card p-4 ${
         align === "right" ? "lg:flex-row-reverse lg:text-right" : ""
       }`}
     >

@@ -7,6 +7,7 @@ import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PhotoSlot } from "@/components/ui/photo-slot";
 import { iconButtonInteraction, pillInteraction } from "@/lib/motion-presets";
+import { handleChameleonMove } from "@/lib/chameleon";
 
 const orgColors = ["bg-accent-1", "bg-accent-4", "bg-accent-3", "bg-primary"];
 const proGradients = [
@@ -45,7 +46,8 @@ export function Experience() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col items-center gap-3 rounded-[2.5rem] border-2 border-ink bg-navy px-6 py-8 text-center text-white shadow-playful"
+            onPointerMove={handleChameleonMove}
+            className="chameleon flex flex-col items-center gap-3 rounded-[2.5rem] border-2 border-ink bg-navy px-6 py-8 text-center text-white shadow-playful"
           >
             <h3 className="font-display text-lg font-extrabold sm:text-xl">
               {ui.experience.connectHeading}
@@ -55,8 +57,9 @@ export function Experience() {
             </p>
             <motion.a
               href={`mailto:${profile.email}`}
+              onPointerMove={handleChameleonMove}
               {...iconButtonInteraction}
-              className="mt-2 flex h-14 w-14 items-center justify-center rounded-full border-2 border-white/40 bg-white/10"
+              className="chameleon mt-2 flex h-14 w-14 items-center justify-center rounded-full border-2 border-white/40 bg-white/10"
               aria-label={ui.experience.emailAria}
             >
               <MessageCircleHeart size={24} />
@@ -74,7 +77,8 @@ export function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="flex flex-col"
+                onPointerMove={handleChameleonMove}
+                className="chameleon flex flex-col"
               >
                 <PhotoSlot
                   src={exp.photo}
@@ -111,8 +115,9 @@ export function Experience() {
               </span>
               <motion.a
                 href={`mailto:${profile.email}`}
+                onPointerMove={handleChameleonMove}
                 {...pillInteraction}
-                className="rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white/80 transition-colors hover:text-white"
+                className="chameleon rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white/80 transition-colors hover:text-white"
               >
                 {ui.experience.hireMe}
               </motion.a>
@@ -211,7 +216,8 @@ export function Experience() {
                             src={photo.photo}
                             alt={`${photo.tag} — ${photo.caption}`}
                             gradient="from-accent-2 to-primary"
-                            className="aspect-[4/3] w-full"
+                            onPointerMove={handleChameleonMove}
+                            className="chameleon aspect-[4/3] w-full"
                           />
                           <span className="mt-2 inline-block w-fit rounded-full border border-card-border bg-card px-3 py-1 text-xs font-bold">
                             {photo.tag}
@@ -236,7 +242,8 @@ export function Experience() {
                             src={episode.photo}
                             alt={episode.title}
                             gradient="from-accent-1 to-accent-3"
-                            className="aspect-square w-full"
+                            onPointerMove={handleChameleonMove}
+                            className="chameleon aspect-square w-full"
                           />
                           <span className="text-xs font-bold text-primary">
                             {episode.title}
@@ -284,7 +291,8 @@ function OrgHubCard({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.45, delay }}
-      className={`flex items-center gap-3 rounded-2xl border-2 border-card-border bg-card p-4 ${
+      onPointerMove={handleChameleonMove}
+      className={`chameleon flex items-center gap-3 rounded-2xl border-2 border-card-border bg-card p-4 ${
         align === "right" ? "lg:flex-row-reverse lg:text-right" : ""
       }`}
     >

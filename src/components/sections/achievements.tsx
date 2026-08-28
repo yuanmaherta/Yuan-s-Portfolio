@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { iconButtonInteraction } from "@/lib/motion-presets";
+import { handleChameleonMove } from "@/lib/chameleon";
 
 const photoGradients = [
   "from-accent-1 to-primary",
@@ -54,7 +55,8 @@ export function Achievements() {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -4 }}
-              className="overflow-hidden rounded-3xl border-2 border-ink bg-card shadow-playful-sm"
+              onPointerMove={handleChameleonMove}
+              className="chameleon overflow-hidden rounded-3xl border-2 border-ink bg-card shadow-playful-sm"
             >
               <div
                 onClick={
@@ -121,7 +123,8 @@ export function Achievements() {
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
                   whileHover={{ y: -3 }}
-                  className="flex flex-col overflow-hidden rounded-xl border-2 border-card-border bg-canvas"
+                  onPointerMove={handleChameleonMove}
+                  className="chameleon flex flex-col overflow-hidden rounded-xl border-2 border-card-border bg-canvas"
                 >
                   <div
                     onClick={

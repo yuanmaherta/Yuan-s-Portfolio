@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, FileText, Folder, X } from "lucide-react";
 import { useContent } from "@/lib/use-content";
 import { iconButtonInteraction, pillInteraction } from "@/lib/motion-presets";
+import { handleChameleonMove } from "@/lib/chameleon";
 
 export function BnspDocuments() {
   const { bnspDocumentSections, ui } = useContent();
@@ -59,7 +60,8 @@ export function BnspDocuments() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.45, delay: i * 0.08 }}
             whileHover={{ y: -4 }}
-            className="diagonal-dark flex flex-col items-start gap-4 rounded-3xl border-2 border-ink px-6 py-8 text-left shadow-playful-sm"
+            onPointerMove={handleChameleonMove}
+            className="chameleon diagonal-dark flex flex-col items-start gap-4 rounded-3xl border-2 border-ink px-6 py-8 text-left shadow-playful-sm"
             aria-label={`${ui.bnspDocuments.openFolder}: ${section.title}`}
           >
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-ink bg-primary/20">
@@ -187,8 +189,9 @@ export function BnspDocuments() {
                   <motion.button
                     type="button"
                     onClick={() => setOpenIndex((total + openIndex - 1) % total)}
+                    onPointerMove={handleChameleonMove}
                     {...pillInteraction}
-                    className="flex items-center gap-1.5 rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white/80 transition-colors hover:text-white"
+                    className="chameleon flex items-center gap-1.5 rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white/80 transition-colors hover:text-white"
                   >
                     <ChevronLeft size={16} />
                     {ui.bnspDocuments.previous}
@@ -196,8 +199,9 @@ export function BnspDocuments() {
                   <motion.button
                     type="button"
                     onClick={() => setOpenIndex((openIndex + 1) % total)}
+                    onPointerMove={handleChameleonMove}
                     {...pillInteraction}
-                    className="flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-bold text-white"
+                    className="chameleon flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-bold text-white"
                   >
                     {ui.bnspDocuments.next}
                     <ChevronRight size={16} />

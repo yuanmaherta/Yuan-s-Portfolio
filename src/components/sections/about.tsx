@@ -7,6 +7,7 @@ import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PhotoSlot } from "@/components/ui/photo-slot";
 import { buttonInteraction } from "@/lib/motion-presets";
+import { handleChameleonMove } from "@/lib/chameleon";
 
 const courseColors: Record<string, string> = {
   "accent-1": "bg-accent-1",
@@ -58,8 +59,9 @@ export function About() {
             <div className="mt-8 flex flex-wrap gap-3">
               <motion.a
                 href={profile.resumeUrl}
+                onPointerMove={handleChameleonMove}
                 {...buttonInteraction}
-                className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm"
+                className="chameleon rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm"
               >
                 {ui.about.cvLabel}
               </motion.a>
@@ -74,7 +76,8 @@ export function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="rounded-2xl border border-card-border bg-card p-4"
+                  onPointerMove={handleChameleonMove}
+                  className="chameleon rounded-2xl border border-card-border bg-card p-4"
                 >
                   {item.logo ? (
                     <Image
@@ -135,7 +138,8 @@ export function About() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.45, delay: i * 0.1 }}
-                  className="flex gap-4 rounded-2xl border-2 border-ink bg-card p-6 shadow-playful-sm"
+                  onPointerMove={handleChameleonMove}
+                  className="chameleon flex gap-4 rounded-2xl border-2 border-ink bg-card p-6 shadow-playful-sm"
                 >
                   {edu.logo ? (
                     <Image
@@ -203,7 +207,8 @@ export function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.5 }}
-              className="mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-card text-center font-display text-sm font-extrabold leading-tight shadow-playful-sm lg:h-36 lg:w-36"
+              onPointerMove={handleChameleonMove}
+              className="chameleon mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-card text-center font-display text-sm font-extrabold leading-tight shadow-playful-sm lg:h-36 lg:w-36"
             >
               {ui.about.relatedCourseWheelLine1}
               <br />
@@ -247,7 +252,8 @@ function CourseCard({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.45, delay }}
-      className={`flex items-start gap-3 rounded-2xl border-2 border-card-border bg-card p-4 ${
+      onPointerMove={handleChameleonMove}
+      className={`chameleon flex items-start gap-3 rounded-2xl border-2 border-card-border bg-card p-4 ${
         align === "right" ? "lg:flex-row-reverse lg:text-right" : ""
       }`}
     >
