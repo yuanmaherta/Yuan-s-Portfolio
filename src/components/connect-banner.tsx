@@ -31,7 +31,7 @@ export function ConnectBanner() {
               href={`mailto:${profile.email}`}
               onPointerMove={handleChameleonMove}
               {...buttonInteraction}
-              className="chameleon inline-flex items-center gap-2 rounded-full bg-ink px-6 py-2.5 text-sm font-semibold text-white"
+              className="chameleon inline-flex items-center gap-2 rounded-full bg-dark px-6 py-2.5 text-sm font-semibold text-white"
             >
               <Mail size={16} />
               {profile.email}

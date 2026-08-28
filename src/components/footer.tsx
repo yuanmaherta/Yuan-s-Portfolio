@@ -34,7 +34,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label={social.label}
                 {...iconButtonInteraction}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-ink text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white"
               >
                 <SocialIcon label={social.label} />
               </motion.a>
