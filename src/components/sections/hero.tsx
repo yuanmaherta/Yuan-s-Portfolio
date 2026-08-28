@@ -86,8 +86,21 @@ export function Hero() {
           {ui.hero.trustedLabel}
         </p>
         {trustedCompaniesLogo ? (
-          <div className="mx-auto mt-4 max-w-3xl px-6">
-            <div className="mx-auto w-full max-w-xl rounded-2xl border border-card-border bg-white px-6 py-4">
+          <div className="relative mx-auto mt-4 max-w-3xl px-6">
+            {/* Soft color glow behind the plate — keeps the card feeling
+                elegant against a dark background instead of a flat white
+                rectangle, without touching the logos' own light backdrop
+                (brand logos need a light plate to render correctly). */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-10 top-1/2 h-20 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary/30 via-accent-3/30 to-accent-4/30 blur-2xl"
+            />
+            <motion.div
+              onPointerMove={handleChameleonMove}
+              whileHover={{ y: -2 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="chameleon relative mx-auto w-full max-w-xl rounded-3xl border-2 border-ink bg-white/95 px-8 py-5 shadow-playful backdrop-blur-sm"
+            >
               <Image
                 src={trustedCompaniesLogo}
                 alt={trustedCompanies.join(", ")}
@@ -95,7 +108,7 @@ export function Hero() {
                 height={87}
                 className="mx-auto h-auto w-full"
               />
-            </div>
+            </motion.div>
           </div>
         ) : (
           <div className="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6">
