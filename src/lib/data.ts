@@ -22,7 +22,9 @@ export const profile = {
 // path under public/images (e.g. "/images/about-bio.jpg") once the real
 // photo is ready and it renders automatically, no code changes needed.
 export const aboutPhotos = {
-  bio: "/images/hero-portrait.jpeg",
+  // Background removed — rendered with fit="contain" so the card's
+  // gradient stays visible around the cutout.
+  bio: "/images/hero-portrait-about-cutout.png",
   education: "",
 };
 

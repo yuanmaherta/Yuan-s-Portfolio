@@ -22,7 +22,9 @@ export const profile = {
 };
 
 export const aboutPhotos = {
-  bio: "/images/hero-portrait.jpeg",
+  // Background removed — rendered with fit="contain" so the card's
+  // gradient stays visible around the cutout.
+  bio: "/images/hero-portrait-about-cutout.png",
   education: "",
 };
 

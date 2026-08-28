@@ -36,6 +36,7 @@ export function About() {
             <PhotoSlot
               src={aboutPhotos.bio}
               alt={profile.name}
+              fit="contain"
               className="aspect-[4/5] w-full max-w-xs"
             />
           </motion.div>
@@ -111,6 +112,7 @@ export function About() {
               src={aboutPhotos.education}
               alt={profile.name}
               gradient="from-accent-4 to-primary"
+              fit="contain"
               className="aspect-[4/5] w-full max-w-xs"
             />
           </motion.div>
