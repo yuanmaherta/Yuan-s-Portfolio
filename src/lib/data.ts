@@ -318,7 +318,8 @@ export const experienceIntro: string =
 // Photo slots for the Experience page. Leave empty to keep the gradient
 // placeholder; drop a public/images path in once the photo is ready.
 export const experiencePhotos = {
-  intro: "", // BUMN photo next to the intro
+  // Reuses the same solo BUMN photo as the Home page's Why Choose Me card.
+  intro: "/images/why-choose-bumn.png",
   // Background removed — rendered with fit="contain" so the card's
   // gradient stays visible around the cutout.
   orgHub: "/images/experience/org-hub-cutout.png",
@@ -343,7 +344,7 @@ export const experiences = {
       role: "Business Statistics Practicum Assistant",
       org: "Telkom University",
       period: "Oct 2023 — Jan 2024",
-      photo: "",
+      photo: "/images/experience/professional/business-statistics-practicum.jpg",
       points: [
         "Trained 40+ students in data analysis using SPSS and Excel to effectively complete data-based assignments and exams.",
         "Evaluated student assignments and exams, providing individualized feedback that contributed to an average final score of 92.59, with 95% of students achieving an A grade.",
@@ -353,7 +354,7 @@ export const experiences = {
       role: "Operations Management Practicum Assistant",
       org: "Telkom University",
       period: "Feb — Jun 2025",
-      photo: "",
+      photo: "/images/experience/professional/operations-management-practicum.jpg",
       points: [
         "Provided training and guidance to students in using POM-QM software for operations analysis and data-driven decision making.",
         "Assisted students in understanding operations management concepts such as quality, lean operations, and capacity, and offered feedback to improve academic performance.",
@@ -363,7 +364,7 @@ export const experiences = {
       role: "SME & Credit Program Sales Intern",
       org: "PT. Bank Tabungan Negara Tbk",
       period: "Jun — Aug 2025",
-      photo: "",
+      photo: "/images/experience/professional/btn-sme-credit-intern.jpg",
       points: [
         "Assessed 20+ SME BI Checking/SLIK daily and analyzed 10 debtor accounts via bank statements.",
         "Supported SME credit program development and client presentations for financing acquisition.",
@@ -374,7 +375,7 @@ export const experiences = {
       role: "Tech Recruiter Intern",
       org: "Rakamin Academy",
       period: "Oct — Nov 2025",
-      photo: "",
+      photo: "/images/experience/professional/rakamin-tech-recruiter.jpg",
       points: [
         "Managed end-to-end tech recruitment, sourcing 100+ candidates via LinkedIn and ensuring project alignment.",
         "Built tracking systems and interview tools to improve efficiency and data-driven hiring.",
@@ -385,7 +386,7 @@ export const experiences = {
       role: "People Culture & Talent Acquisition Intern",
       org: "PT Hutama Karya (Persero)",
       period: "Feb — Aug 2026",
-      photo: "",
+      photo: "/images/experience/professional/hutama-karya-intern.jpg",
       points: [
         "Developed an Excel-based Manpower Planning (MPP) tool and mapped 16,000+ position codes.",
         "Managed PKWT contract-renewal evaluations for 20+ employees/month, including digitalizing the evaluation form.",

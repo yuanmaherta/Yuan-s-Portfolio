@@ -303,7 +303,8 @@ export const experienceIntro =
   "Saya senang menjembatani teori akademik dengan dampak nyata di dunia kerja. Setiap pencapaian yang dibagikan di sini bukan sekadar pengalaman, melainkan bukti kerja keras, pertumbuhan yang konsisten, dan dedikasi saya untuk terus berkembang di bidang human capital, bisnis, dan strategi melalui aksi nyata.";
 
 export const experiencePhotos = {
-  intro: "",
+  // Reuses the same solo BUMN photo as the Home page's Why Choose Me card.
+  intro: "/images/why-choose-bumn.png",
   // Background removed — rendered with fit="contain" so the card's
   // gradient stays visible around the cutout.
   orgHub: "/images/experience/org-hub-cutout.png",
@@ -326,7 +327,7 @@ export const experiences = {
       role: "Asisten Praktikum Statistika Bisnis",
       org: "Telkom University",
       period: "Oct 2023 — Jan 2024",
-      photo: "",
+      photo: "/images/experience/professional/business-statistics-practicum.jpg",
       points: [
         "Melatih 40+ mahasiswa dalam analisis data menggunakan SPSS dan Excel untuk menyelesaikan tugas dan ujian berbasis data secara efektif.",
         "Mengevaluasi tugas dan ujian mahasiswa, memberikan feedback individual yang berkontribusi pada rata-rata nilai akhir 92.59, dengan 95% mahasiswa meraih nilai A.",
@@ -336,7 +337,7 @@ export const experiences = {
       role: "Asisten Praktikum Manajemen Operasi",
       org: "Telkom University",
       period: "Feb — Jun 2025",
-      photo: "",
+      photo: "/images/experience/professional/operations-management-practicum.jpg",
       points: [
         "Memberikan pelatihan dan bimbingan kepada mahasiswa dalam menggunakan software POM-QM untuk analisis operasi dan pengambilan keputusan berbasis data.",
         "Membantu mahasiswa memahami konsep manajemen operasi seperti kualitas, lean operations, dan kapasitas, serta memberikan feedback untuk meningkatkan performa akademik.",
@@ -346,7 +347,7 @@ export const experiences = {
       role: "Intern Sales Program Kredit UMKM",
       org: "PT. Bank Tabungan Negara Tbk",
       period: "Jun — Aug 2025",
-      photo: "",
+      photo: "/images/experience/professional/btn-sme-credit-intern.jpg",
       points: [
         "Menilai 20+ BI Checking/SLIK UMKM setiap hari dan menganalisis 10 rekening debitur melalui rekening koran bank.",
         "Mendukung pengembangan program kredit UMKM dan presentasi klien untuk akuisisi pembiayaan.",
@@ -357,7 +358,7 @@ export const experiences = {
       role: "Intern Tech Recruiter",
       org: "Rakamin Academy",
       period: "Oct — Nov 2025",
-      photo: "",
+      photo: "/images/experience/professional/rakamin-tech-recruiter.jpg",
       points: [
         "Mengelola rekrutmen tech secara end-to-end, sourcing 100+ kandidat melalui LinkedIn dan memastikan keselarasan proyek.",
         "Membangun sistem pelacakan dan alat wawancara untuk meningkatkan efisiensi dan hiring berbasis data.",
@@ -368,7 +369,7 @@ export const experiences = {
       role: "Intern People Culture & Talent Acquisition",
       org: "PT Hutama Karya (Persero)",
       period: "Feb — Aug 2026",
-      photo: "",
+      photo: "/images/experience/professional/hutama-karya-intern.jpg",
       points: [
         "Mengembangkan tools Manpower Planning (MPP) berbasis Excel dan memetakan 16.000+ kode posisi.",
         "Mengelola evaluasi perpanjangan kontrak PKWT untuk 20+ karyawan/bulan, termasuk mendigitalisasi formulir evaluasi.",
