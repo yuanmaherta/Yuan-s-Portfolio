@@ -8,7 +8,7 @@ export const profile = {
   role: "Business Management Professional",
   tagline: "Turning insight into impact — across people, strategy, and business growth.",
   bio: "Fresh graduate with a Bachelor of Business Management in Telecommunication and Informatics from Telkom University, with a concentration in Digitalization Human Capital Management, and a strong interest in Organizational Design, Talent Acquisition, and Business Development. Experienced in data analysis, market and user research, recruitment support, and Business Model Canvas development, gained through internships, teaching practicums, and digital projects. Skilled in problem-solving and analytical thinking, with a demonstrated ability to translate insights into strategic recommendations that support human capital initiatives and business growth.",
-  location: "Bandung, West Java, Indonesia",
+  location: "Jakarta, Indonesia",
   email: "yuan.maherta.33@gmail.com",
   resumeUrl: "#",
   socials: [

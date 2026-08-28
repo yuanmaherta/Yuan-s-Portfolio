@@ -43,7 +43,7 @@ export function Projects() {
                   transition={{ duration: 0.45, delay: i * 0.08 }}
                   whileHover={{ y: -4 }}
                   onPointerMove={handleChameleonMove}
-                  className="chameleon flex flex-col overflow-hidden rounded-2xl bg-white text-ink shadow-playful-sm"
+                  className="chameleon flex flex-col overflow-hidden rounded-2xl bg-white text-dark shadow-playful-sm"
                 >
                   <div className="relative flex aspect-[3/4] w-full items-center justify-center bg-canvas">
                     {project.cover ? (
@@ -61,10 +61,10 @@ export function Projects() {
                     <h4 className="font-display font-bold leading-snug">
                       {project.title}
                     </h4>
-                    <p className="mt-1 text-sm font-semibold text-muted">
+                    <p className="mt-1 text-sm font-semibold text-[#6b6458]">
                       {project.subject}
                     </p>
-                    <p className="mt-2 text-xs font-medium text-muted">
+                    <p className="mt-2 text-xs font-medium text-[#6b6458]">
                       {project.period}
                     </p>
                   </div>
