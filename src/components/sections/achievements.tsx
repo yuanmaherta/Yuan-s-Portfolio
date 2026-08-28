@@ -81,7 +81,7 @@ export function Achievements() {
                     src={item.photo}
                     alt={item.title}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 ) : (
                   <Award size={36} className="text-white/80" />
