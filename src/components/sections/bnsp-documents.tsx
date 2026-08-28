@@ -92,73 +92,78 @@ export function BnspDocuments() {
               exit={{ opacity: 0, scale: 0.94, y: 16 }}
               transition={{ type: "spring", stiffness: 320, damping: 30 }}
               onClick={(e) => e.stopPropagation()}
-              className="diagonal-dark relative max-h-[85vh] w-full max-w-3xl overflow-y-auto rounded-3xl border-2 border-ink p-6 shadow-playful sm:p-8"
+              className="diagonal-dark relative max-h-[85vh] w-full max-w-3xl rounded-3xl border-2 border-ink shadow-playful"
             >
+              {/* Floats above the scrollable area below, so it stays put
+                  regardless of scroll position and never collides with the
+                  heading text. */}
               <motion.button
                 type="button"
                 onClick={() => setOpenIndex(null)}
                 {...iconButtonInteraction}
                 aria-label={ui.bnspDocuments.close}
-                className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border-2 border-white/30 bg-white/10 text-white"
+                className="!absolute !right-5 !top-5 z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-white/30 bg-ink text-white"
               >
                 <X size={18} />
               </motion.button>
 
-              <span className="text-xs font-bold uppercase tracking-widest text-primary">
-                {ui.bnspDocuments.chapterLabel} {openIndex + 1} {ui.bnspDocuments.of} {total}
-              </span>
-              <h3 className="font-display mt-2 max-w-xl pr-12 text-2xl font-extrabold sm:text-3xl">
-                {activeSection.title}
-              </h3>
-              <p className="mt-2 max-w-2xl text-sm text-white/70">
-                {activeSection.description}
-              </p>
+              <div className="max-h-[85vh] overflow-y-auto p-6 sm:p-8">
+                <span className="text-xs font-bold uppercase tracking-widest text-primary">
+                  {ui.bnspDocuments.chapterLabel} {openIndex + 1} {ui.bnspDocuments.of} {total}
+                </span>
+                <h3 className="font-display mt-2 max-w-lg pr-14 text-2xl font-extrabold sm:text-3xl">
+                  {activeSection.title}
+                </h3>
+                <p className="mt-2 max-w-2xl text-sm text-white/70">
+                  {activeSection.description}
+                </p>
 
-              <div className="mt-8 space-y-8">
-                {activeSection.subsections.map((sub, subi) => (
-                  <div key={sub.title}>
-                    <h4 className="font-display text-sm font-bold sm:text-base">
-                      {sub.title}
-                    </h4>
-                    <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
-                      {Array.from({ length: sub.count }).map((_, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{
-                            duration: 0.3,
-                            delay: (subi + i * 0.5) * 0.02,
-                          }}
-                          className="flex aspect-[3/4] items-center justify-center rounded-xl border border-white/10 bg-white/95"
-                        >
-                          <FileText size={22} className="text-ink/20" />
-                        </motion.div>
-                      ))}
+                <div className="mt-8 space-y-8">
+                  {activeSection.subsections.map((sub, subi) => (
+                    <div key={sub.title}>
+                      <h4 className="font-display text-sm font-bold sm:text-base">
+                        {sub.title}
+                      </h4>
+                      <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                        {Array.from({ length: sub.count }).map((_, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{
+                              duration: 0.3,
+                              delay: (subi + i * 0.5) * 0.02,
+                            }}
+                            className="flex aspect-[3/4] items-center justify-center rounded-xl border border-white/10 bg-white/95"
+                          >
+                            <FileText size={22} className="text-ink/20" />
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              <div className="mt-10 flex items-center justify-between gap-4 border-t border-white/10 pt-6">
-                <motion.button
-                  type="button"
-                  onClick={() => setOpenIndex((total + openIndex - 1) % total)}
-                  {...pillInteraction}
-                  className="flex items-center gap-1.5 rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white/80 transition-colors hover:text-white"
-                >
-                  <ChevronLeft size={16} />
-                  {ui.bnspDocuments.previous}
-                </motion.button>
-                <motion.button
-                  type="button"
-                  onClick={() => setOpenIndex((openIndex + 1) % total)}
-                  {...pillInteraction}
-                  className="flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-bold text-white"
-                >
-                  {ui.bnspDocuments.next}
-                  <ChevronRight size={16} />
-                </motion.button>
+                <div className="mt-10 flex items-center justify-between gap-4 border-t border-white/10 pt-6">
+                  <motion.button
+                    type="button"
+                    onClick={() => setOpenIndex((total + openIndex - 1) % total)}
+                    {...pillInteraction}
+                    className="flex items-center gap-1.5 rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white/80 transition-colors hover:text-white"
+                  >
+                    <ChevronLeft size={16} />
+                    {ui.bnspDocuments.previous}
+                  </motion.button>
+                  <motion.button
+                    type="button"
+                    onClick={() => setOpenIndex((openIndex + 1) % total)}
+                    {...pillInteraction}
+                    className="flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-bold text-white"
+                  >
+                    {ui.bnspDocuments.next}
+                    <ChevronRight size={16} />
+                  </motion.button>
+                </div>
               </div>
             </motion.div>
           </motion.div>
