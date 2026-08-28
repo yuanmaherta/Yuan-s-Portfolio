@@ -304,7 +304,9 @@ export const experienceIntro =
 
 export const experiencePhotos = {
   intro: "",
-  orgHub: "",
+  // Background removed — rendered with fit="contain" so the card's
+  // gradient stays visible around the cutout.
+  orgHub: "/images/experience/org-hub-cutout.png",
 };
 
 type OrgExperience = {
@@ -314,8 +316,8 @@ type OrgExperience = {
   period: string;
   logo: string;
   points: string[];
-  gallery?: { tag: string; caption: string; location: string; date: string }[];
-  podcastEpisodes?: string[];
+  gallery?: { tag: string; caption: string; location: string; date: string; photo?: string }[];
+  podcastEpisodes?: { title: string; photo?: string }[];
 };
 
 export const experiences = {
@@ -380,17 +382,17 @@ export const experiences = {
       role: "Staf Pengembangan Komunitas",
       org: "Himpunan Mahasiswa Manajemen Bisnis Telekomunikasi dan Informatika (HIMA MBTI)",
       period: "Feb — Dec 2023",
-      logo: "",
+      logo: "/images/experience/logos/hima-mbti.png",
       points: [
         "Berhasil menyelenggarakan 6 kegiatan sosial, termasuk kampanye penggalangan dana, dan membangun kolaborasi dengan berbagai pihak eksternal untuk mendukung inisiatif yang berdampak positif bagi organisasi maupun masyarakat.",
         "Memfasilitasi seminar peningkatan kapasitas di bidang teknologi dan kewirausahaan untuk mengembangkan potensi individu dan komunitas.",
       ],
       gallery: [
-        { tag: "Kunjungan Perusahaan", caption: "PT Angkasa Pura II", location: "Jakarta", date: "24 November 2023" },
-        { tag: "Foto Organisasi", caption: "HIMA MBTI 2023", location: "Telkom University", date: "30 December 2023" },
-        { tag: "Studi Banding", caption: "KMM ITB", location: "Institut Teknologi Bandung", date: "25 November 2023" },
-        { tag: "Socharity", caption: "SDN Margabakti", location: "Desa Pulosari, Bandung", date: "16 October 2023" },
-        { tag: "Sudut Berbagi", caption: "Panti Sosial", location: "Panti Sosial Tresna Wredha Budi Pertiwi, Bandung", date: "23 September 2023" },
+        { tag: "Kunjungan Perusahaan", caption: "PT Angkasa Pura II", location: "Jakarta", date: "24 November 2023", photo: "/images/experience/hima-mbti/company-visit-angkasa-pura.jpg" },
+        { tag: "Foto Organisasi", caption: "HIMA MBTI 2023", location: "Telkom University", date: "30 December 2023", photo: "/images/experience/hima-mbti/organizational-photo-2023.jpg" },
+        { tag: "Studi Banding", caption: "KMM ITB", location: "Institut Teknologi Bandung", date: "25 November 2023", photo: "/images/experience/hima-mbti/study-banding-kmm-itb.jpg" },
+        { tag: "Socharity", caption: "SDN Margabakti", location: "Desa Pulosari, Bandung", date: "16 October 2023", photo: "/images/experience/hima-mbti/socharity-sdn-margabakti.jpg" },
+        { tag: "Sudut Berbagi", caption: "Panti Sosial", location: "Panti Sosial Tresna Wredha Budi Pertiwi, Bandung", date: "23 September 2023", photo: "/images/experience/hima-mbti/sudut-berbagi-panti-sosial.jpg" },
       ],
     },
     {
@@ -398,17 +400,17 @@ export const experiences = {
       role: "Ketua Proyek",
       org: "Belajar Kreasi (BERAKSI)",
       period: "Mar — Dec 2023",
-      logo: "",
+      logo: "/images/experience/logos/belajar-kreasi.png",
       points: [
         "Memimpin dan mengevaluasi kinerja tim beranggotakan 15 orang di 4 divisi (Public Relations, Documentation, Logistics, dan Events), dengan fokus pada manajemen kinerja tim, kolaborasi lintas divisi, dan pencapaian 100% target program organisasi dalam satu periode.",
         "Menginisiasi dua program inklusif bertema keberagaman dan pembelajaran, yaitu 'Sign Language with HIMA MBTI' dan 'Creative Workshop with SLBN Ciendo', mendorong kesetaraan dan pendidikan inklusif di berbagai latar belakang.",
         "Program ini terpilih sebagai salah satu kandidat best practice di HIMA MBTI 2023.",
       ],
       gallery: [
-        { tag: "Sambutan", caption: "SLB C Cicendo", location: "Bandung", date: "24 November 2023" },
-        { tag: "Bahasa Isyarat", caption: "HIMA MBTI", location: "Telkom University", date: "24 November 2023" },
-        { tag: "Bahasa Isyarat", caption: "Anggota Beraksi", location: "Telkom University", date: "30 December 2023" },
-        { tag: "Acara Utama", caption: "SLB C Cicendo", location: "Bandung", date: "25 November 2023" },
+        { tag: "Sambutan", caption: "SLB C Cicendo", location: "Bandung", date: "24 November 2023", photo: "/images/experience/belajar-kreasi/welcoming-speech.jpg" },
+        { tag: "Bahasa Isyarat", caption: "HIMA MBTI", location: "Telkom University", date: "24 November 2023", photo: "/images/experience/belajar-kreasi/sign-language-hima-mbti.jpg" },
+        { tag: "Bahasa Isyarat", caption: "Anggota Beraksi", location: "Telkom University", date: "30 December 2023", photo: "/images/experience/belajar-kreasi/sign-language-anggota-beraksi.jpg" },
+        { tag: "Acara Utama", caption: "SLB C Cicendo", location: "Bandung", date: "25 November 2023", photo: "/images/experience/belajar-kreasi/main-event-slb-cicendo.jpg" },
       ],
     },
     {
@@ -416,17 +418,17 @@ export const experiences = {
       role: "Bendahara",
       org: "Asa Bercerita",
       period: "Mar — Dec 2023",
-      logo: "",
+      logo: "/images/experience/logos/asa-bercerita.png",
       points: [
         "Mengelola dan mengawasi seluruh aktivitas keuangan divisi secara sistematis sesuai SOP organisasi, termasuk penyusunan laporan arus kas dan pertanggungjawaban.",
         "Berkontribusi dalam dukungan kepemimpinan tim dan kolaborasi lintas divisi dalam memproduksi 5 podcast edukatif sebagai platform pembelajaran dan engagement untuk mendukung pengembangan potensi mahasiswa.",
       ],
       podcastEpisodes: [
-        "Muda Berkarya #1",
-        "Tentang Diri #2",
-        "Pertemanan di Dunia Perkuliahan #3",
-        "Kuliah Pulang atau Kuliah Rapat #4",
-        "Bincang Santai Bersama Alumni #5",
+        { title: "Muda Berkarya #1", photo: "/images/experience/asa-bercerita/episode-1-muda-berkarya.jpg" },
+        { title: "Tentang Diri #2", photo: "/images/experience/asa-bercerita/episode-2-tentang-diri.jpg" },
+        { title: "Pertemanan di Dunia Perkuliahan #3", photo: "/images/experience/asa-bercerita/episode-3-pertemanan.jpg" },
+        { title: "Kuliah Pulang atau Kuliah Rapat #4", photo: "/images/experience/asa-bercerita/episode-4-kuliah-rapat.jpg" },
+        { title: "Bincang Santai Bersama Alumni #5", photo: "/images/experience/asa-bercerita/episode-5-bincang-alumni.jpg" },
       ],
     },
     {
@@ -434,14 +436,14 @@ export const experiences = {
       role: "Alumni Digistar Class",
       org: "Digistar Club, Telkom University",
       period: "Dec 2024 — Present",
-      logo: "",
+      logo: "/images/experience/logos/digistar-club.png",
       points: [
         "Bagian dari komunitas eksklusif alumni program LivinginTelkom (Digistar Class, Digistar Connect, Digistar Internship), yang mempersiapkan talenta digital Indonesia.",
       ],
       gallery: [
-        { tag: "Kunjungan Telkom", caption: "Digistar Class", location: "Telkom CorpU Bandung", date: "22 August 2024" },
-        { tag: "Kelas Soft Skill", caption: "Digistar Class", location: "Zoom Meeting", date: "10 August 2024" },
-        { tag: "Kelas Hard Skill", caption: "Digistar Class", location: "Zoom Meeting", date: "29 August 2024" },
+        { tag: "Kunjungan Telkom", caption: "Digistar Class", location: "Telkom CorpU Bandung", date: "22 August 2024", photo: "/images/experience/digistar-club/telkom-tour.jpg" },
+        { tag: "Kelas Soft Skill", caption: "Digistar Class", location: "Zoom Meeting", date: "10 August 2024", photo: "/images/experience/digistar-club/soft-skill-class.jpg" },
+        { tag: "Kelas Hard Skill", caption: "Digistar Class", location: "Zoom Meeting", date: "29 August 2024", photo: "/images/experience/digistar-club/hard-skill-class.jpg" },
       ],
     },
   ] as OrgExperience[],

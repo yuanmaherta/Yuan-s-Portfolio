@@ -319,7 +319,9 @@ export const experienceIntro: string =
 // placeholder; drop a public/images path in once the photo is ready.
 export const experiencePhotos = {
   intro: "", // BUMN photo next to the intro
-  orgHub: "", // center photo of the Organizational Experience hub
+  // Background removed — rendered with fit="contain" so the card's
+  // gradient stays visible around the cutout.
+  orgHub: "/images/experience/org-hub-cutout.png",
 };
 
 type OrgExperience = {
@@ -329,8 +331,8 @@ type OrgExperience = {
   period: string;
   logo: string;
   points: string[];
-  gallery?: { tag: string; caption: string; location: string; date: string }[];
-  podcastEpisodes?: string[];
+  gallery?: { tag: string; caption: string; location: string; date: string; photo?: string }[];
+  podcastEpisodes?: { title: string; photo?: string }[];
 };
 
 export const experiences = {
@@ -397,17 +399,17 @@ export const experiences = {
       role: "Staff of Community Development",
       org: "Himpunan Mahasiswa Manajemen Bisnis Telekomunikasi dan Informatika (HIMA MBTI)",
       period: "Feb — Dec 2023",
-      logo: "",
+      logo: "/images/experience/logos/hima-mbti.png",
       points: [
         "Successfully organized 6 social service events, including fundraising campaigns, and built collaborations with various external parties to support initiatives that positively impact both the organization and the community.",
         "Facilitated capacity-building seminars in the fields of technology and entrepreneurship to enhance individual skills and community potential.",
       ],
       gallery: [
-        { tag: "Company Visit", caption: "PT Angkasa Pura II", location: "Jakarta", date: "24 November 2023" },
-        { tag: "Organizational Photo", caption: "HIMA MBTI 2023", location: "Telkom University", date: "30 December 2023" },
-        { tag: "Study Banding", caption: "KMM ITB", location: "Institut Teknologi Bandung", date: "25 November 2023" },
-        { tag: "Socharity", caption: "SDN Margabakti", location: "Desa Pulosari, Bandung", date: "16 October 2023" },
-        { tag: "Sudut Berbagi", caption: "Panti Sosial", location: "Panti Sosial Tresna Wredha Budi Pertiwi, Bandung", date: "23 September 2023" },
+        { tag: "Company Visit", caption: "PT Angkasa Pura II", location: "Jakarta", date: "24 November 2023", photo: "/images/experience/hima-mbti/company-visit-angkasa-pura.jpg" },
+        { tag: "Organizational Photo", caption: "HIMA MBTI 2023", location: "Telkom University", date: "30 December 2023", photo: "/images/experience/hima-mbti/organizational-photo-2023.jpg" },
+        { tag: "Study Banding", caption: "KMM ITB", location: "Institut Teknologi Bandung", date: "25 November 2023", photo: "/images/experience/hima-mbti/study-banding-kmm-itb.jpg" },
+        { tag: "Socharity", caption: "SDN Margabakti", location: "Desa Pulosari, Bandung", date: "16 October 2023", photo: "/images/experience/hima-mbti/socharity-sdn-margabakti.jpg" },
+        { tag: "Sudut Berbagi", caption: "Panti Sosial", location: "Panti Sosial Tresna Wredha Budi Pertiwi, Bandung", date: "23 September 2023", photo: "/images/experience/hima-mbti/sudut-berbagi-panti-sosial.jpg" },
       ],
     },
     {
@@ -415,17 +417,17 @@ export const experiences = {
       role: "Project Leader",
       org: "Belajar Kreasi (BERAKSI)",
       period: "Mar — Dec 2023",
-      logo: "",
+      logo: "/images/experience/logos/belajar-kreasi.png",
       points: [
         "Led and evaluated the performance of a 15-member team across 4 divisions (Public Relations, Documentation, Logistics, and Events), focusing on team performance management, cross-division collaboration, and achieving 100% of organizational program targets within one term.",
         "Initiated two inclusive programs themed around diversity and learning, namely 'Sign Language with HIMA MBTI' and 'Creative Workshop with SLBN Ciendo', promoting equality and inclusive education among diverse backgrounds.",
         "The program was selected as one of the best practice candidates in HIMA MBTI 2023.",
       ],
       gallery: [
-        { tag: "Welcoming Speech", caption: "SLB C Cicendo", location: "Bandung", date: "24 November 2023" },
-        { tag: "Sign Language", caption: "HIMA MBTI", location: "Telkom University", date: "24 November 2023" },
-        { tag: "Sign Language", caption: "Anggota Beraksi", location: "Telkom University", date: "30 December 2023" },
-        { tag: "Main Event", caption: "SLB C Cicendo", location: "Bandung", date: "25 November 2023" },
+        { tag: "Welcoming Speech", caption: "SLB C Cicendo", location: "Bandung", date: "24 November 2023", photo: "/images/experience/belajar-kreasi/welcoming-speech.jpg" },
+        { tag: "Sign Language", caption: "HIMA MBTI", location: "Telkom University", date: "24 November 2023", photo: "/images/experience/belajar-kreasi/sign-language-hima-mbti.jpg" },
+        { tag: "Sign Language", caption: "Anggota Beraksi", location: "Telkom University", date: "30 December 2023", photo: "/images/experience/belajar-kreasi/sign-language-anggota-beraksi.jpg" },
+        { tag: "Main Event", caption: "SLB C Cicendo", location: "Bandung", date: "25 November 2023", photo: "/images/experience/belajar-kreasi/main-event-slb-cicendo.jpg" },
       ],
     },
     {
@@ -433,17 +435,17 @@ export const experiences = {
       role: "Treasurer",
       org: "Asa Bercerita",
       period: "Mar — Dec 2023",
-      logo: "",
+      logo: "/images/experience/logos/asa-bercerita.png",
       points: [
         "Managed and supervised all divisional financial activities systematically in accordance with organizational SOPs, including the preparation of cash flow and accountability reports.",
         "Contributed to team leadership support and cross-division collaboration in producing 5 educational podcasts as a learning and engagement platform to support student potential development.",
       ],
       podcastEpisodes: [
-        "Muda Berkarya #1",
-        "Tentang Diri #2",
-        "Pertemanan di Dunia Perkuliahan #3",
-        "Kuliah Pulang atau Kuliah Rapat #4",
-        "Bincang Santai Bersama Alumni #5",
+        { title: "Muda Berkarya #1", photo: "/images/experience/asa-bercerita/episode-1-muda-berkarya.jpg" },
+        { title: "Tentang Diri #2", photo: "/images/experience/asa-bercerita/episode-2-tentang-diri.jpg" },
+        { title: "Pertemanan di Dunia Perkuliahan #3", photo: "/images/experience/asa-bercerita/episode-3-pertemanan.jpg" },
+        { title: "Kuliah Pulang atau Kuliah Rapat #4", photo: "/images/experience/asa-bercerita/episode-4-kuliah-rapat.jpg" },
+        { title: "Bincang Santai Bersama Alumni #5", photo: "/images/experience/asa-bercerita/episode-5-bincang-alumni.jpg" },
       ],
     },
     {
@@ -451,14 +453,14 @@ export const experiences = {
       role: "Digistar Class Alumni",
       org: "Digistar Club, Telkom University",
       period: "Dec 2024 — Present",
-      logo: "",
+      logo: "/images/experience/logos/digistar-club.png",
       points: [
         "Part of an exclusive community for alumni of LivinginTelkom programs (Digistar Class, Digistar Connect, Digistar Internship), preparing Indonesia's digital talents.",
       ],
       gallery: [
-        { tag: "Telkom Tour", caption: "Digistar Class", location: "Telkom CorpU Bandung", date: "22 August 2024" },
-        { tag: "Soft Skill Class", caption: "Digistar Class", location: "Zoom Meeting", date: "10 August 2024" },
-        { tag: "Hard Skill Class", caption: "Digistar Class", location: "Zoom Meeting", date: "29 August 2024" },
+        { tag: "Telkom Tour", caption: "Digistar Class", location: "Telkom CorpU Bandung", date: "22 August 2024", photo: "/images/experience/digistar-club/telkom-tour.jpg" },
+        { tag: "Soft Skill Class", caption: "Digistar Class", location: "Zoom Meeting", date: "10 August 2024", photo: "/images/experience/digistar-club/soft-skill-class.jpg" },
+        { tag: "Hard Skill Class", caption: "Digistar Class", location: "Zoom Meeting", date: "29 August 2024", photo: "/images/experience/digistar-club/hard-skill-class.jpg" },
       ],
     },
   ] as OrgExperience[],

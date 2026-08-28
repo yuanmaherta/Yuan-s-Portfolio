@@ -149,6 +149,7 @@ export function Experience() {
               src={experiencePhotos.orgHub}
               alt={profile.name}
               gradient="from-primary to-accent-2"
+              fit="contain"
               className="mx-auto aspect-square w-48 lg:w-56"
             />
 
@@ -206,7 +207,12 @@ export function Experience() {
                     <div className="grid gap-4 sm:grid-cols-3">
                       {exp.gallery.map((photo) => (
                         <div key={photo.tag + photo.date} className="flex flex-col">
-                          <div className="aspect-[4/3] w-full rounded-2xl border-2 border-ink bg-gradient-to-br from-accent-2 to-primary" />
+                          <PhotoSlot
+                            src={photo.photo}
+                            alt={`${photo.tag} — ${photo.caption}`}
+                            gradient="from-accent-2 to-primary"
+                            className="aspect-[4/3] w-full"
+                          />
                           <span className="mt-2 inline-block w-fit rounded-full border border-card-border bg-card px-3 py-1 text-xs font-bold">
                             {photo.tag}
                           </span>
@@ -221,14 +227,19 @@ export function Experience() {
                     </div>
                   ) : exp.podcastEpisodes ? (
                     <div className="flex gap-4 overflow-x-auto pb-2">
-                      {exp.podcastEpisodes.map((title) => (
+                      {exp.podcastEpisodes.map((episode) => (
                         <div
-                          key={title}
+                          key={episode.title}
                           className="flex w-40 shrink-0 flex-col gap-2"
                         >
-                          <div className="aspect-square w-full rounded-2xl border-2 border-ink bg-gradient-to-br from-accent-1 to-accent-3" />
+                          <PhotoSlot
+                            src={episode.photo}
+                            alt={episode.title}
+                            gradient="from-accent-1 to-accent-3"
+                            className="aspect-square w-full"
+                          />
                           <span className="text-xs font-bold text-primary">
-                            {title}
+                            {episode.title}
                           </span>
                         </div>
                       ))}
