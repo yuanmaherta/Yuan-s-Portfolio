@@ -247,14 +247,37 @@ export const skills = {
     "Microsoft Excel",
     "Glassdoor",
     "SPSS",
+    "POM-QM",
+    "Supabase",
     "Trello",
     "LinkedIn",
     "ProjectLibre",
     "MySQL",
+    "Google Colab",
     "Indeed",
     "Vercel",
   ],
 };
+
+// Individual tool logos (ungrouped so each one gets its own hover card),
+// used by the Tools grid on the Skills page. Names match skills.tools.
+export const toolLogos: { name: string; logo: string }[] = [
+  { name: "Canva", logo: "/images/tools/canva.png" },
+  { name: "Microsoft Word", logo: "/images/tools/microsoft-word.png" },
+  { name: "Microsoft PowerPoint", logo: "/images/tools/microsoft-powerpoint.png" },
+  { name: "Microsoft Excel", logo: "/images/tools/microsoft-excel.png" },
+  { name: "Glassdoor", logo: "/images/tools/glassdoor.png" },
+  { name: "SPSS", logo: "/images/tools/spss.png" },
+  { name: "POM-QM", logo: "/images/tools/pom-qm.png" },
+  { name: "Supabase", logo: "/images/tools/supabase.png" },
+  { name: "Trello", logo: "/images/tools/trello.png" },
+  { name: "LinkedIn", logo: "/images/tools/linkedin.png" },
+  { name: "ProjectLibre", logo: "/images/tools/projectlibre.png" },
+  { name: "MySQL", logo: "/images/tools/mysql.png" },
+  { name: "Google Colab", logo: "/images/tools/google-colab.png" },
+  { name: "Indeed", logo: "/images/tools/indeed.png" },
+  { name: "Vercel", logo: "/images/tools/vercel.png" },
+];
 
 export const bnspThumbnail: string = "/images/activity-bnsp.png";
 

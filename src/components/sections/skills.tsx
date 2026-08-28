@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { handleChameleonMove } from "@/lib/chameleon";
 
 const softIcons = [Brain, Workflow, ClipboardList, UsersRound, LineChart, MessagesSquare];
 const softColors = ["accent-3", "accent-4", "accent-1", "primary", "accent-2", "accent-4"];
@@ -24,7 +25,7 @@ const bnspIcons = [FileSearch, ShoppingBag, FileStack];
 const bnspColors = ["bg-navy", "bg-navy", "bg-primary"];
 
 export function Skills() {
-  const { skills, bnspActivities, bnspThumbnail, ui } = useContent();
+  const { skills, toolLogos, bnspActivities, bnspThumbnail, ui } = useContent();
   const left = skills.soft.filter((_, i) => i % 2 === 0);
   const right = skills.soft.filter((_, i) => i % 2 === 1);
 
@@ -122,22 +123,30 @@ export function Skills() {
           <p className="mx-auto mt-2 max-w-xl text-center text-sm text-muted">
             {ui.skills.toolsSubtitle}
           </p>
-          <div className="mt-8 rounded-3xl border-2 border-card-border bg-card p-6 sm:p-8">
-            <div className="flex flex-wrap justify-center gap-3">
-              {skills.tools.map((tool, i) => (
-                <motion.span
-                  key={tool}
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.3, delay: i * 0.03 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="cursor-default rounded-2xl border-2 border-card-border bg-canvas px-5 py-2.5 text-sm font-semibold hover:border-primary hover:bg-primary/10"
-                >
-                  {tool}
-                </motion.span>
-              ))}
-            </div>
+          <div className="mt-8 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-5">
+            {toolLogos.map((tool, i) => (
+              <motion.div
+                key={tool.name}
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.3, delay: i * 0.03 }}
+                whileHover={{ y: -3 }}
+                onPointerMove={handleChameleonMove}
+                className="chameleon flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-card-border bg-canvas p-5"
+              >
+                <Image
+                  src={tool.logo}
+                  alt={tool.name}
+                  width={64}
+                  height={64}
+                  className="h-12 w-auto object-contain"
+                />
+                <span className="text-center text-xs font-semibold">
+                  {tool.name}
+                </span>
+              </motion.div>
+            ))}
           </div>
         </div>
 
