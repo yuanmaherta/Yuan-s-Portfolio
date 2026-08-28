@@ -10,7 +10,7 @@ export const profile = {
   name: "Yuan Maherta",
   role: "Profesional Manajemen Bisnis",
   tagline: "Mengubah wawasan menjadi dampak nyata — di bidang manusia, strategi, dan pertumbuhan bisnis.",
-  bio: "Fresh graduate Sarjana Manajemen Bisnis Telekomunikasi dan Informatika dari Telkom University, dengan konsentrasi Digitalisasi Manajemen Human Capital, serta minat besar pada Organizational Design, Talent Acquisition, dan Business Development. Berpengalaman dalam analisis data, riset pasar dan pengguna, dukungan rekrutmen, serta penyusunan Business Model Canvas, yang diperoleh melalui magang, praktikum mengajar, dan proyek digital. Terampil dalam pemecahan masalah dan berpikir analitis, dengan kemampuan terbukti menerjemahkan wawasan menjadi rekomendasi strategis yang mendukung inisiatif human capital dan pertumbuhan bisnis.",
+  bio: "Saya Yuan Maherta, seorang fresh graduate Sarjana Manajemen Bisnis Telekomunikasi dan Informatika dari Telkom University, dengan konsentrasi Digitalisasi Manajemen Human Capital, serta minat besar pada Organizational Design, Talent Acquisition, dan Business Development. Berpengalaman dalam analisis data, riset pasar dan pengguna, dukungan rekrutmen, serta penyusunan Business Model Canvas, yang diperoleh melalui magang, praktikum mengajar, dan proyek digital.",
   location: "Jakarta, Indonesia",
   email: "yuan.maherta.33@gmail.com",
   resumeUrl: "#",
