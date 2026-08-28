@@ -679,27 +679,33 @@ export const achievements = {
       title: "3rd Place — Ideastorm 2024",
       issuer: "System Architecture and Governance (SAG) Research Laboratory",
       detail: "Nexilium Team",
-      photo: "", // TODO: award/team photo
+      photo: "/images/achievements/award-ideastorm.jpg",
     },
     {
       title: "Digistar Class 2024 — Hustler",
       issuer: "Telkom Indonesia",
       detail: "Ranked 59th out of 500 mentees",
-      photo: "", // TODO: Digistar Class magazine cover
+      photo: "/images/achievements/award-digistar-hustler.jpg",
     },
   ],
-  // Each category stands in for the real certificate scan(s) it covers.
-  // Drop a public/images path into `photo` once the scan is ready — the
-  // grid renders it in place of the placeholder icon automatically.
   certificateCategories: [
-    { title: "BNSP HR Competency Certifications", photo: "" },
-    { title: "Google Digital Garage, Google AI Essentials & Google Project Management", photo: "" },
-    { title: "Compensation & Benefits Fundamentals", photo: "" },
-    { title: "Azure AI Fundamentals (AI-900)", photo: "" },
-    { title: "Job Analysis Process", photo: "" },
-    { title: "IBM Data Classification & Optimization", photo: "" },
-    { title: "TOEFL Certificate of Achievement", photo: "" },
-    { title: "International Scientific Conference on Business and Economics (ISCBE) 2026 Presenter", photo: "" },
+    { title: "BNSP HR Competency Certifications", photo: "/images/achievements/cert-bnsp-hr-staff.jpg" },
+    { title: "Google Digital Garage", photo: "/images/achievements/cert-google-digital-garage.jpg" },
+    { title: "Google AI Essentials", photo: "/images/achievements/cert-google-ai-essentials.jpg" },
+    { title: "Google Project Management", photo: "/images/achievements/cert-google-project-management.jpg" },
+    { title: "Compensation & Benefits Fundamentals", photo: "/images/achievements/cert-compensation-benefits.jpg" },
+    { title: "Azure AI Fundamentals (AI-900)", photo: "/images/achievements/cert-azure-ai-900.jpg" },
+    { title: "Job Analysis Process", photo: "/images/achievements/cert-job-analysis-process.jpg" },
+    { title: "IBM Data Classification & Summarization", photo: "/images/achievements/cert-ibm-data-classification.jpg" },
+    { title: "IBM Code Generation & Optimization", photo: "/images/achievements/cert-ibm-code-generation.jpg" },
+    { title: "TOEFL Certificate of Achievement", photo: "/images/achievements/cert-toefl.jpg" },
+    { title: "International Scientific Conference on Business and Economics (ISCBE) 2026 Presenter", photo: "/images/achievements/cert-iscbe-presenter.jpg" },
+    { title: "English Proficiency Test (EPrT)", photo: "/images/achievements/cert-eprt.jpg" },
+    { title: "Digistar Class 2024 Completion", photo: "/images/achievements/cert-digistar-class-2024.jpg" },
+    { title: "Project-Based Internship — Rakamin Academy", photo: "/images/achievements/cert-rakamin-internship.jpg" },
+    { title: "Staff of Community Development — HIMA MBTI", photo: "/images/achievements/cert-hima-mbti-community-dev.jpg" },
+    { title: "Assistant Practicum — Operations Management", photo: "/images/achievements/cert-asisten-praktikum-manajemen-operasi.jpg" },
+    { title: "Assistant Practicum — Business Statistics", photo: "/images/achievements/cert-asisten-praktikum-statistika-bisnis.jpg" },
   ],
 };
 
