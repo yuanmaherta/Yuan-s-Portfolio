@@ -708,6 +708,14 @@ export const ui = {
   },
   bnspDocuments: {
     eyebrow: "Proyek Sertifikasi BNSP",
+    openFolder: "Buka folder",
+    documentsLabel: "dokumen",
+    subsectionsLabel: "subbagian",
+    previous: "Sebelumnya",
+    next: "Berikutnya",
+    close: "Tutup",
+    chapterLabel: "Bab",
+    of: "dari",
   },
   achievements: {
     eyebrow: "Pengakuan",

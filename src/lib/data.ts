@@ -735,6 +735,14 @@ export const ui = {
   },
   bnspDocuments: {
     eyebrow: "BNSP Certification Project",
+    openFolder: "Open folder",
+    documentsLabel: "documents",
+    subsectionsLabel: "subsections",
+    previous: "Previous",
+    next: "Next",
+    close: "Close",
+    chapterLabel: "Chapter",
+    of: "of",
   },
   achievements: {
     eyebrow: "Recognition",
