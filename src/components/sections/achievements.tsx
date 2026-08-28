@@ -112,7 +112,7 @@ export function Achievements() {
           </p>
 
           <div className="mt-8 rounded-3xl border-2 border-card-border bg-card/60 p-6 sm:p-8">
-            <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
               {achievements.certificateCategories.map((cert, i) => (
                 <motion.div
                   key={cert.title}
@@ -121,7 +121,7 @@ export function Achievements() {
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
                   whileHover={{ y: -3 }}
-                  className="flex flex-col overflow-hidden rounded-2xl border-2 border-card-border bg-canvas"
+                  className="flex flex-col overflow-hidden rounded-xl border-2 border-card-border bg-canvas"
                 >
                   <div
                     onClick={
@@ -154,7 +154,7 @@ export function Achievements() {
                       <Award size={24} className="text-primary/30" />
                     )}
                   </div>
-                  <span className="p-3 text-xs font-medium leading-snug">
+                  <span className="p-2 text-[11px] font-medium leading-snug">
                     {cert.title}
                   </span>
                 </motion.div>
@@ -180,7 +180,7 @@ export function Achievements() {
               exit={{ opacity: 0, scale: 0.94 }}
               transition={{ type: "spring", stiffness: 320, damping: 30 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-h-[90vh] max-w-2xl"
+              className="relative h-[85vh] w-[90vw] max-w-3xl"
             >
               <motion.button
                 type="button"
@@ -194,11 +194,13 @@ export function Achievements() {
               {/* eslint-disable-next-line @next/next/no-img-element -- natural
                   aspect ratio is unknown ahead of time; next/image needs a
                   fixed box or intrinsic dimensions, neither of which fit a
-                  lightbox that should just scale to the image's own shape. */}
+                  lightbox that should just scale to the image's own shape.
+                  Many certificate scans are small (~200px), so the box is
+                  sized generously and the image is scaled up to fill it. */}
               <img
                 src={preview.src}
                 alt={preview.alt}
-                className="max-h-[90vh] w-auto rounded-2xl border-2 border-ink object-contain shadow-playful"
+                className="h-full w-full rounded-2xl border-2 border-ink object-contain bg-white shadow-playful"
               />
             </motion.div>
           </motion.div>
