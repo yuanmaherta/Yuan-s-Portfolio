@@ -473,25 +473,25 @@ export const projects = {
       title: "Strategic Management Analysis",
       subject: "PT Kalbe Farma Tbk",
       period: "Feb 2024 – Jun 2024",
-      cover: "", // TODO: report cover scan
+      cover: "/images/projects/academic-strategic-management.jpg",
     },
     {
       title: "Consumer Behavior Study",
       subject: "FIT HUB Gym",
       period: "Feb 2025 – Jun 2025",
-      cover: "", // TODO: report cover scan
+      cover: "/images/projects/academic-consumer-behavior.jpg",
     },
     {
       title: "Marketing Plan",
       subject: "Erigo",
       period: "Sep 2023 – Jan 2024",
-      cover: "", // TODO: report cover scan
+      cover: "/images/projects/academic-marketing-plan-erigo.jpg",
     },
     {
       title: "Entrepreneurship — Business Model Canvas",
       subject: "Crunchy Ocean",
       period: "Sep 2023 – Jan 2024",
-      cover: "", // TODO: report cover scan
+      cover: "/images/projects/academic-entrepreneurship-bmc.jpg",
     },
   ],
   digital: [
@@ -503,7 +503,7 @@ export const projects = {
       role: "",
       tag: "Intern Project",
       color: "accent-1",
-      cover: "", // TODO: app/mockup screenshot
+      cover: "/images/projects/digital-renewa.jpg",
       link: "", // TODO: add live demo / repo / case-study URL
     },
     {
@@ -514,7 +514,7 @@ export const projects = {
       role: "",
       tag: "Intern Project",
       color: "accent-3",
-      cover: "", // TODO: app/mockup screenshot
+      cover: "/images/projects/digital-sibeta.jpg",
       link: "", // TODO: add live demo / repo / case-study URL
     },
     {
@@ -525,7 +525,7 @@ export const projects = {
       role: "",
       tag: "Project",
       color: "accent-4",
-      cover: "", // TODO: app/mockup screenshot
+      cover: "/images/projects/digital-just-click.jpg",
       link: "", // TODO: add live demo / repo / case-study URL
     },
     {
@@ -536,7 +536,7 @@ export const projects = {
       role: "Hustler (Project Manager)",
       tag: "Digistar Class Project",
       color: "primary",
-      cover: "", // TODO: app/mockup screenshot
+      cover: "/images/projects/digital-bigticket-solution.jpg",
       link: "", // TODO: add live demo / repo / case-study URL
     },
     {
@@ -547,18 +547,22 @@ export const projects = {
       role: "",
       tag: "Project",
       color: "accent-2",
-      cover: "", // TODO: app/mockup screenshot
+      cover: "/images/projects/digital-tukang-ajaib.jpg",
       link: "", // TODO: add live demo / repo / case-study URL
     },
   ],
 };
 
 // BNSP certification document showcase. Category/subsection titles are
-// transcribed from the real portfolio plan; the actual scanned documents
-// (job descriptions, payroll, candidate profiles, etc.) contain other
-// people's personal/financial data and are intentionally NOT reproduced
-// here — only the non-sensitive section labels, ready for real document
-// images to be dropped in per subsection later.
+// transcribed from the real portfolio plan. Most subsections now have real
+// scanned document thumbnails (blank SOP/form templates and training
+// material — safe to publish). Three subsections are intentionally left
+// without a `photos` array (falling back to generic icon placeholders):
+// "Organizational Structure Design" (a real named org chart), "Employee
+// Wage Calculation Data" / "Employee Payslips" (real payroll figures and
+// bank details), and "Overview of Candidate Profile" (real, explicitly
+// confidential candidate résumés) — these contain other people's personal
+// or financial data and are not reproduced here.
 export const bnspDocumentSections = [
   {
     title: "Job Analysis",
@@ -566,8 +570,22 @@ export const bnspDocumentSections = [
       "Understanding job roles, responsibilities, and competency needs to support effective HR decisions.",
     subsections: [
       { title: "Organizational Structure Design", count: 4 },
-      { title: "Job Description Development", count: 4 },
-      { title: "SOP for Job Description Preparation", count: 6 },
+      {
+        title: "Job Description Development",
+        count: 7,
+        photos: Array.from(
+          { length: 7 },
+          (_, i) => `/images/bnsp/job-analysis/job-description-development/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "SOP for Job Description Preparation",
+        count: 6,
+        photos: Array.from(
+          { length: 6 },
+          (_, i) => `/images/bnsp/job-analysis/sop-job-description-preparation/${i + 1}.jpg`,
+        ),
+      },
     ],
   },
   {
@@ -575,7 +593,14 @@ export const bnspDocumentSections = [
     description:
       "Managing employee social security requirements, documentation, and compliance with relevant regulations.",
     subsections: [
-      { title: "Social Security Administration Procedures", count: 7 },
+      {
+        title: "Social Security Administration Procedures",
+        count: 7,
+        photos: Array.from(
+          { length: 7 },
+          (_, i) => `/images/bnsp/social-security-administration/procedures/${i + 1}.jpg`,
+        ),
+      },
     ],
   },
   {
@@ -592,10 +617,38 @@ export const bnspDocumentSections = [
     description:
       "Managing, documenting, and implementing HR policies to ensure consistency, compliance, and effective people management.",
     subsections: [
-      { title: "Training & Development", count: 4 },
-      { title: "Proposal Training", count: 9 },
-      { title: "Industrial Relations", count: 3 },
-      { title: "Recruitment", count: 3 },
+      {
+        title: "Training & Development",
+        count: 4,
+        photos: Array.from(
+          { length: 4 },
+          (_, i) => `/images/bnsp/hr-policy-administration/training-development/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "Proposal Training",
+        count: 10,
+        photos: Array.from(
+          { length: 10 },
+          (_, i) => `/images/bnsp/hr-policy-administration/proposal-training/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "Industrial Relations",
+        count: 3,
+        photos: Array.from(
+          { length: 3 },
+          (_, i) => `/images/bnsp/hr-policy-administration/industrial-relations/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "Recruitment",
+        count: 3,
+        photos: Array.from(
+          { length: 3 },
+          (_, i) => `/images/bnsp/hr-policy-administration/recruitment/${i + 1}.jpg`,
+        ),
+      },
       { title: "Overview of Candidate Profile", count: 4 },
     ],
   },

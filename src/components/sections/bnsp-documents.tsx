@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight, FileText, Folder, X } from "lucide-react";
 import { useContent } from "@/lib/use-content";
 import { iconButtonInteraction, pillInteraction } from "@/lib/motion-presets";
@@ -102,7 +103,7 @@ export function BnspDocuments() {
                 onClick={() => setOpenIndex(null)}
                 {...iconButtonInteraction}
                 aria-label={ui.bnspDocuments.close}
-                className="!absolute !right-5 !top-5 z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-white/30 bg-ink text-white"
+                className="!absolute !right-5 !top-5 !z-20 flex h-10 w-10 items-center justify-center rounded-full border-2 border-white/30 bg-ink text-white"
               >
                 <X size={18} />
               </motion.button>
@@ -125,20 +126,32 @@ export function BnspDocuments() {
                         {sub.title}
                       </h4>
                       <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
-                        {Array.from({ length: sub.count }).map((_, i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{
-                              duration: 0.3,
-                              delay: (subi + i * 0.5) * 0.02,
-                            }}
-                            className="flex aspect-[3/4] items-center justify-center rounded-xl border border-white/10 bg-white/95"
-                          >
-                            <FileText size={22} className="text-ink/20" />
-                          </motion.div>
-                        ))}
+                        {Array.from({ length: sub.count }).map((_, i) => {
+                          const photo = sub.photos?.[i];
+                          return (
+                            <motion.div
+                              key={i}
+                              initial={{ opacity: 0, scale: 0.9 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{
+                                duration: 0.3,
+                                delay: (subi + i * 0.5) * 0.02,
+                              }}
+                              className="relative flex aspect-[3/4] items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/95"
+                            >
+                              {photo ? (
+                                <Image
+                                  src={photo}
+                                  alt={`${sub.title} ${i + 1}`}
+                                  fill
+                                  className="object-cover object-top"
+                                />
+                              ) : (
+                                <FileText size={22} className="text-ink/20" />
+                              )}
+                            </motion.div>
+                          );
+                        })}
                       </div>
                     </div>
                   ))}

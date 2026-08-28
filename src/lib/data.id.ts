@@ -456,25 +456,25 @@ export const projects = {
       title: "Analisis Manajemen Strategis",
       subject: "PT Kalbe Farma Tbk",
       period: "Feb 2024 – Jun 2024",
-      cover: "",
+      cover: "/images/projects/academic-strategic-management.jpg",
     },
     {
       title: "Studi Perilaku Konsumen",
       subject: "FIT HUB Gym",
       period: "Feb 2025 – Jun 2025",
-      cover: "",
+      cover: "/images/projects/academic-consumer-behavior.jpg",
     },
     {
       title: "Rencana Pemasaran",
       subject: "Erigo",
       period: "Sep 2023 – Jan 2024",
-      cover: "",
+      cover: "/images/projects/academic-marketing-plan-erigo.jpg",
     },
     {
       title: "Kewirausahaan — Business Model Canvas",
       subject: "Crunchy Ocean",
       period: "Sep 2023 – Jan 2024",
-      cover: "",
+      cover: "/images/projects/academic-entrepreneurship-bmc.jpg",
     },
   ],
   digital: [
@@ -486,7 +486,7 @@ export const projects = {
       role: "",
       tag: "Proyek Magang",
       color: "accent-1",
-      cover: "",
+      cover: "/images/projects/digital-renewa.jpg",
       link: "",
     },
     {
@@ -497,7 +497,7 @@ export const projects = {
       role: "",
       tag: "Proyek Magang",
       color: "accent-3",
-      cover: "",
+      cover: "/images/projects/digital-sibeta.jpg",
       link: "",
     },
     {
@@ -508,7 +508,7 @@ export const projects = {
       role: "",
       tag: "Proyek",
       color: "accent-4",
-      cover: "",
+      cover: "/images/projects/digital-just-click.jpg",
       link: "",
     },
     {
@@ -519,7 +519,7 @@ export const projects = {
       role: "Hustler (Manajer Proyek)",
       tag: "Proyek Digistar Class",
       color: "primary",
-      cover: "",
+      cover: "/images/projects/digital-bigticket-solution.jpg",
       link: "",
     },
     {
@@ -530,7 +530,7 @@ export const projects = {
       role: "",
       tag: "Proyek",
       color: "accent-2",
-      cover: "",
+      cover: "/images/projects/digital-tukang-ajaib.jpg",
       link: "",
     },
   ],
@@ -543,8 +543,22 @@ export const bnspDocumentSections = [
       "Memahami peran, tanggung jawab, dan kebutuhan kompetensi jabatan untuk mendukung keputusan HR yang efektif.",
     subsections: [
       { title: "Desain Struktur Organisasi", count: 4 },
-      { title: "Penyusunan Deskripsi Jabatan", count: 4 },
-      { title: "SOP Penyusunan Deskripsi Jabatan", count: 6 },
+      {
+        title: "Penyusunan Deskripsi Jabatan",
+        count: 7,
+        photos: Array.from(
+          { length: 7 },
+          (_, i) => `/images/bnsp/job-analysis/job-description-development/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "SOP Penyusunan Deskripsi Jabatan",
+        count: 6,
+        photos: Array.from(
+          { length: 6 },
+          (_, i) => `/images/bnsp/job-analysis/sop-job-description-preparation/${i + 1}.jpg`,
+        ),
+      },
     ],
   },
   {
@@ -552,7 +566,14 @@ export const bnspDocumentSections = [
     description:
       "Mengelola kebutuhan jaminan sosial karyawan, dokumentasi, dan kepatuhan terhadap regulasi yang berlaku.",
     subsections: [
-      { title: "Prosedur Administrasi Jaminan Sosial", count: 7 },
+      {
+        title: "Prosedur Administrasi Jaminan Sosial",
+        count: 7,
+        photos: Array.from(
+          { length: 7 },
+          (_, i) => `/images/bnsp/social-security-administration/procedures/${i + 1}.jpg`,
+        ),
+      },
     ],
   },
   {
@@ -569,10 +590,38 @@ export const bnspDocumentSections = [
     description:
       "Mengelola, mendokumentasikan, dan mengimplementasikan kebijakan HR untuk memastikan konsistensi, kepatuhan, dan pengelolaan orang yang efektif.",
     subsections: [
-      { title: "Pelatihan & Pengembangan", count: 4 },
-      { title: "Proposal Pelatihan", count: 9 },
-      { title: "Hubungan Industrial", count: 3 },
-      { title: "Rekrutmen", count: 3 },
+      {
+        title: "Pelatihan & Pengembangan",
+        count: 4,
+        photos: Array.from(
+          { length: 4 },
+          (_, i) => `/images/bnsp/hr-policy-administration/training-development/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "Proposal Pelatihan",
+        count: 10,
+        photos: Array.from(
+          { length: 10 },
+          (_, i) => `/images/bnsp/hr-policy-administration/proposal-training/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "Hubungan Industrial",
+        count: 3,
+        photos: Array.from(
+          { length: 3 },
+          (_, i) => `/images/bnsp/hr-policy-administration/industrial-relations/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "Rekrutmen",
+        count: 3,
+        photos: Array.from(
+          { length: 3 },
+          (_, i) => `/images/bnsp/hr-policy-administration/recruitment/${i + 1}.jpg`,
+        ),
+      },
       { title: "Gambaran Profil Kandidat", count: 4 },
     ],
   },
