@@ -175,7 +175,7 @@ export const relatedCourses = [
 export const education = [
   {
     school: "Telkom University",
-    logo: "",
+    logo: "/images/education/telkom-university.png",
     program: "Manajemen Bisnis Telekomunikasi dan Informatika",
     detail: "Konsentrasi: Digitalisasi Manajemen Human Capital",
     period: "2022 - 2026",
@@ -184,7 +184,7 @@ export const education = [
   },
   {
     school: "SMA Negeri 1 Palimanan",
-    logo: "",
+    logo: "/images/education/sman-1-palimanan.png",
     program: "Ilmu Pengetahuan Sosial (IPS)",
     detail: "",
     period: "2018 - 2021",
