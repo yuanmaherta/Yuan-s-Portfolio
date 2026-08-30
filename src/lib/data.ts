@@ -679,7 +679,7 @@ export const achievements = {
       title: "3rd Place — Ideastorm 2024",
       issuer: "System Architecture and Governance (SAG) Research Laboratory",
       detail: "Nexilium Team",
-      photo: "/images/achievements/award-ideastorm.jpg",
+      photo: "/images/achievements/award-ideastorm-cutout.png",
     },
     {
       title: "Digistar Class 2024 — Hustler",
@@ -821,6 +821,7 @@ export const ui = {
     close: "Close",
     chapterLabel: "Chapter",
     of: "of",
+    viewPhotosHint: "View photos",
   },
   achievements: {
     eyebrow: "Recognition",

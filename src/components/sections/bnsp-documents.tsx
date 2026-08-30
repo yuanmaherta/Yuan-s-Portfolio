@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, FileText, Folder, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, FileText, Folder, Images, X } from "lucide-react";
 import { useContent } from "@/lib/use-content";
 import { iconButtonInteraction, pillInteraction } from "@/lib/motion-presets";
 import { handleChameleonMove } from "@/lib/chameleon";
@@ -61,9 +61,23 @@ export function BnspDocuments() {
             transition={{ duration: 0.45, delay: i * 0.08 }}
             whileHover={{ y: -4 }}
             onPointerMove={handleChameleonMove}
-            className="chameleon diagonal-dark flex flex-col items-start gap-4 rounded-3xl border-2 border-ink px-6 py-8 text-left shadow-playful-sm"
+            className="chameleon diagonal-dark relative flex flex-col items-start gap-4 rounded-3xl border-2 border-ink px-6 py-8 text-left shadow-playful-sm"
             aria-label={`${ui.bnspDocuments.openFolder}: ${section.title}`}
           >
+            {/* Notification-style badge — signals up front that this
+                folder has photos inside, so visitors don't have to
+                discover it's clickable by accident. */}
+            <motion.span
+              initial={{ opacity: 0, scale: 0.7, y: -8 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 18, delay: i * 0.08 + 0.25 }}
+              className="absolute -right-2 -top-2 z-10 flex items-center gap-1 rounded-full border-2 border-ink bg-primary px-3 py-1 text-[11px] font-bold text-white shadow-playful-sm"
+            >
+              <Images size={12} />
+              {ui.bnspDocuments.viewPhotosHint}
+            </motion.span>
+
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-ink bg-primary/20">
               <Folder size={26} className="text-primary" />
             </div>

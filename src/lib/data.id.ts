@@ -655,7 +655,7 @@ export const achievements = {
       title: "Juara 3 — Ideastorm 2024",
       issuer: "System Architecture and Governance (SAG) Research Laboratory",
       detail: "Tim Nexilium",
-      photo: "/images/achievements/award-ideastorm.jpg",
+      photo: "/images/achievements/award-ideastorm-cutout.png",
     },
     {
       title: "Digistar Class 2024 — Hustler",
@@ -796,6 +796,7 @@ export const ui = {
     close: "Tutup",
     chapterLabel: "Bab",
     of: "dari",
+    viewPhotosHint: "Lihat foto",
   },
   achievements: {
     eyebrow: "Pengakuan",
