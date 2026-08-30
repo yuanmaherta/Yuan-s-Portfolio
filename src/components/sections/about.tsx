@@ -142,13 +142,15 @@ export function About() {
                   className="chameleon flex gap-4 rounded-2xl border-2 border-ink bg-card p-6 shadow-playful-sm"
                 >
                   {edu.logo ? (
-                    <Image
-                      src={edu.logo}
-                      alt=""
-                      width={44}
-                      height={44}
-                      className="h-11 w-11 shrink-0 rounded-xl border-2 border-ink object-contain"
-                    />
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border-2 border-ink bg-white p-1.5">
+                      <Image
+                        src={edu.logo}
+                        alt=""
+                        width={44}
+                        height={44}
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
                   ) : (
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-4 border-2 border-ink">
                       <GraduationCap size={20} />
