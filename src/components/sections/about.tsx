@@ -69,6 +69,8 @@ export function About() {
                 triggerLabel={ui.about.cvLabel}
                 previewLabel={ui.documents.preview}
                 downloadLabel={ui.documents.download}
+                hintLabel={ui.documents.hint}
+                closeHintLabel={ui.documents.close}
                 triggerClassName="chameleon rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm"
               />
             </div>

@@ -64,6 +64,8 @@ export function Hero() {
                 triggerLabel={ui.hero.downloadsLabel}
                 previewLabel={ui.documents.preview}
                 downloadLabel={ui.documents.download}
+                hintLabel={ui.documents.hint}
+                closeHintLabel={ui.documents.close}
               />
             </motion.div>
           </div>

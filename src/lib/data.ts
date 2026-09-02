@@ -794,6 +794,7 @@ export const ui = {
     preview: "Preview",
     download: "Download",
     close: "Close",
+    hint: "Psst! My CV & Portfolio are right here 👇",
   },
   skills: {
     eyebrow: "Skills",

@@ -769,6 +769,7 @@ export const ui = {
     preview: "Pratinjau",
     download: "Unduh",
     close: "Tutup",
+    hint: "Psst! CV & Portofolio saya ada di sini 👇",
   },
   skills: {
     eyebrow: "Keahlian",
