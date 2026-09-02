@@ -745,9 +745,11 @@ export const ui = {
   themeToggle: {
     toLight: "Switch to light mode",
     toDark: "Switch to dark mode",
+    hint: "Tap to switch light/dark mode ✨",
   },
   languageToggle: {
     label: "Switch language",
+    hint: "Tap to switch language (EN/ID) 🌐",
   },
   hero: {
     hello: "Hello! 👋",

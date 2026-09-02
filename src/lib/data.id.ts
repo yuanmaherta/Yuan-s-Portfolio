@@ -720,9 +720,11 @@ export const ui = {
   themeToggle: {
     toLight: "Ganti ke mode terang",
     toDark: "Ganti ke mode gelap",
+    hint: "Ketuk untuk ganti mode terang/gelap ✨",
   },
   languageToggle: {
     label: "Ganti bahasa",
+    hint: "Ketuk untuk ganti bahasa (EN/ID) 🌐",
   },
   hero: {
     hello: "Halo! 👋",
