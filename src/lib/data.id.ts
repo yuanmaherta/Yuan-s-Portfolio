@@ -21,6 +21,24 @@ export const profile = {
   ],
 };
 
+// Dokumen unduhan — masing-masing bisa dipratinjau di tab baru atau
+// langsung diunduh, ditawarkan bersamaan di tempat yang dulu hanya
+// punya satu tombol "Download CV".
+export const documents = [
+  {
+    id: "cv",
+    title: "Curriculum Vitae",
+    description: "Ringkasan pengalaman, keahlian, dan pendidikan saya.",
+    url: "/documents/CV-Yuan-Maherta.pdf",
+  },
+  {
+    id: "portfolio",
+    title: "Portofolio",
+    description: "Kumpulan lengkap proyek dan karya saya.",
+    url: "/documents/Portfolio-Yuan-Maherta.pdf",
+  },
+];
+
 export const aboutPhotos = {
   // Background removed — rendered with fit="contain" so the card's
   // gradient stays visible around the cutout.
@@ -712,6 +730,7 @@ export const ui = {
     welcomeLine: "Selamat Datang di Portofolio Saya.",
     cvLabel: "Curriculum Vitae",
     cvDownload: "Unduh",
+    downloadsLabel: "Dokumen Saya ↗",
     trustedLabel: "Pengalaman proyek dan magang bersama perusahaan terkemuka",
     whyHireTitle: "Kenapa Harus Merekrut Saya?",
     whyHireSubtitle:
@@ -740,11 +759,16 @@ export const ui = {
   about: {
     eyebrow: "Tentang Saya",
     title: "Sedikit cerita tentang saya",
-    cvLabel: "Curriculum Vitae ↗ Unduh",
+    cvLabel: "Dokumen Saya ↗",
     educationHeading: "Pendidikan Saya",
     relatedCourseHeading: "Mata Kuliah Terkait",
     relatedCourseWheelLine1: "MATA KULIAH",
     relatedCourseWheelLine2: "TERKAIT",
+  },
+  documents: {
+    preview: "Pratinjau",
+    download: "Unduh",
+    close: "Tutup",
   },
   skills: {
     eyebrow: "Keahlian",

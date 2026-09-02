@@ -18,6 +18,24 @@ export const profile = {
   ],
 };
 
+// Downloadable documents — each one can be previewed in a new tab or
+// downloaded directly, offered together wherever the site used to have a
+// single "Download CV" button.
+export const documents = [
+  {
+    id: "cv",
+    title: "Curriculum Vitae",
+    description: "A summary of my experience, skills, and education.",
+    url: "/documents/CV-Yuan-Maherta.pdf",
+  },
+  {
+    id: "portfolio",
+    title: "Portfolio",
+    description: "A full showcase of my projects and work.",
+    url: "/documents/Portfolio-Yuan-Maherta.pdf",
+  },
+];
+
 // Photo slots — leave empty ("") to keep the gradient placeholder; drop a
 // path under public/images (e.g. "/images/about-bio.jpg") once the real
 // photo is ready and it renders automatically, no code changes needed.
@@ -737,6 +755,7 @@ export const ui = {
     welcomeLine: "Welcome to My Portfolio.",
     cvLabel: "Curriculum Vitae",
     cvDownload: "Download",
+    downloadsLabel: "My Documents ↗",
     trustedLabel: "Project and internship experience with leading companies",
     whyHireTitle: "Why You Must Hire Me?",
     whyHireSubtitle:
@@ -765,11 +784,16 @@ export const ui = {
   about: {
     eyebrow: "About Me",
     title: "A little about who I am",
-    cvLabel: "Curriculum Vitae ↗ Download",
+    cvLabel: "My Documents ↗",
     educationHeading: "My Education",
     relatedCourseHeading: "My Related Course",
     relatedCourseWheelLine1: "MY RELATED",
     relatedCourseWheelLine2: "COURSE",
+  },
+  documents: {
+    preview: "Preview",
+    download: "Download",
+    close: "Close",
   },
   skills: {
     eyebrow: "Skills",

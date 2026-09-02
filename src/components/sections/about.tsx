@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PhotoSlot } from "@/components/ui/photo-slot";
-import { buttonInteraction } from "@/lib/motion-presets";
+import { DocumentDownloadMenu } from "@/components/ui/document-download-menu";
 import { handleChameleonMove } from "@/lib/chameleon";
 
 const courseColors: Record<string, string> = {
@@ -18,8 +18,15 @@ const courseColors: Record<string, string> = {
 };
 
 export function About() {
-  const { profile, aboutPhotos, highlights, relatedCourses, education, ui } =
-    useContent();
+  const {
+    profile,
+    documents,
+    aboutPhotos,
+    highlights,
+    relatedCourses,
+    education,
+    ui,
+  } = useContent();
 
   return (
     <section id="about" className="px-6 py-20">
@@ -57,14 +64,13 @@ export function About() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <motion.a
-                href={profile.resumeUrl}
-                onPointerMove={handleChameleonMove}
-                {...buttonInteraction}
-                className="chameleon rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm"
-              >
-                {ui.about.cvLabel}
-              </motion.a>
+              <DocumentDownloadMenu
+                documents={documents}
+                triggerLabel={ui.about.cvLabel}
+                previewLabel={ui.documents.preview}
+                downloadLabel={ui.documents.download}
+                triggerClassName="chameleon rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm"
+              />
             </div>
 
             {/* Highlights */}

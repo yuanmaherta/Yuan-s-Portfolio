@@ -3,13 +3,20 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useContent } from "@/lib/use-content";
-import { buttonInteraction } from "@/lib/motion-presets";
 import { handleChameleonMove } from "@/lib/chameleon";
 import { PhotoSlot } from "@/components/ui/photo-slot";
+import { DocumentDownloadMenu } from "@/components/ui/document-download-menu";
 
 export function Hero() {
-  const { profile, homePhotos, trustedCompanies, trustedCompaniesLogo, whyHireMe, ui } =
-    useContent();
+  const {
+    profile,
+    documents,
+    homePhotos,
+    trustedCompanies,
+    trustedCompaniesLogo,
+    whyHireMe,
+    ui,
+  } = useContent();
 
   return (
     <section id="top" className="relative overflow-hidden">
@@ -52,15 +59,12 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mt-8"
             >
-              <motion.a
-                href={profile.resumeUrl}
-                onPointerMove={handleChameleonMove}
-                {...buttonInteraction}
-                className="chameleon inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-playful-sm"
-              >
-                {ui.hero.cvLabel} ↗{" "}
-                <span className="font-normal">{ui.hero.cvDownload}</span>
-              </motion.a>
+              <DocumentDownloadMenu
+                documents={documents}
+                triggerLabel={ui.hero.downloadsLabel}
+                previewLabel={ui.documents.preview}
+                downloadLabel={ui.documents.download}
+              />
             </motion.div>
           </div>
 
