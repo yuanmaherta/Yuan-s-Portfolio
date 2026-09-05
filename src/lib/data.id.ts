@@ -761,7 +761,6 @@ export const ui = {
   about: {
     eyebrow: "Tentang Saya",
     title: "Sedikit cerita tentang saya",
-    cvLabel: "Dokumen Saya ↗",
     educationHeading: "Pendidikan Saya",
     relatedCourseHeading: "Mata Kuliah Terkait",
     relatedCourseWheelLine1: "MATA KULIAH",

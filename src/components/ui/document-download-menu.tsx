@@ -26,6 +26,7 @@ export function DocumentDownloadMenu({
   downloadLabel,
   hintLabel,
   closeHintLabel,
+  hintPersist = true,
   triggerClassName,
 }: {
   documents: DocumentItem[];
@@ -34,12 +35,17 @@ export function DocumentDownloadMenu({
   downloadLabel: string;
   hintLabel?: string;
   closeHintLabel?: string;
+  /** false = keep re-showing the hint every time this mounts (e.g. every
+   *  fresh visit to the home page) instead of silencing it for good after
+   *  the first dismissal. */
+  hintPersist?: boolean;
   triggerClassName?: string;
 }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const { show: showHint, dismiss: dismissHint } = useNoticeHint("documents", {
     enabled: Boolean(hintLabel),
+    persist: hintPersist,
   });
 
   useEffect(() => {

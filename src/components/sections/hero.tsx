@@ -66,6 +66,7 @@ export function Hero() {
                 downloadLabel={ui.documents.download}
                 hintLabel={ui.documents.hint}
                 closeHintLabel={ui.documents.close}
+                hintPersist={false}
               />
             </motion.div>
           </div>

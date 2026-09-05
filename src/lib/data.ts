@@ -786,7 +786,6 @@ export const ui = {
   about: {
     eyebrow: "About Me",
     title: "A little about who I am",
-    cvLabel: "My Documents ↗",
     educationHeading: "My Education",
     relatedCourseHeading: "My Related Course",
     relatedCourseWheelLine1: "MY RELATED",
