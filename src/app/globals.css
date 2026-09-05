@@ -48,7 +48,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --background: #14110c;
     --foreground: #f7f1e6;
     --color-canvas: #14110c;
@@ -61,6 +61,31 @@
   }
 }
 
+/* Explicit toggle wins over system preference in both directions */
+:root[data-theme="dark"] {
+  --background: #14110c;
+  --foreground: #f7f1e6;
+  --color-canvas: #14110c;
+  --color-ink: #f7f1e6;
+  --color-card: #201a12;
+  --color-card-border: #35291a;
+  --color-muted: #b8ab93;
+  --shadow-playful: 8px 8px 0px 0px rgba(0, 0, 0, 0.6);
+  --shadow-playful-sm: 4px 4px 0px 0px rgba(0, 0, 0, 0.6);
+}
+
+:root[data-theme="light"] {
+  --background: #fdfaf5;
+  --foreground: #17140f;
+  --color-canvas: #fdfaf5;
+  --color-ink: #17140f;
+  --color-card: #ffffff;
+  --color-card-border: #f0e4d3;
+  --color-muted: #6b6458;
+  --shadow-playful: 8px 8px 0px 0px rgba(23, 20, 15, 1);
+  --shadow-playful-sm: 4px 4px 0px 0px rgba(23, 20, 15, 1);
+}
+
 * {
   scroll-behavior: smooth;
 }
@@ -69,6 +94,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .font-display {
@@ -122,4 +148,52 @@ body {
 .diagonal-dark > * {
   position: relative;
   z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* "Chameleon" hover: a soft color highlight that follows the cursor over
+   a button/card and shifts hue with the direction it approaches from.
+   `--chx`/`--chy`/`--chameleon-hue` are written by handleChameleonMove()
+   in src/lib/chameleon.ts on pointer move. */
+.chameleon {
+  position: relative;
+  isolation: isolate;
+}
+
+.chameleon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    240px circle at var(--chx, 50%) var(--chy, 50%),
+    hsl(var(--chameleon-hue, 30) 90% 55%),
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: color;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.chameleon:hover::after,
+.chameleon:focus-visible::after {
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chameleon::after {
+    transition: none;
+  }
 }

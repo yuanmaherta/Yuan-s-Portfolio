@@ -2,14 +2,36 @@
 
 import { motion } from "framer-motion";
 import { BadgeCheck, GraduationCap, MapPin } from "lucide-react";
-import { profile, highlights, focusAreas, education } from "@/lib/data";
+import Image from "next/image";
+import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { PhotoSlot } from "@/components/ui/photo-slot";
+import { DocumentDownloadMenu } from "@/components/ui/document-download-menu";
+import { handleChameleonMove } from "@/lib/chameleon";
+
+const courseColors: Record<string, string> = {
+  "accent-1": "bg-accent-1",
+  "accent-2": "bg-accent-2",
+  "accent-3": "bg-accent-3",
+  "accent-4": "bg-accent-4",
+  primary: "bg-primary",
+};
 
 export function About() {
+  const {
+    profile,
+    documents,
+    aboutPhotos,
+    highlights,
+    relatedCourses,
+    education,
+    ui,
+  } = useContent();
+
   return (
     <section id="about" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading eyebrow="About Me" title="A little about who I am" />
+        <SectionHeading eyebrow={ui.about.eyebrow} title={ui.about.title} />
 
         <div className="mt-12 grid gap-10 md:grid-cols-5 md:items-start">
           <motion.div
@@ -19,7 +41,12 @@ export function About() {
             transition={{ duration: 0.5 }}
             className="md:col-span-2"
           >
-            <div className="aspect-[4/5] w-full max-w-xs rounded-3xl border-2 border-ink bg-gradient-to-br from-primary to-accent-2 shadow-playful" />
+            <PhotoSlot
+              src={aboutPhotos.bio}
+              alt={profile.name}
+              fit="contain"
+              className="aspect-[4/5] w-full max-w-xs"
+            />
           </motion.div>
 
           <motion.div
@@ -37,12 +64,16 @@ export function About() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={profile.resumeUrl}
-                className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm transition-transform hover:-translate-y-0.5"
-              >
-                Curriculum Vitae ↗ Download
-              </a>
+              {documents.map((doc) => (
+                <DocumentDownloadMenu
+                  key={doc.id}
+                  documents={[doc]}
+                  triggerLabel={`${doc.title} ↗`}
+                  previewLabel={ui.documents.preview}
+                  downloadLabel={ui.documents.download}
+                  triggerClassName="chameleon rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-playful-sm"
+                />
+              ))}
             </div>
 
             {/* Highlights */}
@@ -54,9 +85,20 @@ export function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="rounded-2xl border border-card-border bg-card p-4"
+                  onPointerMove={handleChameleonMove}
+                  className="chameleon rounded-2xl border border-card-border bg-card p-4"
                 >
-                  <BadgeCheck size={18} className="text-primary" />
+                  {item.logo ? (
+                    <Image
+                      src={item.logo}
+                      alt=""
+                      width={28}
+                      height={28}
+                      className="h-7 w-auto object-contain"
+                    />
+                  ) : (
+                    <BadgeCheck size={18} className="text-primary" />
+                  )}
                   <h4 className="font-display mt-2 text-sm font-bold leading-snug">
                     {item.title}
                   </h4>
@@ -69,102 +111,176 @@ export function About() {
           </motion.div>
         </div>
 
-        {/* Focus Areas — diagonal orange blob background */}
-        <div className="relative mt-20 overflow-hidden rounded-3xl border-2 border-ink bg-card px-6 py-12 shadow-playful sm:px-10">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -left-20 -top-24 h-72 w-72 rotate-12 rounded-[3rem] bg-primary/15 blur-2xl"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 -rotate-12 rounded-[3rem] bg-accent-2/40 blur-2xl"
-          />
-
-          <motion.h3
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        {/* Education */}
+        <div className="mt-16 grid gap-8 md:grid-cols-5 md:items-start">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: 3 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 2 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4 }}
-            className="relative font-display text-xl font-bold sm:text-2xl"
+            transition={{ duration: 0.5 }}
+            className="md:col-span-2"
           >
-            My Focus Area
-          </motion.h3>
-          <div className="relative mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {focusAreas.map((area, i) => (
-              <motion.div
-                key={area.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.45, delay: i * 0.08 }}
-                whileHover={{ y: -4 }}
-                className="rounded-2xl border-2 border-ink bg-canvas p-5 shadow-playful-sm"
-              >
-                <span className="text-2xl font-extrabold text-primary/40">
-                  0{i + 1}
-                </span>
-                <h4 className="font-display mt-2 font-bold leading-snug">
-                  {area.title}
-                </h4>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {area.description}
-                </p>
-              </motion.div>
-            ))}
+            <PhotoSlot
+              src={aboutPhotos.education}
+              alt={profile.name}
+              gradient="from-accent-4 to-primary"
+              fit="contain"
+              className="aspect-[4/5] w-full max-w-xs"
+            />
+          </motion.div>
+
+          <div className="md:col-span-3">
+            <motion.h3
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.4 }}
+              className="font-display text-xl font-bold"
+            >
+              {ui.about.educationHeading}
+            </motion.h3>
+            <div className="mt-6 space-y-5">
+              {education.map((edu, i) => (
+                <motion.div
+                  key={edu.school}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.45, delay: i * 0.1 }}
+                  onPointerMove={handleChameleonMove}
+                  className="chameleon flex gap-4 rounded-2xl border-2 border-ink bg-card p-6 shadow-playful-sm"
+                >
+                  {edu.logo ? (
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border-2 border-ink bg-white p-1.5">
+                      <Image
+                        src={edu.logo}
+                        alt=""
+                        width={44}
+                        height={44}
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-4 border-2 border-ink">
+                      <GraduationCap size={20} />
+                    </div>
+                  )}
+                  <div>
+                    <div className="flex flex-wrap items-baseline gap-2">
+                      <h4 className="font-display font-bold">{edu.school}</h4>
+                      <span className="text-xs font-semibold text-muted">
+                        {edu.period}
+                      </span>
+                    </div>
+                    <p className="text-sm font-semibold text-primary">
+                      {edu.program}
+                    </p>
+                    {edu.detail && (
+                      <p className="mt-1 text-sm italic text-muted">
+                        {edu.detail}
+                      </p>
+                    )}
+                    <p className="mt-1 text-sm font-medium">{edu.grade}</p>
+                    {edu.note && (
+                      <p className="mt-2 text-sm leading-relaxed text-muted">
+                        {edu.note}
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Education */}
-        <div className="mt-16">
-          <motion.h3
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4 }}
-            className="font-display text-xl font-bold"
-          >
-            My Education
-          </motion.h3>
-          <div className="mt-6 space-y-5">
-            {education.map((edu, i) => (
-              <motion.div
-                key={edu.school}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.45, delay: i * 0.1 }}
-                className="flex gap-4 rounded-2xl border-2 border-ink bg-card p-6 shadow-playful-sm"
-              >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-4 border-2 border-ink">
-                  <GraduationCap size={20} />
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-baseline gap-2">
-                    <h4 className="font-display font-bold">{edu.school}</h4>
-                    <span className="text-xs font-semibold text-muted">
-                      {edu.period}
-                    </span>
-                  </div>
-                  <p className="text-sm font-semibold text-primary">
-                    {edu.program}
-                  </p>
-                  {edu.detail && (
-                    <p className="mt-1 text-sm italic text-muted">
-                      {edu.detail}
-                    </p>
-                  )}
-                  <p className="mt-1 text-sm font-medium">{edu.grade}</p>
-                  {edu.note && (
-                    <p className="mt-2 text-sm leading-relaxed text-muted">
-                      {edu.note}
-                    </p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+        {/* My Related Course — wheel layout */}
+        <div className="mt-20">
+          <h3 className="font-display text-center text-xl font-bold">
+            {ui.about.relatedCourseHeading}
+          </h3>
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+            <div className="space-y-5">
+              {relatedCourses
+                .filter((_, i) => i % 2 === 0)
+                .map((course, i) => (
+                  <CourseCard
+                    key={course.title}
+                    course={course}
+                    number={i * 2 + 1}
+                    align="right"
+                    delay={i * 0.1}
+                  />
+                ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5 }}
+              onPointerMove={handleChameleonMove}
+              className="chameleon mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-card text-center font-display text-sm font-extrabold leading-tight shadow-playful-sm lg:h-36 lg:w-36"
+            >
+              {ui.about.relatedCourseWheelLine1}
+              <br />
+              {ui.about.relatedCourseWheelLine2}
+            </motion.div>
+
+            <div className="space-y-5">
+              {relatedCourses
+                .filter((_, i) => i % 2 === 1)
+                .map((course, i) => (
+                  <CourseCard
+                    key={course.title}
+                    course={course}
+                    number={i * 2 + 2}
+                    align="left"
+                    delay={i * 0.1 + 0.1}
+                  />
+                ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function CourseCard({
+  course,
+  number,
+  align,
+  delay,
+}: {
+  course: { title: string; description: string; color: string };
+  number: number;
+  align: "left" | "right";
+  delay: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: align === "right" ? 20 : -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.45, delay }}
+      onPointerMove={handleChameleonMove}
+      className={`chameleon flex items-start gap-3 rounded-2xl border-2 border-card-border bg-card p-4 ${
+        align === "right" ? "lg:flex-row-reverse lg:text-right" : ""
+      }`}
+    >
+      <div
+        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-ink text-xs font-extrabold text-white ${
+          courseColors[course.color] ?? "bg-primary"
+        }`}
+      >
+        {number}
+      </div>
+      <div>
+        <h4 className="font-display text-sm font-bold">{course.title}</h4>
+        <p className="mt-1 text-xs leading-relaxed text-muted">
+          {course.description}
+        </p>
+      </div>
+    </motion.div>
   );
 }

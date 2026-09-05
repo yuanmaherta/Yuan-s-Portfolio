@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   Brain,
   ClipboardList,
@@ -13,8 +14,9 @@ import {
   FileStack,
   Video,
 } from "lucide-react";
-import { skills, bnspActivities } from "@/lib/data";
+import { useContent } from "@/lib/use-content";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { handleChameleonMove } from "@/lib/chameleon";
 
 const softIcons = [Brain, Workflow, ClipboardList, UsersRound, LineChart, MessagesSquare];
 const softColors = ["accent-3", "accent-4", "accent-1", "primary", "accent-2", "accent-4"];
@@ -23,22 +25,22 @@ const bnspIcons = [FileSearch, ShoppingBag, FileStack];
 const bnspColors = ["bg-navy", "bg-navy", "bg-primary"];
 
 export function Skills() {
+  const { skills, toolLogos, bnspActivities, bnspThumbnail, ui } = useContent();
   const left = skills.soft.filter((_, i) => i % 2 === 0);
   const right = skills.soft.filter((_, i) => i % 2 === 1);
 
   return (
     <section id="skills" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading eyebrow="Skills" title="What I bring to the table" align="center" />
+        <SectionHeading eyebrow={ui.skills.eyebrow} title={ui.skills.title} align="center" />
 
         {/* Soft skills — wheel layout */}
         <div className="mt-14">
           <h3 className="font-display text-center text-xl font-bold">
-            My Soft Skill
+            {ui.skills.softHeading}
           </h3>
           <p className="mx-auto mt-2 max-w-xl text-center text-sm text-muted">
-            Core abilities that support my work across people, business, and
-            strategic initiatives.
+            {ui.skills.softSubtitle}
           </p>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
@@ -63,9 +65,10 @@ export function Skills() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.5 }}
-              className="mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-card font-display text-lg font-extrabold shadow-playful-sm lg:h-36 lg:w-36"
+              onPointerMove={handleChameleonMove}
+              className="chameleon mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-card font-display text-lg font-extrabold shadow-playful-sm lg:h-36 lg:w-36"
             >
-              SKILLS
+              {ui.skills.wheelCenter}
             </motion.div>
 
             <div className="space-y-5">
@@ -89,11 +92,10 @@ export function Skills() {
         {/* Hard skills — navy tiles */}
         <div className="mt-20">
           <h3 className="font-display text-center text-xl font-bold">
-            My Hard Skill
+            {ui.skills.hardHeading}
           </h3>
           <p className="mx-auto mt-2 max-w-xl text-center text-sm text-muted">
-            Practical skills built across human capital, business
-            development, and strategic project work.
+            {ui.skills.hardSubtitle}
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {skills.hard.map((skill, i) => (
@@ -104,7 +106,8 @@ export function Skills() {
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
                 whileHover={{ y: -3 }}
-                className="bg-navy flex items-center justify-center rounded-2xl border-2 border-ink px-5 py-7 text-center shadow-playful-sm"
+                onPointerMove={handleChameleonMove}
+                className="chameleon bg-navy flex items-center justify-center rounded-2xl border-2 border-ink px-5 py-7 text-center shadow-playful-sm"
               >
                 <span className="font-display text-sm font-bold text-white">
                   {skill}
@@ -117,43 +120,48 @@ export function Skills() {
         {/* Tools */}
         <div className="mt-20">
           <h3 className="font-display text-center text-xl font-bold">
-            My Tools
+            {ui.skills.toolsHeading}
           </h3>
           <p className="mx-auto mt-2 max-w-xl text-center text-sm text-muted">
-            Software and platforms I use to plan, execute, and present my
-            work across projects.
+            {ui.skills.toolsSubtitle}
           </p>
-          <div className="mt-8 rounded-3xl border-2 border-card-border bg-card p-6 sm:p-8">
-            <div className="flex flex-wrap justify-center gap-3">
-              {skills.tools.map((tool, i) => (
-                <motion.span
-                  key={tool}
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.3, delay: i * 0.03 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="cursor-default rounded-2xl border-2 border-card-border bg-canvas px-5 py-2.5 text-sm font-semibold hover:border-primary hover:bg-primary/10"
-                >
-                  {tool}
-                </motion.span>
-              ))}
-            </div>
+          <div className="mt-8 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-5">
+            {toolLogos.map((tool, i) => (
+              <motion.div
+                key={tool.name}
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.3, delay: i * 0.03 }}
+                whileHover={{ y: -3 }}
+                onPointerMove={handleChameleonMove}
+                className="chameleon flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-card-border bg-canvas p-5"
+              >
+                <Image
+                  src={tool.logo}
+                  alt={tool.name}
+                  width={64}
+                  height={64}
+                  className="h-12 w-auto object-contain"
+                />
+                <span className="text-center text-xs font-semibold">
+                  {tool.name}
+                </span>
+              </motion.div>
+            ))}
           </div>
         </div>
 
         {/* BNSP certification activities */}
         <div className="diagonal-dark mt-20 rounded-3xl border-2 border-ink px-6 py-12 sm:px-10">
           <span className="text-xs font-bold uppercase tracking-widest text-primary">
-            News
+            {ui.skills.bnspEyebrow}
           </span>
           <h3 className="font-display mt-2 text-2xl font-extrabold">
-            BNSP Certification Project Activities
+            {ui.skills.bnspHeading}
           </h3>
           <p className="mt-2 max-w-2xl text-sm text-white/70">
-            A showcase of my practical work in job analysis, HR
-            administration, and recruitment procedures under BNSP
-            certification.
+            {ui.skills.bnspSubtitle}
           </p>
 
           <div className="mt-8 grid gap-4 lg:grid-cols-[1fr_1fr]">
@@ -167,7 +175,8 @@ export function Skills() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.45, delay: i * 0.1 }}
-                    className="flex gap-4 rounded-2xl bg-white/5 p-4"
+                    onPointerMove={handleChameleonMove}
+                    className="chameleon flex gap-4 rounded-2xl bg-white/5 p-4"
                   >
                     <div
                       className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${bnspColors[i]}`}
@@ -190,9 +199,19 @@ export function Skills() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.5 }}
-              className="flex min-h-[220px] items-center justify-center rounded-2xl border border-white/10 bg-black/30"
+              onPointerMove={handleChameleonMove}
+              className="chameleon relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-black/30"
             >
-              <Video size={32} className="text-white/30" />
+              {bnspThumbnail ? (
+                <Image
+                  src={bnspThumbnail}
+                  alt="BNSP certification activity"
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <Video size={32} className="text-white/30" />
+              )}
             </motion.div>
           </div>
         </div>
@@ -228,7 +247,8 @@ function SkillCard({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.45, delay }}
-      className={`flex items-start gap-3 rounded-2xl border-2 border-card-border bg-card p-4 ${
+      onPointerMove={handleChameleonMove}
+      className={`chameleon flex items-start gap-3 rounded-2xl border-2 border-card-border bg-card p-4 ${
         align === "right" ? "lg:flex-row-reverse lg:text-right" : ""
       }`}
     >

@@ -7,8 +7,8 @@ export const profile = {
   name: "Yuan Maherta",
   role: "Business Management Professional",
   tagline: "Turning insight into impact — across people, strategy, and business growth.",
-  bio: "Fresh graduate with a Bachelor of Business Management in Telecommunication and Informatics from Telkom University, with a concentration in Digitalization Human Capital Management, and a strong interest in Organizational Design, Talent Acquisition, and Business Development. Experienced in data analysis, market and user research, recruitment support, and Business Model Canvas development, gained through internships, teaching practicums, and digital projects. Skilled in problem-solving and analytical thinking, with a demonstrated ability to translate insights into strategic recommendations that support human capital initiatives and business growth.",
-  location: "Bandung, West Java, Indonesia",
+  bio: "I'm Yuan Maherta, a fresh graduate with a Bachelor of Business Management in Telecommunication and Informatics from Telkom University, with a concentration in Digitalization Human Capital Management, and a strong interest in Organizational Design, Talent Acquisition, and Business Development. Experienced in data analysis, market and user research, recruitment support, and Business Model Canvas development, gained through internships, teaching practicums, and digital projects.",
+  location: "Jakarta, Indonesia",
   email: "yuan.maherta.33@gmail.com",
   resumeUrl: "#",
   socials: [
@@ -17,6 +17,58 @@ export const profile = {
     { label: "X", href: "https://x.com/yuan_mhrtaa" },
   ],
 };
+
+// Downloadable documents — each one can be previewed in a new tab or
+// downloaded directly, offered together wherever the site used to have a
+// single "Download CV" button.
+export const documents = [
+  {
+    id: "cv",
+    title: "Curriculum Vitae",
+    description: "A summary of my experience, skills, and education.",
+    url: "/documents/CV-Yuan-Maherta.pdf",
+  },
+  {
+    id: "portfolio",
+    title: "Portfolio",
+    description: "A full showcase of my projects and work.",
+    url: "/documents/Portfolio-Yuan-Maherta.pdf",
+  },
+];
+
+// Photo slots — leave empty ("") to keep the gradient placeholder; drop a
+// path under public/images (e.g. "/images/about-bio.jpg") once the real
+// photo is ready and it renders automatically, no code changes needed.
+export const aboutPhotos = {
+  // Background removed — rendered with fit="contain" so the card's
+  // gradient stays visible around the cutout.
+  bio: "/images/hero-portrait-about-cutout.png",
+  education: "/images/education-cutout.png",
+};
+
+// Home page photo slots. Leave empty ("") to keep the gradient
+// placeholder; a path renders automatically via next/image.
+export const homePhotos = {
+  // Background removed — rendered with fit="contain" so the card's
+  // gradient stays visible around the cutout.
+  hero: "/images/hero-portrait-cutout.png",
+  aboutPreview: "/images/hero-portrait-cutout.png",
+  // "Why Choose Me" bento — 1 large + 2 small photos.
+  whyChooseMe: [
+    "/images/why-choose-bumn.png",
+    "/images/why-choose-hk-academy.jpeg",
+    "/images/activity-btn-sales.png",
+  ],
+};
+
+// Single combined logo-strip image, background removed. Falls back to the
+// plain text list below when empty. Rendered inside a light card (see
+// hero.tsx) so it stays visible in dark mode regardless of logo colors.
+export const trustedCompaniesLogo: string = "/images/trusted-companies-cutout.png";
+// No tools logo image — the supplied strip was too low-resolution to
+// cleanly split into individual, evenly-sized logos, so this renders as
+// the text-pill list below instead (see about-preview.tsx).
+export const homeToolsLogo: string = "";
 
 export const trustedCompanies = [
   "PT Hutama Karya",
@@ -45,16 +97,19 @@ export const whyHireMe = [
 export const highlights = [
   {
     title: "P2MW Selection",
+    logo: "", // TODO: P2MW logo
     description:
       "Successfully passed the university-level selection for P2MW (Program Pembinaan Mahasiswa Wirausaha).",
   },
   {
     title: "Talent Scouting Program",
+    logo: "", // TODO: Dit. KKA logo
     description:
       "Selected by the Directorate of Student Affairs, Career Development, and Alumni (Dit. KKA) for both science and non-science competitions.",
   },
   {
     title: "Published Research Paper",
+    logo: "", // TODO: ISCBE / university seal
     description:
       "Published and presented at the 9th ISCBE 2026, Valencia, Spain (Springer Proceedings, Scopus-indexed).",
   },
@@ -83,9 +138,73 @@ export const focusAreas = [
   },
 ];
 
+export const homeActivities = [
+  {
+    title: "Human Resource Staff Certification (BNSP)",
+    date: "Friday, 29 September 2025",
+    ctaLabel: "Let's Connect!",
+    ctaHref: `mailto:${profile.email}`,
+    photo: "/images/activity-bnsp.png",
+  },
+  {
+    title: "SME & Credit Program Sales Internship",
+    date: "Monday, 03 November 2025",
+    ctaLabel: "Let's Connect!",
+    ctaHref: `mailto:${profile.email}`,
+    photo: "/images/activity-btn-sales.png",
+  },
+  {
+    title: "Chief Marketing Officer, Helphin Indonesia",
+    date: "Tuesday, 23 July 2024",
+    ctaLabel: "Learn more",
+    ctaHref: "#",
+    photo: "/images/activity-helphin.png",
+  },
+];
+
+export const relatedCourses = [
+  {
+    title: "Marketing Management",
+    description:
+      "Learned marketing strategy formulation, market segmentation, and positioning to support business growth and customer acquisition.",
+    color: "accent-3",
+  },
+  {
+    title: "Business Statistics",
+    description:
+      "Built a strong foundation in statistical analysis and data interpretation to support evidence-based business decisions.",
+    color: "accent-4",
+  },
+  {
+    title: "Entrepreneurship",
+    description:
+      "Explored business model development, opportunity identification, and venture strategy from idea to execution.",
+    color: "accent-1",
+  },
+  {
+    title: "Design Thinking",
+    description:
+      "Applied a human-centered problem-solving approach to design practical, innovative solutions for real business challenges.",
+    color: "primary",
+  },
+  {
+    title: "Organizational Behavior",
+    description:
+      "Analyzed individual and group behavior in organizations, including motivation, leadership, communication, and team dynamics.",
+    color: "accent-2",
+  },
+  {
+    title: "Strategic Management",
+    description:
+      "Focused on strategy formulation, implementation, and evaluation to ensure organizational effectiveness and competitiveness.",
+    color: "accent-4",
+  },
+];
+
 export const education = [
   {
     school: "Telkom University",
+    logo: "/images/education/telkom-university.png",
     program: "Business Management of Telecommunications and Informatics",
     detail: "Concentration: Digitalization Human Capital Management",
     period: "2022 - 2026",
@@ -94,6 +213,7 @@ export const education = [
   },
   {
     school: "SMA Negeri 1 Palimanan",
+    logo: "/images/education/sman-1-palimanan.png",
     program: "Social Science",
     detail: "",
     period: "2018 - 2021",
@@ -156,14 +276,41 @@ export const skills = {
     "Microsoft Excel",
     "Glassdoor",
     "SPSS",
+    "POM-QM",
+    "Supabase",
     "Trello",
     "LinkedIn",
     "ProjectLibre",
     "MySQL",
+    "Google Colab",
     "Indeed",
     "Vercel",
   ],
 };
+
+// Individual tool logos (ungrouped so each one gets its own hover card),
+// used by the Tools grid on the Skills page. Names match skills.tools.
+export const toolLogos: { name: string; logo: string }[] = [
+  { name: "Canva", logo: "/images/tools/canva.png" },
+  { name: "Microsoft Word", logo: "/images/tools/microsoft-word.png" },
+  { name: "Microsoft PowerPoint", logo: "/images/tools/microsoft-powerpoint.png" },
+  { name: "Microsoft Excel", logo: "/images/tools/microsoft-excel.png" },
+  { name: "Glassdoor", logo: "/images/tools/glassdoor.png" },
+  { name: "SPSS", logo: "/images/tools/spss.png" },
+  { name: "POM-QM", logo: "/images/tools/pom-qm.png" },
+  { name: "Supabase", logo: "/images/tools/supabase.png" },
+  { name: "Trello", logo: "/images/tools/trello.png" },
+  { name: "LinkedIn", logo: "/images/tools/linkedin.png" },
+  { name: "ProjectLibre", logo: "/images/tools/projectlibre.png" },
+  { name: "MySQL", logo: "/images/tools/mysql.png" },
+  { name: "Google Colab", logo: "/images/tools/google-colab.png" },
+  { name: "Indeed", logo: "/images/tools/indeed.png" },
+  { name: "Vercel", logo: "/images/tools/vercel.png" },
+];
+
+// Screenshot/photo of the BNSP certification activity (e.g. the Zoom
+// session). Leave empty to keep the current placeholder icon.
+export const bnspThumbnail: string = "/images/activity-bnsp.png";
 
 export const bnspActivities = [
   {
@@ -183,35 +330,59 @@ export const bnspActivities = [
   },
 ];
 
-export const experienceIntro =
+export const experienceIntro: string =
   "I thrive on bridging the gap between academic theory and real-world impact. Every milestone shared here is more than just an experience, it is a testament to my hard work, consistent growth, and my dedication to growing across human capital, business, and strategy through hands-on action.";
 
+// Photo slots for the Experience page. Leave empty to keep the gradient
+// placeholder; drop a public/images path in once the photo is ready.
+export const experiencePhotos = {
+  // Reuses the same solo BUMN photo as the Home page's Why Choose Me card.
+  intro: "/images/why-choose-bumn.png",
+  // Background removed — rendered with fit="contain" so the card's
+  // gradient stays visible around the cutout.
+  orgHub: "/images/experience/org-hub-cutout.png",
+};
+
+type OrgExperience = {
+  shortName: string;
+  role: string;
+  org: string;
+  period: string;
+  logo: string;
+  points: string[];
+  gallery?: { tag: string; caption: string; location: string; date: string; photo?: string }[];
+  podcastEpisodes?: { title: string; photo?: string }[];
+};
+
 export const experiences = {
+  // Ordered chronologically (oldest first) — read left-to-right as a
+  // timeline in the horizontal Professional Experience layout.
   professional: [
     {
-      role: "People Culture & Talent Acquisition Intern",
-      org: "PT Hutama Karya (Persero)",
-      period: "Feb — Ags 2026",
+      role: "Business Statistics Practicum Assistant",
+      org: "Telkom University",
+      period: "Oct 2023 — Jan 2024",
+      photo: "/images/experience/professional/business-statistics-practicum.jpg",
       points: [
-        "Developed an Excel-based Manpower Planning (MPP) tool and mapped 16,000+ position codes.",
-        "Managed PKWT contract-renewal evaluations for 20+ employees/month, including digitalizing the evaluation form.",
-        "Designed employer branding materials, including the HC Award deck (IHCA XII) and Employee Handbook.",
+        "Trained 40+ students in data analysis using SPSS and Excel to effectively complete data-based assignments and exams.",
+        "Evaluated student assignments and exams, providing individualized feedback that contributed to an average final score of 92.59, with 95% of students achieving an A grade.",
       ],
     },
     {
-      role: "Tech Recruiter Intern",
-      org: "Rakamin Academy",
-      period: "Oct — Nov 2025",
+      role: "Operations Management Practicum Assistant",
+      org: "Telkom University",
+      period: "Feb — Jun 2025",
+      photo: "/images/experience/professional/operations-management-practicum.jpg",
       points: [
-        "Managed end-to-end tech recruitment, sourcing 100+ candidates via LinkedIn and ensuring project alignment.",
-        "Built tracking systems and interview tools to improve efficiency and data-driven hiring.",
-        "Utilized LinkedIn, Indeed, and Glassdoor to optimize sourcing and enhance candidate experience.",
+        "Provided training and guidance to students in using POM-QM software for operations analysis and data-driven decision making.",
+        "Assisted students in understanding operations management concepts such as quality, lean operations, and capacity, and offered feedback to improve academic performance.",
       ],
     },
     {
       role: "SME & Credit Program Sales Intern",
       org: "PT. Bank Tabungan Negara Tbk",
       period: "Jun — Aug 2025",
+      photo: "/images/experience/professional/btn-sme-credit-intern.jpg",
       points: [
         "Assessed 20+ SME BI Checking/SLIK daily and analyzed 10 debtor accounts via bank statements.",
         "Supported SME credit program development and client presentations for financing acquisition.",
@@ -219,62 +390,99 @@ export const experiences = {
       ],
     },
     {
-      role: "Operations Management Practicum Assistant",
-      org: "Telkom University",
-      period: "Feb — June 2025",
+      role: "Tech Recruiter Intern",
+      org: "Rakamin Academy",
+      period: "Oct — Nov 2025",
+      photo: "/images/experience/professional/rakamin-tech-recruiter.jpg",
       points: [
-        "Provided training and guidance to students in using POM-QM software for operations analysis and data-driven decision making.",
-        "Assisted students in understanding operations management concepts such as quality, lean operations, and capacity, and offered feedback to improve academic performance.",
+        "Managed end-to-end tech recruitment, sourcing 100+ candidates via LinkedIn and ensuring project alignment.",
+        "Built tracking systems and interview tools to improve efficiency and data-driven hiring.",
+        "Utilized LinkedIn, Indeed, and Glassdoor to optimize sourcing and enhance candidate experience.",
       ],
     },
     {
-      role: "Business Statistics Practicum Assistant",
-      org: "Telkom University",
-      period: "Oct 2023 — Jan 2024",
+      role: "People Culture & Talent Acquisition Intern",
+      org: "PT Hutama Karya (Persero)",
+      period: "Feb — Aug 2026",
+      photo: "/images/experience/professional/hutama-karya-intern.jpg",
       points: [
-        "Trained 40+ students in data analysis using SPSS and Excel to effectively complete data-based assignments and exams.",
-        "Evaluated student assignments and exams, providing individualized feedback that contributed to an average final score of 92.59, with 95% of students achieving an A grade.",
+        "Developed an Excel-based Manpower Planning (MPP) tool and mapped 16,000+ position codes.",
+        "Managed PKWT contract-renewal evaluations for 20+ employees/month, including digitalizing the evaluation form.",
+        "Designed employer branding materials, including the HC Award deck (IHCA XII) and Employee Handbook.",
       ],
     },
   ],
   organizational: [
     {
-      role: "Digistar Class Alumni",
-      org: "Digistar Club, Telkom University",
-      period: "Des 2024 — Now",
+      shortName: "HIMA MBTI",
+      role: "Staff of Community Development",
+      org: "Himpunan Mahasiswa Manajemen Bisnis Telekomunikasi dan Informatika (HIMA MBTI)",
+      period: "Feb — Dec 2023",
+      logo: "/images/experience/logos/hima-mbti.png",
       points: [
-        "Part of an exclusive community for alumni of LivinginTelkom programs (Digistar Class, Digistar Connect, Digistar Internship), preparing Indonesia's digital talents.",
+        "Successfully organized 6 social service events, including fundraising campaigns, and built collaborations with various external parties to support initiatives that positively impact both the organization and the community.",
+        "Facilitated capacity-building seminars in the fields of technology and entrepreneurship to enhance individual skills and community potential.",
+      ],
+      gallery: [
+        { tag: "Company Visit", caption: "PT Angkasa Pura II", location: "Jakarta", date: "24 November 2023", photo: "/images/experience/hima-mbti/company-visit-angkasa-pura.jpg" },
+        { tag: "Organizational Photo", caption: "HIMA MBTI 2023", location: "Telkom University", date: "30 December 2023", photo: "/images/experience/hima-mbti/organizational-photo-2023.jpg" },
+        { tag: "Study Banding", caption: "KMM ITB", location: "Institut Teknologi Bandung", date: "25 November 2023", photo: "/images/experience/hima-mbti/study-banding-kmm-itb.jpg" },
+        { tag: "Socharity", caption: "SDN Margabakti", location: "Desa Pulosari, Bandung", date: "16 October 2023", photo: "/images/experience/hima-mbti/socharity-sdn-margabakti.jpg" },
+        { tag: "Sudut Berbagi", caption: "Panti Sosial", location: "Panti Sosial Tresna Wredha Budi Pertiwi, Bandung", date: "23 September 2023", photo: "/images/experience/hima-mbti/sudut-berbagi-panti-sosial.jpg" },
       ],
     },
     {
+      shortName: "Belajar Kreasi",
       role: "Project Leader",
       org: "Belajar Kreasi (BERAKSI)",
-      period: "Mar — Des 2023",
+      period: "Mar — Dec 2023",
+      logo: "/images/experience/logos/belajar-kreasi.png",
       points: [
         "Led and evaluated the performance of a 15-member team across 4 divisions (Public Relations, Documentation, Logistics, and Events), focusing on team performance management, cross-division collaboration, and achieving 100% of organizational program targets within one term.",
         "Initiated two inclusive programs themed around diversity and learning, namely 'Sign Language with HIMA MBTI' and 'Creative Workshop with SLBN Ciendo', promoting equality and inclusive education among diverse backgrounds.",
         "The program was selected as one of the best practice candidates in HIMA MBTI 2023.",
       ],
+      gallery: [
+        { tag: "Welcoming Speech", caption: "SLB C Cicendo", location: "Bandung", date: "24 November 2023", photo: "/images/experience/belajar-kreasi/welcoming-speech.jpg" },
+        { tag: "Sign Language", caption: "HIMA MBTI", location: "Telkom University", date: "24 November 2023", photo: "/images/experience/belajar-kreasi/sign-language-hima-mbti.jpg" },
+        { tag: "Sign Language", caption: "Anggota Beraksi", location: "Telkom University", date: "30 December 2023", photo: "/images/experience/belajar-kreasi/sign-language-anggota-beraksi.jpg" },
+        { tag: "Main Event", caption: "SLB C Cicendo", location: "Bandung", date: "25 November 2023", photo: "/images/experience/belajar-kreasi/main-event-slb-cicendo.jpg" },
+      ],
     },
     {
-      role: "Tresurer",
+      shortName: "Asa Bercerita",
+      role: "Treasurer",
       org: "Asa Bercerita",
-      period: "Mar — Des 2023",
+      period: "Mar — Dec 2023",
+      logo: "/images/experience/logos/asa-bercerita.png",
       points: [
         "Managed and supervised all divisional financial activities systematically in accordance with organizational SOPs, including the preparation of cash flow and accountability reports.",
         "Contributed to team leadership support and cross-division collaboration in producing 5 educational podcasts as a learning and engagement platform to support student potential development.",
       ],
-    },
-    {
-      role: "Staff of Community Development",
-      org: "Himpunan Mahasiswa Manajemen Bisnis Telekomunikasi dan Informatika (HIMA MBTI)",
-      period: "Feb — Des 2023",
-      points: [
-        "Successfully organized 6 social service events, including fundraising campaigns, and built collaborations with various external parties to support initiatives that positively impact both the organization and the community.",
-        "Facilitated capacity-building seminars in the fields of technology and entrepreneurship to enhance individual skills and community potential.",
+      podcastEpisodes: [
+        { title: "Muda Berkarya #1", photo: "/images/experience/asa-bercerita/episode-1-muda-berkarya.jpg" },
+        { title: "Tentang Diri #2", photo: "/images/experience/asa-bercerita/episode-2-tentang-diri.jpg" },
+        { title: "Pertemanan di Dunia Perkuliahan #3", photo: "/images/experience/asa-bercerita/episode-3-pertemanan.jpg" },
+        { title: "Kuliah Pulang atau Kuliah Rapat #4", photo: "/images/experience/asa-bercerita/episode-4-kuliah-rapat.jpg" },
+        { title: "Bincang Santai Bersama Alumni #5", photo: "/images/experience/asa-bercerita/episode-5-bincang-alumni.jpg" },
       ],
     },
-  ],
+    {
+      shortName: "Digistar Club",
+      role: "Digistar Class Alumni",
+      org: "Digistar Club, Telkom University",
+      period: "Dec 2024 — Present",
+      logo: "/images/experience/logos/digistar-club.png",
+      points: [
+        "Part of an exclusive community for alumni of LivinginTelkom programs (Digistar Class, Digistar Connect, Digistar Internship), preparing Indonesia's digital talents.",
+      ],
+      gallery: [
+        { tag: "Telkom Tour", caption: "Digistar Class", location: "Telkom CorpU Bandung", date: "22 August 2024", photo: "/images/experience/digistar-club/telkom-tour.jpg" },
+        { tag: "Soft Skill Class", caption: "Digistar Class", location: "Zoom Meeting", date: "10 August 2024", photo: "/images/experience/digistar-club/soft-skill-class.jpg" },
+        { tag: "Hard Skill Class", caption: "Digistar Class", location: "Zoom Meeting", date: "29 August 2024", photo: "/images/experience/digistar-club/hard-skill-class.jpg" },
+      ],
+    },
+  ] as OrgExperience[],
 };
 
 export const projects = {
@@ -283,56 +491,205 @@ export const projects = {
       title: "Strategic Management Analysis",
       subject: "PT Kalbe Farma Tbk",
       period: "Feb 2024 – Jun 2024",
+      cover: "/images/projects/academic-strategic-management.jpg",
     },
     {
       title: "Consumer Behavior Study",
       subject: "FIT HUB Gym",
       period: "Feb 2025 – Jun 2025",
+      cover: "/images/projects/academic-consumer-behavior.jpg",
     },
     {
       title: "Marketing Plan",
       subject: "Erigo",
       period: "Sep 2023 – Jan 2024",
+      cover: "/images/projects/academic-marketing-plan-erigo.jpg",
     },
     {
       title: "Entrepreneurship — Business Model Canvas",
       subject: "Crunchy Ocean",
       period: "Sep 2023 – Jan 2024",
+      cover: "/images/projects/academic-entrepreneurship-bmc.jpg",
     },
   ],
   digital: [
     {
-      title: "Renewa",
-      subtitle: "Employee Contract Renewal Evaluation Form",
+      title: "RENEWA – Employee Contract Renewal Evaluation Form",
+      subtitle: "Digitalized PKWT contract-renewal evaluation form",
+      org: "PT Hutama Karya (Persero)",
+      period: "Feb 2026 – Aug 2026",
+      role: "",
       tag: "Intern Project",
       color: "accent-1",
+      cover: "/images/projects/digital-renewa.jpg",
+      link: "", // TODO: add live demo / repo / case-study URL
     },
     {
-      title: "SIBETA",
+      title: "SIBETA – Electronic Information System for Outsourced Personnel",
       subtitle: "Internal digital tool project",
+      org: "PT. Bank Tabungan Negara Tbk",
+      period: "Jun 2025 – Aug 2025",
+      role: "",
       tag: "Intern Project",
       color: "accent-3",
+      cover: "/images/projects/digital-sibeta.jpg",
+      link: "", // TODO: add live demo / repo / case-study URL
     },
     {
-      title: "Just Click App",
+      title: "JUST CLICK – A Digital Personal Shopper (Jastip) Application",
       subtitle: "Digital product concept",
+      org: "",
+      period: "Sep 2024 – Dec 2024",
+      role: "",
       tag: "Project",
       color: "accent-4",
+      cover: "/images/projects/digital-just-click.jpg",
+      link: "", // TODO: add live demo / repo / case-study URL
     },
     {
-      title: "BigTicket Solution",
+      title: "BIGTICKET SOLUTION – Digistar Class 2024",
       subtitle: "Business & management simulation",
+      org: "PT. Telkom Indonesia Tbk",
+      period: "Sep 2024 – Nov 2024",
+      role: "Hustler (Project Manager)",
       tag: "Digistar Class Project",
       color: "primary",
+      cover: "/images/projects/digital-bigticket-solution.jpg",
+      link: "", // TODO: add live demo / repo / case-study URL
     },
     {
-      title: "Tukang Ajaib App",
+      title: "Tukang Ajaib – Construction Worker Service App",
       subtitle: "Home-service marketplace concept",
+      org: "",
+      period: "Feb 2024 – June 2024",
+      role: "",
       tag: "Project",
       color: "accent-2",
+      cover: "/images/projects/digital-tukang-ajaib.jpg",
+      link: "", // TODO: add live demo / repo / case-study URL
     },
   ],
 };
+
+// BNSP certification document showcase. Category/subsection titles are
+// transcribed from the real portfolio plan. All documents use dummy/sample
+// data (confirmed by the project owner) — no real people's personal or
+// financial data — so every subsection has real scanned document
+// thumbnails. "(Dummy)" is appended to each chapter title as a clear
+// on-page disclaimer since a few of these look like real payroll/HR
+// paperwork at a glance.
+export const bnspDocumentSections = [
+  {
+    title: "Job Analysis (Dummy)",
+    description:
+      "Understanding job roles, responsibilities, and competency needs to support effective HR decisions.",
+    subsections: [
+      {
+        title: "Organizational Structure Design",
+        count: 4,
+        photos: Array.from(
+          { length: 4 },
+          (_, i) => `/images/bnsp/job-analysis/organizational-structure-design/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "Job Description Development",
+        count: 7,
+        photos: Array.from(
+          { length: 7 },
+          (_, i) => `/images/bnsp/job-analysis/job-description-development/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "SOP for Job Description Preparation",
+        count: 6,
+        photos: Array.from(
+          { length: 6 },
+          (_, i) => `/images/bnsp/job-analysis/sop-job-description-preparation/${i + 1}.jpg`,
+        ),
+      },
+    ],
+  },
+  {
+    title: "Social Security Administration (Dummy)",
+    description:
+      "Managing employee social security requirements, documentation, and compliance with relevant regulations.",
+    subsections: [
+      {
+        title: "Social Security Administration Procedures",
+        count: 7,
+        photos: Array.from(
+          { length: 7 },
+          (_, i) => `/images/bnsp/social-security-administration/procedures/${i + 1}.jpg`,
+        ),
+      },
+    ],
+  },
+  {
+    title: "Wage Administration (Dummy)",
+    description:
+      "Handling wage calculation data, payroll documentation, and accurate employee payslip preparation.",
+    subsections: [
+      {
+        title: "Employee Wage Calculation Data",
+        count: 1,
+        photos: ["/images/bnsp/wage-administration/wage-calculation-data.jpg"],
+      },
+      {
+        title: "Employee Payslips",
+        count: 1,
+        photos: ["/images/bnsp/wage-administration/payslips.jpg"],
+      },
+    ],
+  },
+  {
+    title: "Human Resource Policy Administration (Dummy)",
+    description:
+      "Managing, documenting, and implementing HR policies to ensure consistency, compliance, and effective people management.",
+    subsections: [
+      {
+        title: "Training & Development",
+        count: 4,
+        photos: Array.from(
+          { length: 4 },
+          (_, i) => `/images/bnsp/hr-policy-administration/training-development/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "Proposal Training",
+        count: 10,
+        photos: Array.from(
+          { length: 10 },
+          (_, i) => `/images/bnsp/hr-policy-administration/proposal-training/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "Industrial Relations",
+        count: 3,
+        photos: Array.from(
+          { length: 3 },
+          (_, i) => `/images/bnsp/hr-policy-administration/industrial-relations/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "Recruitment",
+        count: 3,
+        photos: Array.from(
+          { length: 3 },
+          (_, i) => `/images/bnsp/hr-policy-administration/recruitment/${i + 1}.jpg`,
+        ),
+      },
+      {
+        title: "Overview of Candidate Profile",
+        count: 4,
+        photos: Array.from(
+          { length: 4 },
+          (_, i) => `/images/bnsp/hr-policy-administration/candidate-profile/${i + 1}.jpg`,
+        ),
+      },
+    ],
+  },
+];
 
 export const achievements = {
   awards: [
@@ -340,21 +697,183 @@ export const achievements = {
       title: "3rd Place — Ideastorm 2024",
       issuer: "System Architecture and Governance (SAG) Research Laboratory",
       detail: "Nexilium Team",
+      photo: "/images/achievements/award-ideastorm-cutout.png",
     },
     {
       title: "Digistar Class 2024 — Hustler",
       issuer: "Telkom Indonesia",
       detail: "Ranked 59th out of 500 mentees",
+      photo: "/images/achievements/award-digistar-hustler.jpg",
     },
   ],
   certificateCategories: [
-    "BNSP HR Competency Certifications",
-    "Google Digital Garage, Google AI Essentials & Google Project Management",
-    "Compensation & Benefits Fundamentals",
-    "Azure AI Fundamentals (AI-900)",
-    "Job Analysis Process",
-    "IBM Data Classification & Optimization",
-    "TOEFL Certificate of Achievement",
-    "International Scientific Conference on Business and Economics (ISCBE) 2026 Presenter",
+    { title: "BNSP HR Competency Certifications", photo: "/images/achievements/cert-bnsp-hr-staff.jpg" },
+    { title: "Google Digital Garage", photo: "/images/achievements/cert-google-digital-garage.jpg" },
+    { title: "Google AI Essentials", photo: "/images/achievements/cert-google-ai-essentials.jpg" },
+    { title: "Google Project Management", photo: "/images/achievements/cert-google-project-management.jpg" },
+    { title: "Compensation & Benefits Fundamentals", photo: "/images/achievements/cert-compensation-benefits.jpg" },
+    { title: "Azure AI Fundamentals (AI-900)", photo: "/images/achievements/cert-azure-ai-900.jpg" },
+    { title: "Job Analysis Process", photo: "/images/achievements/cert-job-analysis-process.jpg" },
+    { title: "IBM Data Classification & Summarization", photo: "/images/achievements/cert-ibm-data-classification.jpg" },
+    { title: "IBM Code Generation & Optimization", photo: "/images/achievements/cert-ibm-code-generation.jpg" },
+    { title: "TOEFL Certificate of Achievement", photo: "/images/achievements/cert-toefl.jpg" },
+    { title: "International Scientific Conference on Business and Economics (ISCBE) 2026 Presenter", photo: "/images/achievements/cert-iscbe-presenter.jpg" },
+    { title: "English Proficiency Test (EPrT)", photo: "/images/achievements/cert-eprt.jpg" },
+    { title: "Digistar Class 2024 Completion", photo: "/images/achievements/cert-digistar-class-2024.jpg" },
+    { title: "Project-Based Internship — Rakamin Academy", photo: "/images/achievements/cert-rakamin-internship.jpg" },
+    { title: "Staff of Community Development — HIMA MBTI", photo: "/images/achievements/cert-hima-mbti-community-dev.jpg" },
+    { title: "Assistant Practicum — Operations Management", photo: "/images/achievements/cert-asisten-praktikum-manajemen-operasi.jpg" },
+    { title: "Assistant Practicum — Business Statistics", photo: "/images/achievements/cert-asisten-praktikum-statistika-bisnis.jpg" },
   ],
+};
+
+// ------------------------------------------------------------------
+// UI strings — every hardcoded label/heading used across components.
+// Keep this object's shape identical to the `ui` export in data.id.ts;
+// components read from whichever language is active via useContent().
+// ------------------------------------------------------------------
+export const ui = {
+  nav: {
+    home: "Home",
+    about: "About",
+    skills: "Skills",
+    experience: "Experience",
+    project: "Project",
+    achievement: "Achievement",
+    toggleMenu: "Toggle menu",
+  },
+  themeToggle: {
+    toLight: "Switch to light mode",
+    toDark: "Switch to dark mode",
+    hint: "Tap to switch light/dark mode ✨",
+  },
+  languageToggle: {
+    label: "Switch language",
+    hint: "Tap to switch language (EN/ID) 🌐",
+  },
+  hero: {
+    hello: "Hello! 👋",
+    imPrefix: "I'm",
+    welcomeLine: "Welcome to My Portfolio.",
+    cvLabel: "Curriculum Vitae",
+    cvDownload: "Download",
+    downloadsLabel: "My Documents ↗",
+    trustedLabel: "Project and internship experience with leading companies",
+    whyHireTitle: "Why You Must Hire Me?",
+    whyHireSubtitle:
+      "I bring a data-driven mindset and structured thinking to support strategic decisions across people, business, and growth initiatives.",
+  },
+  aboutPreview: {
+    heading: "About",
+    headingAccent: "Me",
+    ctaLabel: "Contact me ↗ Let's Connect!",
+    toolsHeading: "My",
+    toolsHeadingAccent: "Tools",
+  },
+  focusFlow: {
+    heading: "My Focus Area",
+  },
+  whyChooseMe: {
+    eyebrow: "Why Choose Me",
+    heading: "I value integrity and professionalism.",
+  },
+  homeActivities: {
+    eyebrow: "News",
+    title: "My Activities & Projects",
+    subtitle:
+      "A showcase of my practical work across human capital, business development, marketing, and strategic project management.",
+  },
+  about: {
+    eyebrow: "About Me",
+    title: "A little about who I am",
+    educationHeading: "My Education",
+    relatedCourseHeading: "My Related Course",
+    relatedCourseWheelLine1: "MY RELATED",
+    relatedCourseWheelLine2: "COURSE",
+  },
+  documents: {
+    preview: "Preview",
+    download: "Download",
+    close: "Close",
+    hint: "Psst! My CV & Portfolio are right here 👇",
+  },
+  skills: {
+    eyebrow: "Skills",
+    title: "What I bring to the table",
+    softHeading: "My Soft Skill",
+    softSubtitle:
+      "Core abilities that support my work across people, business, and strategic initiatives.",
+    wheelCenter: "SKILLS",
+    hardHeading: "My Hard Skill",
+    hardSubtitle:
+      "Practical skills built across human capital, business development, and strategic project work.",
+    toolsHeading: "My Tools",
+    toolsSubtitle:
+      "Software and platforms I use to plan, execute, and present my work across projects.",
+    bnspEyebrow: "News",
+    bnspHeading: "BNSP Certification Project Activities",
+    bnspSubtitle:
+      "A showcase of my practical work in job analysis, HR administration, and recruitment procedures under BNSP certification.",
+  },
+  experience: {
+    eyebrow: "Journey",
+    title: "My Experiences",
+    connectHeading: "Let's Connect and Collaborate!",
+    connectSubtitle:
+      "I am always eager to discuss business, people, and growth opportunities",
+    emailAria: "Email me",
+    experienceBadge: "Experience",
+    hireMe: "Hire me",
+    professionalHeading: "My Professional Experience",
+    organizationalPrefix: "My ",
+    organizationalAccent: "Organizational",
+    organizationalSuffix: " Experience",
+  },
+  projects: {
+    eyebrow: "Portfolio",
+    title: "Things I've worked on",
+    academicHeading: "Academic Projects",
+    digitalHeading: "Digital Projects",
+    viewProject: "View Project",
+    comingSoon: "Coming soon",
+  },
+  bnspDocuments: {
+    eyebrow: "BNSP Certification Project",
+    openFolder: "Open folder",
+    documentsLabel: "documents",
+    subsectionsLabel: "subsections",
+    previous: "Previous",
+    next: "Next",
+    close: "Close",
+    chapterLabel: "Chapter",
+    of: "of",
+    viewPhotosHint: "View photos",
+  },
+  achievements: {
+    eyebrow: "Recognition",
+    title: "My Achievement",
+    subtitle:
+      "Key achievements that reflect my continuous growth across business, strategy, and organizational impact.",
+    certificatesHeading: "My Certificates",
+    certificatesSubtitle:
+      "A collection of certifications that reflects my commitment to continuous learning across business, data, and human capital.",
+  },
+  footer: {
+    pages: "Pages",
+    followMe: "Follow me",
+    pageLabels: {
+      home: "Homepage",
+      about: "About",
+      skills: "Skills",
+      experience: "Experience",
+      project: "Project",
+      achievement: "Achievement",
+    },
+    copyright: "All Right Reserved. Business Management Portfolio",
+  },
+  connectBanner: {
+    heading: "Let's Connect and Collaborate!",
+    subtitle:
+      "I'm always open to opportunities, collaborations, and meaningful conversations. Feel free to reach out to discuss ideas, projects, or potential roles.",
+  },
 };
